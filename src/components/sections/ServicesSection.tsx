@@ -1,109 +1,177 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { 
+  Code2, 
+  Smartphone, 
+  Cloud, 
+  Brain, 
+  Link, 
+  Cpu,
+  Shield,
+  Rocket,
+  Database
+} from 'lucide-react';
+
 export function ServicesSection() {
-  const services = [
+  const coreServices = [
     {
-      icon: '⚡',
-      iconBg: 'bg-volt/10',
-      title: 'Full-Stack Development',
-      description: 'Modern web apps that scale from 10 to 10 million users. React, Next.js, Node.js, Python – we speak all the languages that matter.',
-      features: [
-        'React/Next.js frontends',
-        'Node.js/Python backends',
-        'PostgreSQL/MongoDB databases',
-        'Real-time features with WebSockets'
+      icon: Code2,
+      title: 'Full-Stack Foundations',
+      items: [
+        'Modern web applications that scale from day one',
+        'Cloud-native architectures built for growth',
+        'API ecosystems designed for expansion',
+        'Database structures that evolve with your business'
       ]
     },
     {
-      icon: '🔄',
-      iconBg: 'bg-azure/10',
-      title: 'B2B Automation',
-      description: 'The unsexy stuff that makes money. Connect everything, automate everything, scale everything.',
-      features: [
-        'Salesforce/HubSpot integration',
-        'Workflow automation',
-        'API orchestration',
-        'Data pipeline architecture'
+      icon: Smartphone,
+      title: 'Mobile Command Centers',
+      items: [
+        'Native iOS and Android applications',
+        'Cross-platform solutions that don\'t compromise',
+        'Progressive web apps that feel native everywhere',
+        'Real-time features that keep users engaged'
       ]
     },
     {
-      icon: '🛡️',
-      iconBg: 'bg-crimson/10',
-      title: 'Cybersecurity',
-      description: 'Security-first architecture from day one. Pass due diligence, win enterprise deals, sleep at night.',
-      features: [
-        'SOC2/HIPAA compliance',
-        'Zero-trust architecture',
-        'Penetration testing',
-        'Incident response planning'
+      icon: Cloud,
+      title: 'Infrastructure That Scales',
+      items: [
+        'DevOps pipelines that deploy without drama',
+        'Cloud architectures that scale automatically',
+        'Monitoring systems that prevent problems',
+        'Security frameworks built from the ground up'
       ]
-    },
+    }
+  ];
+
+  const advancedServices = [
     {
-      icon: '🤖',
-      iconBg: 'bg-gold/10',
+      icon: Brain,
       title: 'AI/ML Integration',
-      description: 'Beyond the ChatGPT wrapper. Custom models, real intelligence, actual ROI.',
-      features: [
-        'OpenAI/Anthropic integration',
-        'Custom model training',
-        'Computer vision solutions',
-        'Predictive analytics'
+      items: [
+        'Custom machine learning models',
+        'AI-powered features that actually work',
+        'Data pipelines that turn information into insight',
+        'Intelligent automation that saves time and money'
       ]
     },
     {
-      icon: '☁️',
-      iconBg: 'bg-success/10',
-      title: 'Cloud & DevOps',
-      description: 'Infrastructure that scales automatically, deploys continuously, and never goes down.',
-      features: [
-        'AWS/GCP/Azure architecture',
-        'Kubernetes orchestration',
-        'CI/CD pipelines',
-        'Cost optimization'
+      icon: Shield,
+      title: 'Blockchain & Web3',
+      items: [
+        'Smart contracts that do what they promise',
+        'DeFi protocols built for real use',
+        'NFT platforms beyond the hype',
+        'Decentralized applications users actually want'
       ]
     },
     {
-      icon: '📊',
-      iconBg: 'bg-info/10',
-      title: 'Data Engineering',
-      description: 'Turn data chaos into competitive advantage. Real insights, real-time, real money.',
-      features: [
-        'Real-time data pipelines',
-        'Data warehouse architecture',
-        'ETL/ELT development',
-        'Business intelligence dashboards'
+      icon: Cpu,
+      title: 'IoT & Edge Computing',
+      items: [
+        'Connected devices that stay connected',
+        'Edge processing that responds in real-time',
+        'Sensor networks that scale to thousands',
+        'Industrial IoT that drives real ROI'
       ]
     }
   ];
 
   return (
-    <section className="section bg-obsidian">
+    <section className="py-24 bg-[#0a0a0a] relative">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <span className="text-micro text-steel mb-4 block">WHAT WE BUILD</span>
-          <h2 className="text-hero mb-6">One Team. Every Skill.</h2>
-          <p className="text-xl text-silver max-w-3xl mx-auto">
-            No handoffs, no silos, no &quot;that&apos;s not our department.&quot; 
-            Every project gets our full stack of expertise.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
+          <h2 className="text-4xl lg:text-5xl font-light text-white mb-6">
+            Our Services
+          </h2>
+          <p className="text-xl text-white/60 leading-relaxed">
+            From foundation to innovation, we build the technology that drives your business forward.
           </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="card p-8 hover:border-volt/30 transition-all">
-              <div className={`w-12 h-12 ${service.iconBg} rounded-lg flex items-center justify-center mb-6`}>
-                <span className="text-2xl">{service.icon}</span>
-              </div>
-              <h3 className="text-heading mb-4">{service.title}</h3>
-              <p className="text-silver mb-4">
-                {service.description}
-              </p>
-              <ul className="space-y-2 text-sm text-silver">
-                {service.features.map((feature, idx) => (
-                  <li key={idx}>• {feature}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        </motion.div>
+
+        {/* Core Platform Development */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-20"
+        >
+          <h3 className="text-2xl font-light text-[#0084ff] mb-2">Core Platform Development</h3>
+          <p className="text-white/50 mb-12 italic">The foundation of your digital transformation</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {coreServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                  <service.icon className="w-10 h-10 text-[#0084ff] mb-4" />
+                  <h4 className="text-xl font-medium text-white mb-4">{service.title}</h4>
+                  <ul className="space-y-2">
+                    {service.items.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-white/60 text-sm">
+                        <span className="text-[#0084ff] mt-1.5">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Advanced Innovation Solutions */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h3 className="text-2xl font-light text-[#0084ff] mb-2">Advanced Innovation Solutions</h3>
+          <p className="text-white/50 mb-12 italic">Specialized capabilities that drive competitive advantage</p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {advancedServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                  <service.icon className="w-10 h-10 text-[#0084ff] mb-4" />
+                  <h4 className="text-xl font-medium text-white mb-4">{service.title}</h4>
+                  <ul className="space-y-2">
+                    {service.items.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-white/60 text-sm">
+                        <span className="text-[#0084ff] mt-1.5">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

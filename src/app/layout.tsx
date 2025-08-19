@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,21 +17,21 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InitDev | Ship Fast. Scale Smart. Win Markets.",
-  description: "Technical co-founders as a service. We're senior engineers who build MVPs in 4 weeks. Full-stack development, B2B automation, cybersecurity, AI integration – all under one roof.",
-  keywords: "MVP development, startup technical co-founder, rapid prototyping, B2B automation, cybersecurity, AI integration, full-stack development",
+  title: "InitDev | Elite Developers for Exceptional Projects",
+  description: "Find genius-level developers who actually ship. More focused than Upwork, more reliable than freelancers. We connect you with technical partners who deliver.",
+  keywords: "elite developers, technical partners, MVP development, rapid prototyping, senior engineers, project rescue, exceptional delivery",
   authors: [{ name: "InitDev" }],
   openGraph: {
-    title: "InitDev | Your Startup's Technical Co-Founder",
-    description: "From MVP to product-market fit in weeks, not months. We're senior engineers who've built and sold startups.",
+    title: "InitDev | Elite Developers. Exceptional Delivery.",
+    description: "Connect with genius-level developers who turn ambitious visions into production-ready systems.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "InitDev | Ship Fast. Scale Smart. Win Markets.",
-    description: "Technical co-founders as a service. 4-week MVPs that actually ship.",
+    title: "InitDev | Elite Developer Network",
+    description: "Genius developers. Exceptional delivery. Real results.",
   },
 };
 
@@ -39,11 +41,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-void`}
       >
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

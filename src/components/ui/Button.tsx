@@ -1,62 +1,66 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'danger';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+
+interface ButtonProps {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'small' | 'medium' | 'large';
   href?: string;
-  external?: boolean;
-  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-export function Button({ 
-  variant = 'primary', 
+export function Button({
+  children,
+  variant = 'primary',
   size = 'medium',
   href,
-  external = false,
-  children,
-  className = '',
-  ...props 
+  onClick,
+  className,
+  disabled = false,
+  type = 'button',
 }: ButtonProps) {
-  const baseClasses = 'font-semibold rounded-lg transition-all duration-200 inline-flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]';
+  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0084ff]/50';
   
-  const variantClasses = {
-    primary: 'bg-volt text-obsidian hover:bg-volt/90 shadow-lg shadow-volt/20',
-    secondary: 'bg-charcoal text-pearl hover:bg-steel border border-steel/50',
-    ghost: 'bg-transparent text-pearl hover:bg-charcoal/50 border border-charcoal',
-    danger: 'bg-crimson text-white hover:bg-crimson/90 shadow-lg shadow-crimson/20',
+  const variants = {
+    primary: 'bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white hover:shadow-[0_0_30px_rgba(0,132,255,0.5)] hover:scale-105',
+    secondary: 'bg-white/5 backdrop-blur-sm text-white border border-white/10 hover:bg-white/10 hover:border-white/20',
+    ghost: 'bg-transparent text-white/60 hover:text-white hover:bg-white/5',
   };
   
-  const sizeClasses = {
+  const sizes = {
     small: 'px-4 py-2 text-sm',
-    medium: 'px-6 py-3',
+    medium: 'px-6 py-3 text-base',
     large: 'px-8 py-4 text-lg',
   };
   
-  const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = cn(
+    baseStyles,
+    variants[variant],
+    sizes[size],
+    disabled && 'opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none',
+    className
+  );
   
   if (href) {
-    if (external) {
-      return (
-        <a 
-          href={href} 
-          className={combinedClasses}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {children}
-        </a>
-      );
-    }
     return (
-      <Link href={href} className={combinedClasses}>
+      <Link href={href} className={classes}>
         {children}
       </Link>
     );
   }
   
   return (
-    <button className={combinedClasses} {...props}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={classes}
+    >
       {children}
     </button>
   );
