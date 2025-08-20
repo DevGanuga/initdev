@@ -42,7 +42,7 @@ export default function ContactForm() {
       console.log('Form submitted:', data);
       setSubmitStatus('success');
       reset();
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

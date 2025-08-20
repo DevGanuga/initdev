@@ -34,7 +34,7 @@ export function NewsletterForm() {
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 3000);
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
       setTimeout(() => {
         setSubmitStatus('idle');

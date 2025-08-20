@@ -18,7 +18,7 @@ export default function BlogNewsletter() {
       await new Promise(resolve => setTimeout(resolve, 1500));
       setSubscribeStatus('success');
       setEmail('');
-    } catch (error) {
+    } catch {
       setSubscribeStatus('error');
     } finally {
       setIsSubscribing(false);

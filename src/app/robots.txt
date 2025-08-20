@@ -1,0 +1,22 @@
+# Robots.txt for InitDev
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Sitemap
+Sitemap: https://initdev.com/sitemap.xml
+
+# Crawl delay for bots
+User-agent: *
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+Disallow: /

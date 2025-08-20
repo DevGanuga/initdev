@@ -1,0 +1,27 @@
+{
+  "name": "InitDev - Elite Developers for Exceptional Projects",
+  "short_name": "InitDev",
+  "description": "Find genius-level developers who actually ship. Connect with technical partners who deliver.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0084ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "developer", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

@@ -39,7 +39,7 @@ const mockComments: Comment[] = [
   },
 ];
 
-export default function ArticleComments({ articleId }: ArticleCommentsProps) {
+export default function ArticleComments({ }: ArticleCommentsProps) {
   const [comments, setComments] = useState<Comment[]>(mockComments);
   const [newComment, setNewComment] = useState('');
   const [authorName, setAuthorName] = useState('');

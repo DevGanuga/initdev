@@ -3,6 +3,11 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { CursorFollower } from "@/components/ui/CursorFollower";
+import { SkipToContent } from "@/components/ui/SkipToContent";
+import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
+import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,21 +22,58 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InitDev | Elite Developers for Exceptional Projects",
+  metadataBase: new URL('https://initdev.com'),
+  title: {
+    default: 'InitDev | Elite Developers for Exceptional Projects',
+    template: '%s | InitDev'
+  },
   description: "Find genius-level developers who actually ship. More focused than Upwork, more reliable than freelancers. We connect you with technical partners who deliver.",
-  keywords: "elite developers, technical partners, MVP development, rapid prototyping, senior engineers, project rescue, exceptional delivery",
+  keywords: "elite developers, technical partners, MVP development, rapid prototyping, senior engineers, project rescue, exceptional delivery, software development, web development, mobile development",
   authors: [{ name: "InitDev" }],
+  creator: 'InitDev',
+  publisher: 'InitDev',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     title: "InitDev | Elite Developers. Exceptional Delivery.",
     description: "Connect with genius-level developers who turn ambitious visions into production-ready systems.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'InitDev - Elite Developers for Exceptional Projects',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "InitDev | Elite Developer Network",
     description: "Genius developers. Exceptional delivery. Real results.",
+    images: ['/twitter-image.jpg'],
+    creator: '@initdev',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'google-site-verification-code',
+    yandex: 'yandex-verification-code',
   },
 };
 
@@ -45,8 +87,20 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-void`}
       >
+        <SkipToContent />
+        <AnnouncementBanner 
+          message="🚀 Limited spots available for Q1 2025 projects"
+          ctaText="Reserve Your Spot"
+          ctaLink="/contact"
+        />
+        <CursorFollower />
+        <ScrollProgress />
         <Navigation />
-        {children}
+        <ErrorBoundary>
+          <main id="main-content" className="relative">
+            {children}
+          </main>
+        </ErrorBoundary>
         <Footer />
       </body>
     </html>

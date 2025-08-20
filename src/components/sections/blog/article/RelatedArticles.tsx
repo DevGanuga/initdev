@@ -42,7 +42,7 @@ const mockRelatedArticles = [
   },
 ];
 
-export default function RelatedArticles({ currentArticleId, tags }: RelatedArticlesProps) {
+export default function RelatedArticles({ currentArticleId }: RelatedArticlesProps) {
   // Filter out current article and get related ones
   const relatedArticles = mockRelatedArticles.filter(article => article.id !== currentArticleId).slice(0, 3);
 

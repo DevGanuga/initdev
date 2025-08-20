@@ -73,8 +73,8 @@ export function ProblemSection() {
             <span className="block text-red-400">Fail Miserably</span>
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            You've been there. The endless meetings, the missed deadlines, the "unexpected" costs.
-            Here's what's really happening behind the scenes:
+            You&apos;ve been there. The endless meetings, the missed deadlines, the &ldquo;unexpected&rdquo; costs.
+            Here&apos;s what&apos;s really happening behind the scenes:
           </p>
         </motion.div>
 
@@ -121,10 +121,10 @@ export function ProblemSection() {
           transition={{ delay: 0.6 }}
         >
           <p className="text-lg text-white/80 font-medium">
-            Sound familiar? You're not alone.
+            Sound familiar? You&apos;re not alone.
           </p>
           <p className="text-white/60 mt-2">
-            But it doesn't have to be this way...
+            But it doesn&apos;t have to be this way...
           </p>
         </motion.div>
       </div>

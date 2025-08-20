@@ -23,7 +23,7 @@ interface ArticleSidebarProps {
 
 export default function ArticleSidebar({ article }: ArticleSidebarProps) {
   const [tableOfContents, setTableOfContents] = useState<{ id: string; text: string; level: number }[]>([]);
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection] = useState<string>('');
 
   useEffect(() => {
     // Generate table of contents from content
@@ -43,7 +43,7 @@ export default function ArticleSidebar({ article }: ArticleSidebarProps) {
   useEffect(() => {
     // Track scroll position for active section highlighting
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      // const scrollPosition = window.scrollY + 100;
       // Logic to determine active section based on scroll position
     };
 
