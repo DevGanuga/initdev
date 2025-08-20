@@ -6,11 +6,8 @@ import {
   Smartphone, 
   Cloud, 
   Brain, 
-  Link, 
   Cpu,
-  Shield,
-  Rocket,
-  Database
+  Shield
 } from 'lucide-react';
 
 export function ServicesSection() {

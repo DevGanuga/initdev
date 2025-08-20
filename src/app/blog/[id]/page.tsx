@@ -5,8 +5,8 @@ import ArticleHeader from '@/components/sections/blog/article/ArticleHeader';
 import ArticleSidebar from '@/components/sections/blog/article/ArticleSidebar';
 import RelatedArticles from '@/components/sections/blog/article/RelatedArticles';
 import ArticleComments from '@/components/sections/blog/article/ArticleComments';
-import { Navigation } from '@/components/layout/Navigation';
-import { Footer } from '@/components/layout/Footer';
+
+
 
 // Mock function to get article data
 async function getArticle(id: string) {
@@ -125,7 +125,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ id
 
   return (
     <>
-      <Navigation />
+
       <main className="min-h-screen bg-white">
         {/* Article Header */}
         <ArticleHeader article={article} />
@@ -153,7 +153,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ id
         {/* Related Articles */}
         <RelatedArticles currentArticleId={article.id} tags={article.tags} />
       </main>
-      <Footer />
+
     </>
   );
 }

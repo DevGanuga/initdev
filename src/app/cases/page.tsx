@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Users, Zap, Trophy } from 'lucide-react';
+import { ArrowRight, Clock, Zap, Trophy } from 'lucide-react';
 import Link from 'next/link';
 
 const caseStudies = [

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Twitter, Linkedin } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 

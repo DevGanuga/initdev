@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import { 
   Code2, 
   Database, 
-  Cloud, 
-  Shield,
+  Cloud,
   Cpu,
   Layers
 } from 'lucide-react';

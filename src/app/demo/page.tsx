@@ -139,9 +139,7 @@ export default function DemoPage() {
               <Button variant="ghost" size="large">
                 Ghost Action
               </Button>
-              <Button variant="danger" size="large">
-                Danger Action
-              </Button>
+
             </div>
             <div className="flex flex-wrap gap-4 justify-center mt-4">
               <Button variant="primary" size="medium">

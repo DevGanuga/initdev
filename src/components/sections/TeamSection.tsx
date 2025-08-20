@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code2, Database, Cloud, Brain } from 'lucide-react';
+import { Code2, Cloud, Brain } from 'lucide-react';
 
 export function TeamSection() {
   const teamCategories = [
@@ -165,7 +165,7 @@ export function TeamSection() {
                 transition={{ delay: idx * 0.15 }}
                 className="relative"
               >
-                <div className="text-[#0084ff] text-4xl leading-none mb-2">"</div>
+                <div className="text-[#0084ff] text-4xl leading-none mb-2">&ldquo;</div>
                 <p className="text-white/70 text-sm mb-4 italic">{testimonial.quote}</p>
                 <p className="text-white/40 text-xs">— {testimonial.author}</p>
               </motion.div>

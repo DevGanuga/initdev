@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { Navigation } from '@/components/layout/Navigation';
-import { Footer } from '@/components/layout/Footer';
+
+
 
 export default function NotFound() {
   return (
     <>
-      <Navigation />
+  
       <main className="min-h-screen bg-obsidian flex items-center justify-center px-6 py-32">
         <div className="max-w-2xl mx-auto text-center">
           {/* 404 Illustration */}
@@ -76,7 +76,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
-      <Footer />
+  
     </>
   );
 }

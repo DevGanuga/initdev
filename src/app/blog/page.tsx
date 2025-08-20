@@ -4,8 +4,8 @@ import BlogHero from '@/components/sections/blog/BlogHero';
 import BlogCategories from '@/components/sections/blog/BlogCategories';
 import BlogSearch from '@/components/sections/blog/BlogSearch';
 import BlogNewsletter from '@/components/sections/blog/BlogNewsletter';
-import { Navigation } from '@/components/layout/Navigation';
-import { Footer } from '@/components/layout/Footer';
+
+
 
 export const metadata: Metadata = {
   title: 'InitDev Blog | Engineering Insights & Startup Wisdom',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <Navigation />
+
       <main className="min-h-screen bg-obsidian">
         {/* Blog Hero */}
         <BlogHero />
@@ -45,7 +45,7 @@ export default function BlogPage() {
         {/* Newsletter Signup */}
         <BlogNewsletter />
       </main>
-      <Footer />
+
     </>
   );
 }

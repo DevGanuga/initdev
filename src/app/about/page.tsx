@@ -1,15 +1,15 @@
 'use client';
 
-import { Metadata } from 'next';
-import { Navigation } from '@/components/layout/Navigation';
-import { Footer } from '@/components/layout/Footer';
+
+
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Code2, Zap, Shield, Users, Target, Rocket } from 'lucide-react';
 
 export default function AboutPage() {
   return (
     <>
-      <Navigation />
+
       <main className="min-h-screen bg-[#0a0a0a]">
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-6 lg:px-8">
@@ -235,7 +235,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }

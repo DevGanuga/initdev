@@ -4,14 +4,12 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 interface LogoProps {
-  variant?: 'default' | 'light' | 'dark';
   size?: 'sm' | 'md' | 'lg';
   animated?: boolean;
   showText?: boolean;
 }
 
 export function Logo({ 
-  variant = 'default', 
   size = 'md', 
   animated = true,
   showText = true 
