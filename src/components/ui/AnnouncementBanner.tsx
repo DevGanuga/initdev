@@ -1,23 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { X, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface AnnouncementBannerProps {
-  message: string;
+  message?: string;
   ctaText?: string;
   ctaLink?: string;
   dismissible?: boolean;
   storageKey?: string;
+  onDismiss?: () => void;
 }
 
 export function AnnouncementBanner({
-  message,
-  ctaText,
-  ctaLink,
+  message = "🚀 Limited spots available for Q1 2025 projects",
+  ctaText = "Reserve Your Spot",
+  ctaLink = "/contact",
   dismissible = true,
-  storageKey = 'announcement-dismissed'
+  storageKey = 'announcement-dismissed-q1-2025',
+  onDismiss
 }: AnnouncementBannerProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -32,54 +34,58 @@ export function AnnouncementBanner({
   const handleDismiss = () => {
     setIsVisible(false);
     localStorage.setItem(storageKey, 'true');
+    if (onDismiss) {
+      onDismiss();
+    }
   };
 
+  if (!isVisible) return null;
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className="relative bg-gradient-to-r from-[#0084ff] to-purple-600 text-white overflow-hidden"
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {/* Animated background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,white_0%,transparent_50%)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,white_0%,transparent_50%)]" />
+    <motion.div 
+      initial={{ y: -48 }}
+      animate={{ y: 0 }}
+      exit={{ y: -48 }}
+      transition={{ type: "spring", damping: 25, stiffness: 300 }}
+      className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white h-12 shadow-lg"
+    >
+      <div className="absolute inset-0 bg-black/10" />
+      <div className="relative max-w-7xl mx-auto px-6 h-full">
+        <div className="flex items-center justify-between h-full">
+          <div className="flex items-center gap-2 flex-1">
+            <span className="text-xs sm:text-sm font-medium tracking-wide">
+              {message}
+            </span>
           </div>
 
-          <div className="container-custom relative">
-            <div className="flex items-center justify-center gap-4 py-3 px-4">
-              <Sparkles className="w-5 h-5 flex-shrink-0" />
-              
-              <p className="text-sm font-medium text-center">
-                {message}
-              </p>
+          <div className="flex items-center gap-2">
+            {ctaText && ctaLink && (
+              <motion.a
+                href={ctaLink}
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-blue-700 hover:bg-white/95 rounded-full text-xs font-semibold transition-all group shadow-md"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="hidden sm:inline">{ctaText}</span>
+                <span className="sm:hidden">Reserve</span>
+                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+              </motion.a>
+            )}
 
-              {ctaText && ctaLink && (
-                <a
-                  href={ctaLink}
-                  className="inline-flex items-center gap-1 px-3 py-1 bg-white/20 hover:bg-white/30 rounded-full text-xs font-medium transition-colors whitespace-nowrap"
-                >
-                  {ctaText} →
-                </a>
-              )}
-
-              {dismissible && (
-                <button
-                  onClick={handleDismiss}
-                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
-                  aria-label="Dismiss announcement"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              )}
-            </div>
+            {dismissible && (
+              <motion.button
+                onClick={handleDismiss}
+                className="p-1.5 hover:bg-white/10 rounded-full transition-colors text-white/90 hover:text-white"
+                aria-label="Dismiss announcement"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <X className="w-4 h-4" />
+              </motion.button>
+            )}
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
+      </div>
+    </motion.div>
   );
 }

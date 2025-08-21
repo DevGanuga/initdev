@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/layout/Navigation";
-import { Footer } from "@/components/layout/Footer";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { CursorFollower } from "@/components/ui/CursorFollower";
-import { SkipToContent } from "@/components/ui/SkipToContent";
-import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
-import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
+import { LayoutClient } from "@/components/layout/LayoutClient";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -85,23 +79,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-void`}
+        className={`${inter.variable} ${jetbrainsMono.variable}`}
       >
-        <SkipToContent />
-        <AnnouncementBanner 
-          message="🚀 Limited spots available for Q1 2025 projects"
-          ctaText="Reserve Your Spot"
-          ctaLink="/contact"
-        />
-        <CursorFollower />
-        <ScrollProgress />
-        <Navigation />
-        <ErrorBoundary>
-          <main id="main-content" className="relative">
-            {children}
-          </main>
-        </ErrorBoundary>
-        <Footer />
+        <LayoutClient>
+          {children}
+        </LayoutClient>
       </body>
     </html>
   );

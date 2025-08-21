@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# InitDev
 
-## Getting Started
+Next.js website for InitDev - a dev agency focused on rapid MVP development for startups.
 
-First, run the development server:
+## Setup
 
 ```bash
+# Install deps
+npm install
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 15.4.6 with App Router
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion for animations
+- React Hook Form + Zod for forms
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+src/
+├── app/            # Next.js app router pages
+├── components/     # React components
+│   ├── layout/     # Header, Footer, Nav
+│   ├── sections/   # Page sections
+│   └── ui/         # Reusable UI components
+├── lib/            # Utils and helpers
+├── hooks/          # Custom hooks
+└── types/          # TypeScript types
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Branch Strategy
+- `main` - production
+- `develop` - staging
+- `feature/*` - new features
+- `hotfix/*` - urgent fixes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Commits
+Use conventional commits:
+```
+feat: add contact form
+fix: mobile nav menu
+docs: update readme
+chore: update deps
+```
 
-## Deploy on Vercel
+### Environment Variables
+Copy `.env.example` to `.env.local` and fill in your values. Never commit `.env.local`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test        # Run tests
+npm run lint        # Lint code
+npm run type-check  # TypeScript check
+```
+
+## Deployment
+
+The site auto-deploys via Vercel:
+- Production: pushes to `main`
+- Preview: all other branches
+
+## API Routes
+
+- `POST /api/contact` - Contact form submission
+- `POST /api/newsletter` - Newsletter signup
+- `POST /api/demo` - Demo request
+
+## Performance
+
+Target metrics:
+- LCP < 2.5s
+- FID < 100ms
+- CLS < 0.1
+
+## Security
+
+Basic security headers are configured in `next.config.ts`. Form inputs are validated with Zod schemas. Rate limiting should be configured at the edge (Vercel/Cloudflare).
+
+## Documentation
+
+Additional docs in `/docs`:
+- `website_requirements_v2.md` - Current site requirements
+- `technical_philosophy.md` - Engineering principles
+- `startup_methodology.md` - How we work with startups
+- `component_architecture.md` - Component design patterns
+
+## Team
+
+This is an internal repository. For questions, hit up the team on Slack.
+
+## License
+
+Proprietary. All rights reserved.

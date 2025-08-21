@@ -14,7 +14,7 @@ import { CTASection } from '@/components/sections/CTASection';
 export default function HomePage() {
   return (
     <>
-      <div className="bg-[#0a0a0a] overflow-hidden">
+      <div className="overflow-hidden">
         {/* Stage 1: Hook & Value Prop */}
         <HeroSection />
         

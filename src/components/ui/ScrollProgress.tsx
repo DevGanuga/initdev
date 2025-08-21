@@ -4,31 +4,25 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
+  
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 200,
+    damping: 50,
     restDelta: 0.001
   });
 
   return (
-    <>
-      {/* Progress bar */}
+    <motion.div 
+      className="fixed top-0 left-0 right-0 h-[2px] z-[100] pointer-events-none"
+    >
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0084ff] via-[#00a6ff] to-[#0084ff] origin-left z-[100] shadow-lg shadow-[#0084ff]/50"
-        style={{ 
-          scaleX,
-          backgroundSize: '200% 100%',
-        }}
+        className="h-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 origin-left"
+        style={{ scaleX }}
       />
-      
-      {/* Glow effect */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[20px] bg-gradient-to-r from-[#0084ff] via-[#00a6ff] to-[#0084ff] origin-left z-[99] blur-xl opacity-30"
-        style={{ 
-          scaleX,
-          backgroundSize: '200% 100%',
-        }}
+        className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-blue-400 via-blue-300 to-transparent origin-left opacity-50 blur-sm"
+        style={{ scaleX }}
       />
-    </>
+    </motion.div>
   );
 }
