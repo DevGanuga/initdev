@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Code2, Zap, Shield, Rocket, Database, Cloud, Cpu, Layers } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
@@ -39,40 +39,29 @@ export function HeroSection() {
 
   return (
     <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center">
-      {/* Enhanced animated background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-mesh opacity-40" />
-        <div className="absolute inset-0 bg-grid-subtle opacity-10" />
+      {/* Animated video background from shadcn component */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle blue background gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,132,255,0.15)] via-transparent to-transparent opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-bl from-[rgba(0,132,255,0.1)] via-transparent to-transparent opacity-50" />
         
-        {/* Animated gradient orbs */}
-        <motion.div
-          className="absolute top-20 -left-20 w-96 h-96 bg-blue-500/20 rounded-full filter blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        {/* Hero Video Background */}
+        <video
+          className="absolute -top-[20%] left-0 w-full h-[120%] object-cover z-0 bg-[#111]"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source
+            src="https://mybycketvercelprojecttest.s3.sa-east-1.amazonaws.com/animation-bg.mp4"
+            type="video/mp4"
+          />
+        </video>
         
         {/* Interactive parallax layer */}
         <motion.div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 132, 255, 0.1) 0%, transparent 50%)`,
           }}
