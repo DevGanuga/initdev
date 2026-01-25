@@ -1,184 +1,178 @@
 'use client';
 
-import { ArrowRight, Sparkles, Code2, Zap, Shield, Rocket, Database, Cloud, Cpu, Layers } from 'lucide-react';
+import { ArrowRight, Clock, Users, Shield } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [currentWord, setCurrentWord] = useState(0);
-  const words = ['Innovation', 'Excellence', 'Performance', 'Scale'];
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"]
   });
   
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.98]);
-  const y = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [words.length]);
-
-
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  const stats = [
+    { value: '4-8', label: 'Weeks to MVP', suffix: '' },
+    { value: '5', label: 'Years min. experience', suffix: '+' },
+    { value: '100', label: 'Projects shipped', suffix: '+' },
+  ];
 
   return (
-    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center">
-      {/* Animated video background from shadcn component */}
+    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]">
+      {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle blue background gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,132,255,0.15)] via-transparent to-transparent opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-bl from-[rgba(0,132,255,0.1)] via-transparent to-transparent opacity-50" />
+        {/* Gradient base */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,100,255,0.12),transparent)]" />
         
-        {/* Hero Video Background */}
-        <video
-          className="absolute -top-[20%] left-0 w-full h-[120%] object-cover z-0 bg-[#111]"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source
-            src="https://mybycketvercelprojecttest.s3.sa-east-1.amazonaws.com/animation-bg.mp4"
-            type="video/mp4"
-          />
-        </video>
-        
-        {/* Interactive parallax layer */}
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 132, 255, 0.1) 0%, transparent 50%)`,
-          }}
-        />
+        {/* Accent glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(0,100,255,0.06)_0%,transparent_70%)]" />
       </div>
       
       <motion.div 
         className="container-custom relative z-10"
-        style={{ opacity, scale, y }}
+        style={{ opacity, y }}
       >
-        <div className="max-w-5xl">
-          {/* Premium badge */}
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Eyebrow */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 glass-subtle rounded-full mb-10"
+            className="inline-flex items-center gap-3 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            </motion.div>
-            <span className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-              Ship Fast • Scale Smart • Win Markets
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-blue-500/50" />
+            <span className="text-xs text-blue-400/90 uppercase tracking-[0.2em] font-medium">
+              Senior Engineers Only
             </span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-blue-500/50" />
           </motion.div>
 
           {/* Main headline */}
-          <motion.div
+          <motion.h1
+            className="mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="mb-8 relative">
-              <span className="block">Build</span>
-              <span className="block h-[1.2em] relative">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentWord}
-                    initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0 text-gradient-blue"
-                  >
-                    {words[currentWord]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-              <span className="block text-white mt-2">At Scale</span>
-            </h1>
-          </motion.div>
+            <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
+              Your Startup&apos;s
+            </span>
+            <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
+              <span className="text-gradient-blue">Technical Co-Founder</span>
+            </span>
+          </motion.h1>
 
-          {/* Subheadline */}
+          {/* Value prop */}
           <motion.p
-            className="text-lg md:text-xl text-gray-400 font-light mb-12 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 font-light mb-10 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            Elite engineering teams delivering production-ready systems in 
-            <span className="text-white font-normal"> 4-8 weeks</span>. 
-            We transform ambitious visions into scalable solutions that grow with your business.
+            Senior engineers who&apos;ve built, scaled, and sold startups. 
+            We transform your vision into a{' '}
+            <span className="text-white font-normal">production-ready MVP in 4-8 weeks</span>
+            —without the equity dilution.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.div
+            <motion.a
+              href="/contact"
+              className="btn-premium group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <a href="/contact" className="btn-premium group">
-                <span>Start Your Project</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </motion.div>
+              <span>Book Strategy Call</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </motion.a>
             
-            <motion.div
+            <motion.a
+              href="/process"
+              className="btn-secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <a href="#cases" className="btn-secondary">
-                <span>View Case Studies</span>
-              </a>
-            </motion.div>
+              <span>See How We Work</span>
+            </motion.a>
+          </motion.div>
+
+          {/* Trust indicators */}
+          <motion.div
+            className="flex flex-col items-center gap-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            {/* Stats row */}
+            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                >
+                  <div className="text-3xl md:text-4xl font-extralight text-white tracking-tight">
+                    {stat.value}<span className="text-blue-400">{stat.suffix}</span>
+                  </div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Feature pills */}
+            <div className="flex flex-wrap justify-center gap-3 mt-4">
+              {[
+                { icon: Clock, text: 'Daily Deployments' },
+                { icon: Users, text: 'No Junior Devs' },
+                { icon: Shield, text: 'Zero Technical Debt' },
+              ].map((feature, index) => (
+                <motion.div
+                  key={feature.text}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.06] bg-white/[0.02]"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                >
+                  <feature.icon className="w-3.5 h-3.5 text-blue-400/70" />
+                  <span className="text-xs text-gray-400 font-medium">{feature.text}</span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Enhanced scroll indicator with glow */}
+      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
       >
         <motion.div
-          className="relative"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          className="w-5 h-8 rounded-full border border-white/10 flex justify-center pt-2"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full" />
-          <div className="relative w-6 h-10 border border-gray-600 rounded-full flex justify-center bg-black/50 backdrop-blur-sm">
-            <motion.div
-              className="w-1 h-2 bg-gradient-to-b from-blue-400 to-transparent rounded-full mt-2"
-              animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            />
-          </div>
-          <div className="text-xs text-gray-500 mt-2 text-center">Scroll</div>
+          <motion.div
+            className="w-0.5 h-2 bg-gradient-to-b from-blue-400/60 to-transparent rounded-full"
+            animate={{ opacity: [1, 0.3, 1] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+          />
         </motion.div>
       </motion.div>
     </section>

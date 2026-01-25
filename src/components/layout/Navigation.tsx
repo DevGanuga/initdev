@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
@@ -76,15 +77,18 @@ export function Navigation() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
-              <motion.div 
-                className="flex items-center gap-3"
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-medium text-lg">ID</span>
-                </div>
-                <span className="text-white font-light text-lg tracking-wide hidden sm:block">InitDev</span>
+                <Image
+                  src="/1966510796844172572-removebg-preview.png"
+                  alt="InitDev"
+                  width={280}
+                  height={100}
+                  className="h-24 w-auto"
+                  priority
+                />
               </motion.div>
             </Link>
 

@@ -67,24 +67,10 @@ export function ProblemSection() {
 
   return (
     <section ref={sectionRef} className="py-24 relative overflow-hidden bg-gradient-to-b from-[#0a0a0a] via-[#050505] to-black">
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,0,0,.1) 35px, rgba(255,0,0,.1) 70px)`
-        }} />
-        
-        {/* Animated warning lights */}
-        <motion.div
-          className="absolute top-10 left-10 w-2 h-2 bg-red-500 rounded-full"
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-2 h-2 bg-orange-500 rounded-full"
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-        />
-      </div>
+      {/* Subtle background */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.03) 35px, rgba(255,255,255,.03) 70px)`
+      }} />
 
       <motion.div 
         className="container-custom relative"
@@ -97,23 +83,11 @@ export function ProblemSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div className="inline-flex items-center gap-2 mb-4">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
-              <AlertTriangle className="w-4 h-4 text-red-500" />
-            </motion.div>
+          <div className="inline-block mb-4">
             <span className="text-red-500 text-sm font-medium tracking-wider uppercase">
               The Harsh Reality
             </span>
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            >
-              <AlertTriangle className="w-4 h-4 text-red-500" />
-            </motion.div>
-          </motion.div>
+          </div>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
             Why Most Dev Projects
             <span className="block text-red-400">Fail Miserably</span>

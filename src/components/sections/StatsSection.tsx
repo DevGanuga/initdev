@@ -53,7 +53,7 @@ export function StatsSection() {
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
               className="relative group"
