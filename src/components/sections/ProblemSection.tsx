@@ -17,51 +17,39 @@ export function ProblemSection() {
   const problems = [
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Months of Delays",
-      description: "Your competitors are shipping while you're still in meetings with agencies.",
-      stat: "67%",
-      statLabel: "of projects run over deadline",
-      color: "from-orange-500/20 to-red-500/20"
+      title: "Timeline Clarity",
+      description: "We set realistic deadlines and stick to them. Regular updates keep you informed.",
+      color: "from-blue-500/20 to-cyan-500/20"
     },
     {
       icon: <DollarSign className="w-6 h-6" />,
-      title: "Budget Overruns",
-      description: "Hidden costs, scope creep, and endless revisions drain your resources.",
-      stat: "2.5x",
-      statLabel: "average cost overrun",
-      color: "from-red-500/20 to-pink-500/20"
+      title: "Transparent Pricing",
+      description: "Clear scope, clear pricing. No surprises, no hidden costs.",
+      color: "from-green-500/20 to-teal-500/20"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Wrong Talent",
-      description: "Junior devs learning on your dime, managed by non-technical PMs.",
-      stat: "73%",
-      statLabel: "have wrong skill match",
+      title: "Senior Engineers",
+      description: "Experienced developers who've built production systems before.",
       color: "from-purple-500/20 to-indigo-500/20"
     },
     {
       icon: <TrendingDown className="w-6 h-6" />,
-      title: "Technical Debt",
-      description: "Quick fixes that become permanent problems, costing millions later.",
-      stat: "$85K",
-      statLabel: "average refactor cost",
+      title: "Clean Architecture",
+      description: "Code built for the long term. Easy to maintain, easy to extend.",
       color: "from-yellow-500/20 to-orange-500/20"
     },
     {
       icon: <AlertTriangle className="w-6 h-6" />,
-      title: "Communication Chaos",
-      description: "Lost in translation between you, PMs, and the actual developers.",
-      stat: "5+",
-      statLabel: "layers of communication",
-      color: "from-blue-500/20 to-cyan-500/20"
+      title: "Direct Communication",
+      description: "Talk directly to the people building your software. No middlemen.",
+      color: "from-orange-500/20 to-red-500/20"
     },
     {
       icon: <XCircle className="w-6 h-6" />,
-      title: "Failed Launches",
-      description: "Products that don't work, don't scale, or don't match requirements.",
-      stat: "40%",
-      statLabel: "of projects fail completely",
-      color: "from-gray-500/20 to-red-500/20"
+      title: "Quality Focus",
+      description: "Proper testing, documentation, and code reviews on every project.",
+      color: "from-pink-500/20 to-rose-500/20"
     }
   ];
 
@@ -84,17 +72,17 @@ export function ProblemSection() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="inline-block mb-4">
-            <span className="text-red-500 text-sm font-medium tracking-wider uppercase">
-              The Harsh Reality
+            <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase">
+              Common Challenges
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-            Why Most Dev Projects
-            <span className="block text-red-400">Fail Miserably</span>
+            Problems We
+            <span className="block text-gradient-blue">Help You Avoid</span>
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            You&apos;ve been there. The endless meetings, the missed deadlines, the &ldquo;unexpected&rdquo; costs.
-            Here&apos;s what&apos;s really happening behind the scenes:
+            Software projects can go sideways for many reasons.
+            Here&apos;s what we focus on preventing:
           </p>
         </motion.div>
 
@@ -118,25 +106,15 @@ export function ProblemSection() {
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${problem.color} rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl`} />
               
-              <div className="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-red-500/30 transition-all duration-300 hover:bg-white/[0.07]">
+              <div className="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 hover:bg-white/[0.07]">
                 <div className="flex items-start gap-4 mb-4">
                   <motion.div 
-                    className="p-2 rounded-lg bg-red-500/10 text-red-400"
+                    className="p-2 rounded-lg bg-[#0084ff]/10 text-[#0084ff]"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     {problem.icon}
                   </motion.div>
-                  <div className="text-right ml-auto">
-                    <motion.div 
-                      className="text-2xl font-bold text-red-400"
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      {problem.stat}
-                    </motion.div>
-                    <div className="text-xs text-white/40">{problem.statLabel}</div>
-                  </div>
                 </div>
                 
                 <h3 className="text-lg font-medium text-white mb-2">
@@ -159,34 +137,14 @@ export function ProblemSection() {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <motion.p 
-            className="text-lg text-white/80 font-medium mb-3"
+            className="text-lg text-white/80 font-medium"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
           >
-            Sound familiar? You&apos;re not alone.
+            This is what we focus on for every project.
           </motion.p>
-          <motion.p 
-            className="text-white/60"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
-          >
-            But it doesn&apos;t have to be this way...
-          </motion.p>
-          
-          {/* Animated arrow pointing down */}
-          <motion.div
-            className="mt-8 inline-block"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <svg className="w-6 h-6 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>

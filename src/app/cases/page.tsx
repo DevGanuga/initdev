@@ -1,53 +1,50 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Zap, Trophy } from 'lucide-react';
+import { ArrowRight, Code2, Layers, Zap, Globe, Rocket } from 'lucide-react';
 import Link from 'next/link';
 
-const caseStudies = [
+const capabilities = [
   {
     id: 1,
-    client: 'Series A FinTech',
-    title: 'Payment Infrastructure MVP',
-    challenge: 'Build PCI-compliant payment processing in 4 weeks',
-    solution: 'Architected secure microservices, integrated Stripe & Plaid, built React dashboard',
-    results: [
-      '$3M processed in first month',
-      '99.99% uptime',
-      'SOC2 compliant'
+    title: 'Web Applications',
+    description: 'Full-stack web applications built with modern frameworks. From complex dashboards to customer-facing platforms.',
+    features: [
+      'React & Next.js frontends',
+      'Node.js & Python backends',
+      'Real-time features',
+      'Responsive design'
     ],
-    timeline: '4 weeks',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS', 'Stripe'],
+    tech: ['Next.js', 'React', 'Node.js', 'PostgreSQL', 'TypeScript'],
+    icon: <Globe className="w-6 h-6" />,
     gradient: 'from-blue-500/20 to-purple-500/20'
   },
   {
     id: 2,
-    client: 'YC Startup',
-    title: 'AI-Powered SaaS Platform',
-    challenge: 'Launch before Demo Day with full LLM integration',
-    solution: 'Built RAG pipeline, custom chat interface, usage analytics dashboard',
-    results: [
-      '500+ signups on launch',
-      '10ms response time',
-      'Raised $2M seed'
+    title: 'API Development',
+    description: 'Scalable REST and GraphQL APIs designed for performance. Clean architecture that your team can maintain.',
+    features: [
+      'RESTful & GraphQL APIs',
+      'Authentication & authorization',
+      'Rate limiting & caching',
+      'Comprehensive documentation'
     ],
-    timeline: '3 weeks',
-    tech: ['React', 'Python', 'OpenAI', 'Pinecone', 'Vercel'],
+    tech: ['Node.js', 'Python', 'Go', 'Redis', 'AWS'],
+    icon: <Layers className="w-6 h-6" />,
     gradient: 'from-green-500/20 to-blue-500/20'
   },
   {
     id: 3,
-    client: 'Enterprise Client',
-    title: 'Legacy System Rescue',
-    challenge: 'Failing Node.js app handling 1M daily requests',
-    solution: 'Refactored architecture, optimized database, implemented caching',
-    results: [
-      '100x performance gain',
-      '90% cost reduction',
-      'Zero downtime migration'
+    title: 'System Architecture',
+    description: 'Designing systems that scale. Whether you need microservices, event-driven architecture, or cloud infrastructure.',
+    features: [
+      'Microservices design',
+      'Cloud infrastructure',
+      'CI/CD pipelines',
+      'Monitoring & observability'
     ],
-    timeline: '6 weeks',
-    tech: ['Go', 'Redis', 'Kubernetes', 'PostgreSQL', 'Grafana'],
+    tech: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'GitHub Actions'],
+    icon: <Zap className="w-6 h-6" />,
     gradient: 'from-orange-500/20 to-red-500/20'
   }
 ];
@@ -74,31 +71,31 @@ export default function CasesPage() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-full border border-white/10 mb-8">
-              <Trophy className="w-4 h-4 text-[#0084ff]" />
-              <span className="text-sm text-white/70">Proven Results</span>
+              <Rocket className="w-4 h-4 text-[#0084ff]" />
+              <span className="text-sm text-white/70">What We Build</span>
             </div>
             
             <h1 className="text-6xl font-light text-white mb-6">
-              Case
+              Our
               <span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
-                Studies
+                Work
               </span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              Real projects. Real deadlines. Real results.
-              <span className="block mt-2 text-white/80">Every project shipped on time.</span>
+              We build custom software for companies that need it done right.
+              <span className="block mt-2 text-white/80">Production-ready code, every time.</span>
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Capabilities */}
       <section className="py-20">
         <div className="container-custom">
           <div className="space-y-12">
-            {caseStudies.map((study, index) => (
+            {capabilities.map((item, index) => (
               <motion.div
-                key={study.id}
+                key={item.id}
                 className="group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -107,36 +104,24 @@ export default function CasesPage() {
               >
                 <div className="relative p-8 md:p-12 bg-black/30 backdrop-blur-sm rounded-2xl border border-white/5 hover:border-[#0084ff]/30 transition-all duration-300">
                   {/* Background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-5 rounded-2xl`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-5 rounded-2xl`} />
                   
                   <div className="relative z-10 grid md:grid-cols-2 gap-8">
-                    {/* Left side - Project info */}
+                    {/* Left side - Info */}
                     <div>
                       <div className="flex items-center gap-3 mb-4">
-                        <span className="text-sm text-white/40">{study.client}</span>
-                        <div className="flex items-center gap-2 text-[#0084ff]">
-                          <Clock className="w-4 h-4" />
-                          <span className="text-sm font-medium">{study.timeline}</span>
+                        <div className="p-2 rounded-lg bg-[#0084ff]/10 text-[#0084ff]">
+                          {item.icon}
                         </div>
                       </div>
                       
-                      <h2 className="text-3xl font-light text-white mb-4">{study.title}</h2>
+                      <h2 className="text-3xl font-light text-white mb-4">{item.title}</h2>
                       
-                      <div className="space-y-4 mb-6">
-                        <div>
-                          <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Challenge</p>
-                          <p className="text-white/60">{study.challenge}</p>
-                        </div>
-                        
-                        <div>
-                          <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Solution</p>
-                          <p className="text-white/60">{study.solution}</p>
-                        </div>
-                      </div>
+                      <p className="text-white/60 mb-6">{item.description}</p>
                       
                       {/* Tech stack */}
                       <div className="flex flex-wrap gap-2">
-                        {study.tech.map((tech) => (
+                        {item.tech.map((tech) => (
                           <span
                             key={tech}
                             className="px-3 py-1 bg-white/5 backdrop-blur-sm rounded-full text-xs text-white/60 border border-white/5"
@@ -147,11 +132,11 @@ export default function CasesPage() {
                       </div>
                     </div>
                     
-                    {/* Right side - Results */}
+                    {/* Right side - Features */}
                     <div className="flex flex-col justify-center">
-                      <p className="text-xs text-white/40 uppercase tracking-wider mb-4">Results</p>
+                      <p className="text-xs text-white/40 uppercase tracking-wider mb-4">What&apos;s Included</p>
                       <div className="space-y-3">
-                        {study.results.map((result, i) => (
+                        {item.features.map((feature, i) => (
                           <motion.div
                             key={i}
                             className="flex items-start gap-3"
@@ -160,8 +145,8 @@ export default function CasesPage() {
                             transition={{ delay: 0.1 * i }}
                             viewport={{ once: true }}
                           >
-                            <Zap className="w-5 h-5 text-[#0084ff] flex-shrink-0 mt-0.5" />
-                            <p className="text-lg text-white">{result}</p>
+                            <Code2 className="w-5 h-5 text-[#0084ff] flex-shrink-0 mt-0.5" />
+                            <p className="text-lg text-white">{feature}</p>
                           </motion.div>
                         ))}
                       </div>
@@ -181,13 +166,13 @@ export default function CasesPage() {
             viewport={{ once: true }}
           >
             <p className="text-white/60 mb-8">
-              These results aren&apos;t exceptions. They&apos;re our standard.
+              Have a project in mind? Let&apos;s discuss how we can help.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,132,255,0.5)] hover:scale-105"
             >
-              Start Your Project
+              Start a Conversation
               <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>

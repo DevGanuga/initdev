@@ -8,30 +8,30 @@ export function ProcessOverview() {
     {
       number: '01',
       title: 'Discovery',
-      description: 'We dive deep into your vision and requirements',
+      description: 'Understand your goals and technical requirements',
       icon: <Search className="w-6 h-6" />,
-      duration: 'Day 1-3'
+      duration: 'Initial'
     },
     {
       number: '02',
-      title: 'Architecture',
-      description: 'Design scalable systems that grow with you',
+      title: 'Planning',
+      description: 'Design the architecture and define milestones',
       icon: <Lightbulb className="w-6 h-6" />,
       duration: 'Week 1'
     },
     {
       number: '03',
       title: 'Development',
-      description: 'Build with precision, test obsessively',
+      description: 'Build with regular check-ins and demos',
       icon: <Code2 className="w-6 h-6" />,
-      duration: 'Week 2-6'
+      duration: 'Ongoing'
     },
     {
       number: '04',
-      title: 'Launch',
-      description: 'Deploy, monitor, and iterate based on data',
+      title: 'Delivery',
+      description: 'Deploy, document, and hand off cleanly',
       icon: <Rocket className="w-6 h-6" />,
-      duration: 'Week 7-8'
+      duration: 'Final'
     }
   ];
 
@@ -48,10 +48,10 @@ export function ProcessOverview() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
-            From Idea to Impact in 8 Weeks
+            How We Work
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            Our battle-tested process delivers results, not excuses
+            A straightforward process that keeps projects on track
           </p>
         </motion.div>
 

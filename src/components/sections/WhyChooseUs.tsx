@@ -44,8 +44,8 @@ export function WhyChooseUs() {
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      title: 'Proven Track Record',
-      description: '100% project success rate. We deliver what we promise, every time.',
+      title: 'Reliable Delivery',
+      description: 'We deliver what we promise. Clear timelines, honest communication.',
       gradient: 'from-indigo-500 to-purple-500',
       color: '#6366F1'
     }
@@ -70,10 +70,10 @@ export function WhyChooseUs() {
             Our Advantage
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
-            Why Elite Teams Choose Us
+            Why Work With Us
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            We&apos;re not another dev shop. We&apos;re the technical partners you wish you had from the start.
+            What makes us different from typical agencies
           </p>
         </motion.div>
 

@@ -1,40 +1,32 @@
 'use client';
 
-import { TrendingUp, Users, Clock, Star } from 'lucide-react';
+import { Code2, Layers, Zap, Shield } from 'lucide-react';
 
 export function StatsSection() {
-  const stats = [
+  const capabilities = [
     { 
-      label: 'Success Rate', 
-      value: '100', 
-      suffix: '%',
-      icon: <TrendingUp className="w-5 h-5" />,
+      label: 'Full-Stack', 
+      description: 'End-to-end development',
+      icon: <Code2 className="w-5 h-5" />,
       color: 'from-green-500 to-emerald-500',
-      description: 'On-time, on-budget'
     },
     { 
-      label: 'Projects Shipped', 
-      value: '47', 
-      suffix: '+',
-      icon: <Users className="w-5 h-5" />,
+      label: 'Modern Stack', 
+      description: 'React, Node, TypeScript',
+      icon: <Layers className="w-5 h-5" />,
       color: 'from-blue-500 to-cyan-500',
-      description: 'Happy clients worldwide'
     },
     { 
-      label: 'Avg Response', 
-      value: '2', 
-      suffix: ' hrs',
-      icon: <Clock className="w-5 h-5" />,
+      label: 'Fast Delivery', 
+      description: 'Ship in weeks, not months',
+      icon: <Zap className="w-5 h-5" />,
       color: 'from-purple-500 to-pink-500',
-      description: 'Lightning fast support'
     },
     { 
-      label: 'Client Rating', 
-      value: '5.0', 
-      suffix: '/5',
-      icon: <Star className="w-5 h-5" />,
+      label: 'Production Ready', 
+      description: 'Code built to last',
+      icon: <Shield className="w-5 h-5" />,
       color: 'from-yellow-500 to-orange-500',
-      description: 'Perfect satisfaction'
     }
   ];
 
@@ -48,41 +40,36 @@ export function StatsSection() {
       
       <div className="container-custom relative">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-white mb-3">Proven Excellence</h2>
-          <p className="text-white/60">Numbers that speak louder than words</p>
+          <h2 className="text-3xl font-light text-white mb-3">What We Bring</h2>
+          <p className="text-white/60">Full-stack expertise across the modern web</p>
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat) => (
+          {capabilities.map((item) => (
             <div
-              key={stat.label}
+              key={item.label}
               className="relative group"
             >
               <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 {/* Icon with gradient background */}
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${stat.color} bg-opacity-10 mb-4`}>
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${item.color} bg-opacity-10 mb-4`}>
                   <div className="text-white">
-                    {stat.icon}
+                    {item.icon}
                   </div>
                 </div>
                 
-                {/* Static counter */}
-                <div className="text-4xl md:text-5xl font-light text-white mb-2">
-                  {stat.value}<span className="text-3xl md:text-4xl">{stat.suffix}</span>
-                </div>
-                
                 {/* Label */}
-                <div className="text-sm text-white/60 uppercase tracking-wider mb-2">
-                  {stat.label}
+                <div className="text-xl font-light text-white mb-2">
+                  {item.label}
                 </div>
                 
                 {/* Description */}
-                <div className="text-xs text-white/40">
-                  {stat.description}
+                <div className="text-sm text-white/60">
+                  {item.description}
                 </div>
                 
                 {/* Static underline */}
-                <div className={`h-[2px] bg-gradient-to-r ${stat.color} mt-4`} />
+                <div className={`h-[2px] bg-gradient-to-r ${item.color} mt-4`} />
               </div>
             </div>
           ))}

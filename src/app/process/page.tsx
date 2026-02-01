@@ -32,7 +32,7 @@ export default function ProcessPage() {
               </span>
             </h1>
             <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              From first call to production launch in 4 weeks. No fluff, just execution.
+              A straightforward approach to building software that works.
             </p>
           </motion.div>
         </div>

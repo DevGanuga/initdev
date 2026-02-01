@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Clock, Users, Shield } from 'lucide-react';
+import { ArrowRight, Code2, Users, Shield } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -14,12 +14,6 @@ export function HeroSection() {
   
   const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
-
-  const stats = [
-    { value: '4-8', label: 'Weeks to MVP', suffix: '' },
-    { value: '5', label: 'Years min. experience', suffix: '+' },
-    { value: '100', label: 'Projects shipped', suffix: '+' },
-  ];
 
   return (
     <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]">
@@ -46,7 +40,7 @@ export function HeroSection() {
           >
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-blue-500/50" />
             <span className="text-xs text-blue-400/90 uppercase tracking-[0.2em] font-medium">
-              Senior Engineers Only
+              Custom Software Development
             </span>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-blue-500/50" />
           </motion.div>
@@ -59,10 +53,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
-              Your Startup&apos;s
+              We Build Software
             </span>
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
-              <span className="text-gradient-blue">Technical Co-Founder</span>
+              <span className="text-gradient-blue">That Works</span>
             </span>
           </motion.h1>
 
@@ -73,10 +67,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            Senior engineers who&apos;ve built, scaled, and sold startups. 
-            We transform your vision into a{' '}
-            <span className="text-white font-normal">production-ready MVP in 4-8 weeks</span>
-            —without the equity dilution.
+            A small team of senior engineers building{' '}
+            <span className="text-white font-normal">production-ready applications</span>.
+            Web apps, APIs, and systems designed to scale.
           </motion.p>
 
           {/* CTAs */}
@@ -92,60 +85,39 @@ export function HeroSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Book Strategy Call</span>
+              <span>Start a Conversation</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </motion.a>
             
             <motion.a
-              href="/process"
+              href="/services"
               className="btn-secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>See How We Work</span>
+              <span>What We Build</span>
             </motion.a>
           </motion.div>
 
-          {/* Trust indicators */}
+          {/* Feature pills */}
           <motion.div
             className="flex flex-col items-center gap-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            {/* Stats row */}
-            <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                >
-                  <div className="text-3xl md:text-4xl font-extralight text-white tracking-tight">
-                    {stat.value}<span className="text-blue-400">{stat.suffix}</span>
-                  </div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Feature pills */}
-            <div className="flex flex-wrap justify-center gap-3 mt-4">
+            <div className="flex flex-wrap justify-center gap-3">
               {[
-                { icon: Clock, text: 'Daily Deployments' },
-                { icon: Users, text: 'No Junior Devs' },
-                { icon: Shield, text: 'Zero Technical Debt' },
+                { icon: Code2, text: 'Full-Stack Development' },
+                { icon: Users, text: 'Senior Engineers' },
+                { icon: Shield, text: 'Production-Ready Code' },
               ].map((feature, index) => (
                 <motion.div
                   key={feature.text}
                   className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.06] bg-white/[0.02]"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                 >
                   <feature.icon className="w-3.5 h-3.5 text-blue-400/70" />
                   <span className="text-xs text-gray-400 font-medium">{feature.text}</span>
