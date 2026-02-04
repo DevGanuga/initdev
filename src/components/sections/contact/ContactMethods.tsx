@@ -15,7 +15,7 @@ const contactMethods = [
     icon: '📧',
     title: 'Email',
     description: 'Get a response within 2 hours',
-    availability: 'hello@initdev.com',
+    availability: 'success@initdev.co',
     action: 'Send Email',
     primary: false,
   },

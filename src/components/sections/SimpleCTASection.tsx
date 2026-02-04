@@ -100,7 +100,7 @@ export function SimpleCTASection() {
           className="mt-12 text-center"
         >
           <p className="text-white/60">
-            Or email us directly at <a href="mailto:hello@initdev.com" className="text-[#0084ff] hover:underline">hello@initdev.com</a>
+            Or email us directly at <a href="mailto:success@initdev.co" className="text-[#0084ff] hover:underline">success@initdev.co</a>
           </p>
         </motion.div>
       </div>

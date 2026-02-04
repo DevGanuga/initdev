@@ -2,14 +2,36 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { 
-  ArrowUpRight, 
-  Github, 
-  Twitter, 
-  Linkedin,
-  Mail
-} from 'lucide-react';
+const ArrowUpRightIcon = ({ className = 'w-3 h-3' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M7 17L17 7M9 7h8v8"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const MailIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="m22 8-10 7L2 8"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const footerLinks = {
   Services: [
@@ -25,12 +47,6 @@ const footerLinks = {
     { label: 'Blog', href: '/blog' },
   ],
 };
-
-const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-];
 
 export function Footer() {
   return (
@@ -60,27 +76,10 @@ export function Footer() {
             
             {/* Contact info */}
             <div className="mb-6">
-              <a href="mailto:hello@initdev.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-smooth group">
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">hello@initdev.com</span>
+              <a href="mailto:success@initdev.co" className="flex items-center gap-3 text-gray-400 hover:text-white transition-smooth group">
+                <MailIcon className="w-4 h-4" />
+                <span className="text-sm">success@initdev.co</span>
               </a>
-            </div>
-            
-            {/* Social links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 glass rounded-lg flex items-center justify-center border border-white/5 hover:border-blue-500/30 transition-smooth group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <social.icon className="w-5 h-5 text-gray-400 group-hover:text-blue-400 transition-smooth" />
-                </motion.a>
-              ))}
             </div>
           </div>
 
@@ -99,7 +98,7 @@ export function Footer() {
                         className="text-gray-400 hover:text-white text-sm transition-smooth inline-flex items-center gap-1 group"
                       >
                         {link.label}
-                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                        <ArrowUpRightIcon className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
                       </Link>
                     </li>
                   ))}

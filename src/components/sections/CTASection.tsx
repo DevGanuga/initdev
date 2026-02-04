@@ -69,11 +69,11 @@ export function CTASection() {
               </motion.a>
               
               <a
-                href="mailto:hello@initdev.com"
+                href="mailto:success@initdev.co"
                 className="inline-flex items-center justify-center px-8 py-5 bg-white/5 backdrop-blur-sm text-white font-medium text-lg rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
               >
                 <MessageSquare className="w-5 h-5 mr-2" />
-                hello@initdev.com
+                success@initdev.co
               </a>
             </div>
           </div>

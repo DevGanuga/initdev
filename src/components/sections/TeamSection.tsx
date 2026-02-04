@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Award, Code2, Rocket, Shield } from 'lucide-react';
+import { Award, Code2, Rocket, Shield } from 'lucide-react';
 import { useState } from 'react';
 
 export function TeamSection() {
@@ -21,12 +21,7 @@ export function TeamSection() {
         { icon: <Rocket />, text: '$50M acquisition by Oracle' },
         { icon: <Code2 />, text: 'Scaled platform to 10M users' },
         { icon: <Award />, text: '3 successful startup exits' }
-      ],
-      socials: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#'
-      }
+      ]
     },
     {
       id: 'sarah-johnson',
@@ -41,11 +36,7 @@ export function TeamSection() {
         { icon: <Rocket />, text: '5 YC startups launched' },
         { icon: <Code2 />, text: '100+ production apps' },
         { icon: <Award />, text: 'Google Dev Expert' }
-      ],
-      socials: {
-        github: '#',
-        linkedin: '#'
-      }
+      ]
     },
     {
       id: 'michael-park',
@@ -60,12 +51,7 @@ export function TeamSection() {
         { icon: <Shield />, text: 'Ex-Meta AI Research' },
         { icon: <Code2 />, text: '20+ published papers' },
         { icon: <Award />, text: 'AI Innovation Award 2023' }
-      ],
-      socials: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#'
-      }
+      ]
     },
     {
       id: 'emma-davis',
@@ -80,11 +66,7 @@ export function TeamSection() {
         { icon: <Shield />, text: '99.99% uptime achieved' },
         { icon: <Code2 />, text: 'Managed 1000+ containers' },
         { icon: <Rocket />, text: 'Zero security breaches' }
-      ],
-      socials: {
-        github: '#',
-        linkedin: '#'
-      }
+      ]
     },
     {
       id: 'david-kim',
@@ -99,11 +81,7 @@ export function TeamSection() {
         { icon: <Shield />, text: '$500M TVL managed' },
         { icon: <Code2 />, text: '50+ audited contracts' },
         { icon: <Award />, text: 'ETH Denver Winner' }
-      ],
-      socials: {
-        github: '#',
-        twitter: '#'
-      }
+      ]
     },
     {
       id: 'lisa-wong',
@@ -118,11 +96,7 @@ export function TeamSection() {
         { icon: <Rocket />, text: '3 apps with 1M+ downloads' },
         { icon: <Award />, text: 'App Store Editor&apos;s Choice' },
         { icon: <Code2 />, text: '4.9★ average rating' }
-      ],
-      socials: {
-        github: '#',
-        linkedin: '#'
-      }
+      ]
     }
   ];
 
@@ -248,33 +222,6 @@ export function TeamSection() {
                   ))}
                 </div>
 
-                {/* Social Links */}
-                <div className="flex gap-3 pt-4 border-t border-white/10">
-                  {member.socials.github && (
-                    <a
-                      href={member.socials.github}
-                      className="p-2 rounded-lg bg-white/5 text-white/60 hover:bg-white/10 hover:text-white transition-all duration-300"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.linkedin && (
-                    <a
-                      href={member.socials.linkedin}
-                      className="p-2 rounded-lg bg-white/5 text-white/60 hover:bg-white/10 hover:text-white transition-all duration-300"
-                    >
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                  )}
-                  {member.socials.twitter && (
-                    <a
-                      href={member.socials.twitter}
-                      className="p-2 rounded-lg bg-white/5 text-white/60 hover:bg-white/10 hover:text-white transition-all duration-300"
-                    >
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
               </div>
             </motion.div>
           ))}

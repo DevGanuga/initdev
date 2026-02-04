@@ -267,7 +267,7 @@ export default function ContactForm() {
             className="p-4 bg-red-50 border border-red-200 rounded-lg"
           >
             <p className="text-red-700 font-medium">
-              Something went wrong. Please try again or email us directly at hello@initdev.com
+              Something went wrong. Please try again or email us directly at success@initdev.co
             </p>
           </motion.div>
         )}

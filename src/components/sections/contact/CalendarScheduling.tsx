@@ -184,13 +184,13 @@ export default function CalendarScheduling() {
             </div>
           </a>
           <a
-            href="mailto:hello@initdev.com"
+            href="mailto:success@initdev.co"
             className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
           >
             <span className="text-2xl">✉️</span>
             <div>
               <div className="font-medium text-gray-900">Email Directly</div>
-              <div className="text-sm text-gray-600">hello@initdev.com</div>
+              <div className="text-sm text-gray-600">success@initdev.co</div>
             </div>
           </a>
           <a

@@ -73,8 +73,6 @@ async function getArticle(id: string) {
       role: 'Co-Founder & Lead Architect',
       bio: 'Former CTO at TechVault (acquired by Oracle). 15+ years building scalable systems.',
       avatar: '/images/authors/marcus.jpg',
-      linkedin: 'https://linkedin.com/in/marcuschen',
-      twitter: 'https://twitter.com/marcuschen',
     },
     category: 'Product Development',
     tags: ['MVP', 'Architecture', 'Startup', 'Development Process'],
