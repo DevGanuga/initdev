@@ -137,7 +137,7 @@ export function TeamSection() {
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
             Senior engineers and architects who&apos;ve been where you want to go. 
-            No juniors, no outsourcing—just battle-tested experts.
+            No juniors, no outsourcing. Battle-tested experts only.
           </p>
         </motion.div>
 
@@ -241,7 +241,7 @@ export function TeamSection() {
             </h3>
             <p className="text-white/60 mb-6 max-w-md">
               Get direct access to senior engineers who&apos;ve built and scaled successful products. 
-              No middlemen, no juniors—just results.
+              No middlemen, no juniors. Results only.
             </p>
             <a
               href="/contact"

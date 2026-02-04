@@ -8,9 +8,10 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface HeaderProps {
   hasAnnouncement?: boolean;
+  announcementContent?: React.ReactNode;
 }
 
-export function Header({ hasAnnouncement = false }: HeaderProps) {
+export function Header({ hasAnnouncement = false, announcementContent }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -32,12 +33,17 @@ export function Header({ hasAnnouncement = false }: HeaderProps) {
 
   return (
     <>
-      {/* Fixed Header */}
-      <header className={`fixed ${hasAnnouncement ? 'top-12' : 'top-0'} left-0 right-0 z-40 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-black/90 backdrop-blur-xl shadow-lg border-b border-white/10' 
-          : 'bg-transparent'
-      }`}>
+      {/* Fixed Header Container - includes announcement + nav */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        {/* Announcement Banner */}
+        {hasAnnouncement && announcementContent}
+        
+        {/* Navigation Header */}
+        <header className={`transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-black/95 backdrop-blur-xl shadow-lg border-b border-white/10' 
+            : 'bg-black/80 backdrop-blur-md'
+        }`}>
         <nav className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -83,7 +89,8 @@ export function Header({ hasAnnouncement = false }: HeaderProps) {
             </button>
           </div>
         </nav>
-      </header>
+        </header>
+      </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -146,7 +153,7 @@ export function Header({ hasAnnouncement = false }: HeaderProps) {
       </AnimatePresence>
 
       {/* Spacer to prevent content from going under fixed header */}
-      <div className={hasAnnouncement ? "h-32" : "h-20"} />
+      <div style={{ height: hasAnnouncement ? '128px' : '80px' }} />
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function AboutPage() {
     <>
       <main className="min-h-screen bg-black">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-8 pb-20 overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
@@ -35,13 +35,12 @@ export default function AboutPage() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-[1.1]">
-                About
-                <span className="block text-gradient-blue mt-2">InitDev</span>
+                About <span className="text-gradient-blue">InitDev</span>
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                We&apos;re a small team of senior engineers who build custom software.
-                No fluff, no layers of management—just good code and clear communication.
+                A full stack development agency built for sprint-based delivery of custom software.
+                We operate as a structured team that plugs into existing workflows.
               </p>
             </motion.div>
           </div>
@@ -64,23 +63,23 @@ export default function AboutPage() {
                 </span>
                 <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
                   Software Development
-                  <br /><span className="text-gradient-blue">Done Right</span>
+                  {' '}<br /><span className="text-gradient-blue">Done Right</span>
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                  We believe in building software the right way from the start.
-                  Clean architecture, proper testing, and code that your team can actually maintain.
+                  All work is driven from written specs, sprint scope, and clear acceptance criteria.
+                  We operate inside defined delivery models and scale capacity up or down when demand spikes.
                 </p>
                 <p className="text-gray-400 leading-relaxed mb-8">
-                  Every project gets the same attention to detail, whether it&apos;s a new application 
-                  or improving an existing system. We write code we&apos;d be proud to inherit.
+                  Our team includes a dedicated product manager, backend and frontend engineers, QA, 
+                  performance engineers, and cybersecurity professionals.
                 </p>
                 
                 <div className="space-y-4">
                   {[
-                    'Senior engineers on every project',
-                    'Direct communication, no middlemen',
-                    'Clean, documented, tested code',
-                    'Built for long-term maintainability'
+                    'Sprint-based delivery with clear acceptance criteria',
+                    'Playwright E2E testing and CI checks on every project',
+                    'Linear-driven specs, planning, and delivery tracking',
+                    'AI-native workflow with scoped MCP tools per project'
                   ].map((item, idx) => (
                     <motion.div
                       key={idx}
@@ -153,26 +152,26 @@ export default function AboutPage() {
               {[
                 {
                   icon: Target,
-                  title: "Quality First",
-                  description: "We don't cut corners. Every project gets our best work.",
+                  title: "Reliability Focus",
+                  description: "Systems where things cannot break once clients are live.",
                   gradient: "from-blue-500 to-cyan-500"
                 },
                 {
                   icon: Shield,
-                  title: "Honest Communication",
-                  description: "Clear timelines, honest assessments, no surprises.",
+                  title: "Structured Delivery",
+                  description: "Written specs, sprint scope, and clear acceptance criteria.",
                   gradient: "from-purple-500 to-pink-500"
                 },
                 {
                   icon: TrendingUp,
-                  title: "Long-Term Thinking",
-                  description: "Code that works today and scales tomorrow.",
+                  title: "Scalable Process",
+                  description: "We scale capacity up or down when client demand spikes.",
                   gradient: "from-green-500 to-teal-500"
                 },
                 {
                   icon: Users,
-                  title: "Partnership",
-                  description: "We succeed when you succeed. It's that simple.",
+                  title: "Long-Term Partnership",
+                  description: "A2A partnerships where we integrate and support over time.",
                   gradient: "from-orange-500 to-red-500"
                 }
               ].map((value, idx) => (
@@ -287,7 +286,7 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6">
                 Let&apos;s Build Something
-                <span className="block text-gradient-blue mt-2">Together</span>
+                {' '}<span className="block text-gradient-blue mt-2">Together</span>
               </h2>
               
               <p className="text-xl text-gray-400 mb-12 leading-relaxed">

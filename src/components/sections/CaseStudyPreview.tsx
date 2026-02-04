@@ -7,27 +7,27 @@ export function CaseStudyPreview() {
   const capabilities = [
     {
       icon: <Code2 className="w-6 h-6" />,
-      title: 'Full-Stack Development',
-      description: 'End-to-end web and mobile applications built with modern frameworks and best practices.',
+      title: 'SaaS Platforms',
+      description: 'Multi-tenant systems with role-based access, complex workflows, and reliability requirements.',
       technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL'],
     },
     {
       icon: <Layers className="w-6 h-6" />,
-      title: 'API & Backend Systems',
-      description: 'Scalable APIs, microservices, and backend infrastructure designed for growth.',
+      title: 'Internal Tools',
+      description: 'Custom dashboards, admin panels, and operational tools that streamline your business.',
       technologies: ['REST', 'GraphQL', 'Python', 'Go', 'AWS'],
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: 'Performance & Optimization',
-      description: 'System optimization, refactoring legacy code, and improving application performance.',
-      technologies: ['Redis', 'Kubernetes', 'CI/CD', 'Monitoring', 'Testing'],
+      title: 'AI-Assisted Products',
+      description: 'Production-ready AI integrations. Systems that work reliably at scale.',
+      technologies: ['OpenAI', 'LangChain', 'Vector DBs', 'RAG', 'Fine-tuning'],
     },
     {
       icon: <Globe className="w-6 h-6" />,
-      title: 'Cloud & Infrastructure',
-      description: 'Cloud architecture, DevOps setup, and deployment pipelines that scale.',
-      technologies: ['AWS', 'GCP', 'Docker', 'Terraform', 'Vercel'],
+      title: 'Infrastructure & DevOps',
+      description: 'CI/CD pipelines, cloud architecture, and deployment systems that scale with demand.',
+      technologies: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Vercel'],
     },
   ];
 
@@ -45,14 +45,11 @@ export function CaseStudyPreview() {
             What We Build
           </span>
           <h2 className="text-[clamp(2.5rem,5vw,3.5rem)] font-light text-white mb-6 leading-tight">
-            Custom Software
-            <span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
-              Built Right
-            </span>
+            Production Systems
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            We specialize in building production-ready software that scales. 
-            Here&apos;s what we can help you with.
+            We build full stack SaaS platforms, internal tools, and AI-assisted products. 
+            Production ready, not demos.
           </p>
         </motion.div>
 
@@ -99,7 +96,7 @@ export function CaseStudyPreview() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <p className="text-white/60 mb-6">Have a project in mind? Let&apos;s talk.</p>
+          <p className="text-white/60 mb-6">Ready to start a pilot sprint?</p>
           <a
             href="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#00a6ff] text-white font-medium rounded-lg shadow-xl shadow-[#0084ff]/25 hover:shadow-2xl hover:shadow-[#0084ff]/30 transition-all duration-300"

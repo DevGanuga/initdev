@@ -9,28 +9,28 @@ export function FAQSection() {
 
   const faqs = [
     {
-      question: "How fast can you actually deliver?",
-      answer: "We ship MVPs in 4-8 weeks. No excuses, no delays. We've done it 47+ times. Our secret? Senior engineers who've been there before, no learning on your dime."
+      question: "What do you build?",
+      answer: "Full stack SaaS platforms, internal tools, and AI-assisted products. Multi-tenant systems, role-based access, complex workflows. Production ready, not demos."
     },
     {
-      question: "What makes you different from agencies?",
-      answer: "We&apos;re not an agency. We&apos;re 3 senior engineers who code. No account managers, no junior devs, no bureaucracy. You talk directly to the people building your product."
+      question: "How does delivery work?",
+      answer: "Sprint-based. Written specs, defined scope, clear acceptance criteria. Product and delivery managed through Linear. Playwright E2E testing and CI checks before anything ships."
     },
     {
-      question: "Do you work with startups or enterprises?",
-      answer: "Both. Startups love our speed. Enterprises love our reliability. We adapt our process to your needs, not the other way around."
+      question: "What does the team look like?",
+      answer: "Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow."
     },
     {
-      question: "What if I need ongoing support?",
-      answer: "We offer flexible monthly retainers for continuous development. But here's the thing - our code is so clean and documented, your team can take over anytime."
+      question: "How do you use AI?",
+      answer: "AI is embedded into how we deliver, not used as a marketing add-on. Organization-wide Cursor AI IDE with MCP tools scoped per project. Engineers work with consistent context across the codebase."
     },
     {
-      question: "What technologies do you work with?",
-      answer: "Modern stack only. React, Next.js, Node, Python, Go, AWS, and more. We choose based on your needs, not our preferences. If it scales, we know it."
+      question: "What have you shipped?",
+      answer: "inflio.ai, drip.love, aiblueprintrt.com, navigator.leadingwith.ai, convoai.studio, dyia.io. All production systems with real users and ongoing delivery requirements."
     },
     {
-      question: "How much does it cost?",
-      answer: "Projects start at $10k. We're not the cheapest, but we're the best value. You get senior expertise without enterprise overhead. Most clients save 60% vs traditional agencies."
+      question: "How do we start?",
+      answer: "Paid pilot sprint. We integrate into your workflow, deliver real output, and expand from there if it fits. No lengthy discovery phases."
     }
   ];
 
@@ -44,10 +44,10 @@ export function FAQSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4 text-center">
-            Questions? We&apos;ve Got Answers
+            Common Questions
           </h2>
           <p className="text-xl text-white/60 text-center mb-12">
-            Straight talk, no BS
+            Direct answers. No fluff.
           </p>
 
           <div className="space-y-4">

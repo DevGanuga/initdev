@@ -71,7 +71,7 @@ export default function SolutionsPage() {
   return (
     <main className="bg-void">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 border-b border-midnight">
+      <section className="pt-8 pb-16 border-b border-midnight">
         <div className="container-custom">
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -84,7 +84,7 @@ export default function SolutionsPage() {
               Built for Your Stage of Growth
             </h1>
             <p className="text-xl text-ash">
-              Whether you&apos;re launching your first product, optimizing sales, or scaling operations—
+              Whether you&apos;re launching your first product, optimizing sales, or scaling operations,
               we have the expertise to accelerate your business.
             </p>
           </motion.div>

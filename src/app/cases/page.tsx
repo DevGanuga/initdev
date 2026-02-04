@@ -52,7 +52,7 @@ const capabilities = [
 export default function CasesPage() {
   return (
     <motion.main 
-      className="bg-[#0a0a0a] min-h-screen pt-20"
+      className="bg-[#0a0a0a] min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ export default function CasesPage() {
             
             <h1 className="text-6xl font-light text-white mb-6">
               Our
-              <span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
+              {' '}<span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
                 Work
               </span>
             </h1>

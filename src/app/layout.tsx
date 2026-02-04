@@ -18,11 +18,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://initdev.com'),
   title: {
-    default: 'InitDev | Elite Developers for Exceptional Projects',
+    default: 'InitDev | Full Stack Development Agency',
     template: '%s | InitDev'
   },
-  description: "Find genius-level developers who actually ship. More focused than Upwork, more reliable than freelancers. We connect you with technical partners who deliver.",
-  keywords: "elite developers, technical partners, MVP development, rapid prototyping, senior engineers, project rescue, exceptional delivery, software development, web development, mobile development",
+  description: "Full stack development agency built for sprint-based delivery of custom software. SaaS platforms, internal tools, and AI-assisted products.",
+  keywords: "full stack development, SaaS development, internal tools, AI integration, sprint delivery, software agency, production systems, custom software",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
   publisher: 'InitDev',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "InitDev | Elite Developers. Exceptional Delivery.",
-    description: "Connect with genius-level developers who turn ambitious visions into production-ready systems.",
+    title: "InitDev | Full Stack Development Agency",
+    description: "Sprint-based delivery of SaaS platforms, internal tools, and AI-assisted products. Production ready.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'InitDev - Elite Developers for Exceptional Projects',
+        alt: 'InitDev - Full Stack Development Agency',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "InitDev | Elite Developer Network",
-    description: "Genius developers. Exceptional delivery. Real results.",
+    title: "InitDev | Full Stack Development Agency",
+    description: "Sprint-based delivery. SaaS, internal tools, AI products. Production ready.",
     images: ['/twitter-image.jpg'],
     creator: '@initdev',
   },
@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >

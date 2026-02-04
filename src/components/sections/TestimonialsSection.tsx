@@ -7,23 +7,23 @@ export function TestimonialsSection() {
   const values = [
     {
       icon: <Code2 className="w-6 h-6" />,
-      title: 'Senior Engineers Only',
-      description: 'Every project is built by experienced developers. No juniors learning on your project.',
+      title: 'Sprint-Based Delivery',
+      description: 'Written specs, clear scope, defined acceptance criteria. Every sprint.',
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: 'Production-Ready Code',
-      description: 'Clean, tested, documented code that your team can maintain and extend.',
+      title: 'Production Ready',
+      description: 'Playwright E2E testing, CI checks, regression coverage. Nothing ships broken.',
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: 'Direct Communication',
-      description: 'Talk directly with the engineers building your product. No layers of management.',
+      title: 'Structured Team',
+      description: 'PM, frontend, backend, QA, and DevOps. A coordinated unit, not freelancers.',
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: 'Long-Term Partnership',
-      description: 'We build relationships, not just software. Here when you need us.',
+      title: 'AI-Native Process',
+      description: 'Cursor AI IDE with scoped MCP tools per project. Consistent context, faster delivery.',
     },
   ];
 
@@ -40,10 +40,10 @@ export function TestimonialsSection() {
             How We Work
           </span>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
-            Built Different
+            How We Operate
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            We do things differently than typical agencies
+            A structured team that plugs into your workflow and handles real delivery pressure.
           </p>
         </motion.div>
 

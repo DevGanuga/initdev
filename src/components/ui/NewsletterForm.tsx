@@ -20,11 +20,17 @@ export function NewsletterForm() {
     setIsSubmitting(true);
     
     try {
-      // Simulate API call - replace with actual implementation
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // TODO: Implement actual newsletter signup API
-      console.log('Newsletter signup:', email);
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Newsletter signup failed');
+      }
       
       setSubmitStatus('success');
       setEmail('');

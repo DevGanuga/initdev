@@ -9,43 +9,43 @@ export function WhyChooseUs() {
   const features = [
     {
       icon: <Zap className="w-8 h-8" />,
-      title: 'Lightning Fast',
-      description: 'Ship in weeks, not months. We move at startup speed with enterprise quality.',
+      title: 'Sprint Delivery',
+      description: 'Work driven from written specs, sprint scope, and clear acceptance criteria.',
       gradient: 'from-yellow-500 to-orange-500',
       color: '#FFA500'
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: 'Battle Tested',
-      description: 'Senior engineers only. Every line of code is production-ready from day one.',
+      title: 'Reliability Focus',
+      description: 'Systems where things cannot break once clients are live. That is what we build.',
       gradient: 'from-blue-500 to-cyan-500',
       color: '#00BFFF'
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: 'Direct Access',
-      description: 'No project managers. Talk directly to the developers building your product.',
+      title: 'Full Team',
+      description: 'PM, engineers, QA, performance, and security. Coordinated delivery, not freelancers.',
       gradient: 'from-purple-500 to-pink-500',
       color: '#DA70D6'
     },
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: 'Clean Code',
-      description: 'Maintainable, documented, tested. Code your team can actually work with.',
+      title: 'AI-Native',
+      description: 'Cursor AI IDE with MCP tools scoped per project. Consistent context, faster output.',
       gradient: 'from-green-500 to-teal-500',
       color: '#00CED1'
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: 'Scale Ready',
-      description: 'Built for growth from the start. Handle millions of users without rewrites.',
+      title: 'Scale On Demand',
+      description: 'We scale capacity up or down when client demand spikes. Defined delivery models.',
       gradient: 'from-red-500 to-rose-500',
       color: '#FF6B6B'
     },
     {
       icon: <Trophy className="w-8 h-8" />,
-      title: 'Reliable Delivery',
-      description: 'We deliver what we promise. Clear timelines, honest communication.',
+      title: 'Quality Gates',
+      description: 'Playwright E2E, regression coverage, CI checks. Nothing ships without passing.',
       gradient: 'from-indigo-500 to-purple-500',
       color: '#6366F1'
     }
@@ -70,10 +70,10 @@ export function WhyChooseUs() {
             Our Advantage
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
-            Why Work With Us
+            Why Teams Choose Us
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            What makes us different from typical agencies
+            We operate as a structured team that plugs into existing workflows and handles real delivery pressure.
           </p>
         </motion.div>
 

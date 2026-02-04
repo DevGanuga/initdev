@@ -145,7 +145,7 @@ export function SimpleEngagementSection() {
           <h3 className="text-lg font-semibold text-pearl mb-3">Transparent Pricing</h3>
           <p className="text-ash max-w-2xl mx-auto">
             Every project is unique. We provide clear, upfront pricing based on scope and complexity. 
-            No hidden fees, no surprises—just honest value for transformative work.
+            No hidden fees, no surprises. Honest value for transformative work.
           </p>
         </motion.div>
       </div>

@@ -16,7 +16,7 @@ export function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
 
   return (
-    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]">
+    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]" style={{ position: 'relative' }}>
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient base */}
@@ -54,7 +54,7 @@ export function HeroSection() {
           >
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
               We Build Software
-            </span>
+            </span>{' '}
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
               <span className="text-gradient-blue">That Works</span>
             </span>
@@ -67,9 +67,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            A small team of senior engineers building{' '}
-            <span className="text-white font-normal">production-ready applications</span>.
-            Web apps, APIs, and systems designed to scale.
+            A full stack development agency built for{' '}
+            <span className="text-white font-normal">sprint-based delivery</span>.{' '}
+            SaaS platforms, internal tools, and AI-assisted products. Production ready.
           </motion.p>
 
           {/* CTAs */}
@@ -108,9 +108,9 @@ export function HeroSection() {
           >
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                { icon: Code2, text: 'Full-Stack Development' },
-                { icon: Users, text: 'Senior Engineers' },
-                { icon: Shield, text: 'Production-Ready Code' },
+                { icon: Code2, text: 'SaaS & Internal Tools' },
+                { icon: Users, text: 'Structured Team' },
+                { icon: Shield, text: 'Sprint-Based Delivery' },
               ].map((feature, index) => (
                 <motion.div
                   key={feature.text}

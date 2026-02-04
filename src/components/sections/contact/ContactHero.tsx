@@ -5,7 +5,7 @@ import { Sparkles } from 'lucide-react';
 
 export function ContactHero() {
   return (
-    <section className="relative pt-32 pb-12 overflow-hidden">
+    <section className="relative pt-8 pb-12 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0084ff]/5 via-transparent to-transparent" />
       
@@ -22,15 +22,12 @@ export function ContactHero() {
           </div>
           
           <h1 className="text-[clamp(2.5rem,5vw,3.5rem)] font-light text-white mb-4 leading-tight">
-            Let&apos;s Build Something
-            <span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
-              Extraordinary Together
-            </span>
+            Start a Pilot Sprint
           </h1>
           
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Tell us about your project and we&apos;ll match you with the perfect developer team. 
-            Takes just 2 minutes.
+            We integrate into your workflow, deliver real output, and expand from there if it fits.
+            No lengthy discovery phases.
           </p>
         </motion.div>
       </div>

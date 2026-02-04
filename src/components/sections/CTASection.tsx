@@ -23,14 +23,14 @@ export function CTASection() {
           <div className="text-center mb-12">
             <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-light text-white mb-6 leading-tight">
               Ready to Build
-              <span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
+              {' '}<span className="block bg-gradient-to-r from-[#0084ff] to-[#00a6ff] bg-clip-text text-transparent">
                 Something Great?
               </span>
             </h2>
 
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Let&apos;s talk about your project. We&apos;ll give you an honest assessment 
-              and see if we&apos;re the right fit.
+              Start with a paid pilot sprint. We integrate into your workflow, 
+              deliver real output, and expand from there if it fits.
             </p>
 
             {/* What to expect */}

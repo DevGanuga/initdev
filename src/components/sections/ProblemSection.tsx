@@ -17,38 +17,38 @@ export function ProblemSection() {
   const problems = [
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Timeline Clarity",
-      description: "We set realistic deadlines and stick to them. Regular updates keep you informed.",
+      title: "Sprint-Based Delivery",
+      description: "Written specs, sprint scope, and clear acceptance criteria on every project.",
       color: "from-blue-500/20 to-cyan-500/20"
     },
     {
       icon: <DollarSign className="w-6 h-6" />,
-      title: "Transparent Pricing",
-      description: "Clear scope, clear pricing. No surprises, no hidden costs.",
+      title: "Defined Delivery Models",
+      description: "We scale capacity up or down when demand spikes. Predictable output.",
       color: "from-green-500/20 to-teal-500/20"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Senior Engineers",
-      description: "Experienced developers who've built production systems before.",
+      title: "Full Team Structure",
+      description: "PM, backend, frontend, QA, performance, and security. All coordinated.",
       color: "from-purple-500/20 to-indigo-500/20"
     },
     {
       icon: <TrendingDown className="w-6 h-6" />,
-      title: "Clean Architecture",
-      description: "Code built for the long term. Easy to maintain, easy to extend.",
+      title: "AI-Native Workflow",
+      description: "Cursor AI IDE with scoped MCP tools per project. Consistent context across the codebase.",
       color: "from-yellow-500/20 to-orange-500/20"
     },
     {
       icon: <AlertTriangle className="w-6 h-6" />,
-      title: "Direct Communication",
-      description: "Talk directly to the people building your software. No middlemen.",
+      title: "E2E Testing Standard",
+      description: "Playwright testing tied to sprint requirements. Regression coverage and CI checks.",
       color: "from-orange-500/20 to-red-500/20"
     },
     {
       icon: <XCircle className="w-6 h-6" />,
-      title: "Quality Focus",
-      description: "Proper testing, documentation, and code reviews on every project.",
+      title: "Linear-Driven Process",
+      description: "Product and delivery managed through Linear. Single source of truth for specs and planning.",
       color: "from-pink-500/20 to-rose-500/20"
     }
   ];
@@ -73,16 +73,14 @@ export function ProblemSection() {
         >
           <div className="inline-block mb-4">
             <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase">
-              Common Challenges
+              What We Do Best
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-6">
-            Problems We
-            <span className="block text-gradient-blue">Help You Avoid</span>
+            Built for Complex Systems
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            Software projects can go sideways for many reasons.
-            Here&apos;s what we focus on preventing:
+            Multi-tenant systems, role-based access, complex workflows. Things that cannot break once clients are live.
           </p>
         </motion.div>
 
@@ -143,7 +141,7 @@ export function ProblemSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
           >
-            This is what we focus on for every project.
+            Not a freelancer collective. A structured team that handles real delivery pressure.
           </motion.p>
         </motion.div>
       </motion.div>
