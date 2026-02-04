@@ -30,8 +30,8 @@ export function WhyChooseUs() {
     },
     {
       icon: <Code2 className="w-8 h-8" />,
-      title: 'AI-Native',
-      description: 'Cursor AI IDE with MCP tools scoped per project. Consistent context, faster output.',
+      title: 'Clean Code',
+      description: 'Maintainable, documented, tested. Code your team can actually work with.',
       gradient: 'from-green-500 to-teal-500',
       color: '#00CED1'
     },

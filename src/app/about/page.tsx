@@ -284,6 +284,18 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 glass-subtle rounded-full mb-8"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                <Rocket className="w-4 h-4 text-blue-400" />
+                <span className="text-sm text-gray-400 font-medium">
+                  Limited Availability for Q1 2025
+                </span>
+              </motion.div>
+
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6">
                 Let&apos;s Build Something
                 {' '}<span className="block text-gradient-blue mt-2">Together</span>

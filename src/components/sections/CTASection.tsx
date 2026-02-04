@@ -29,8 +29,8 @@ export function CTASection() {
             </h2>
 
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Start with a paid pilot sprint. We integrate into your workflow, 
-              deliver real output, and expand from there if it fits.
+              Tell us what you need. We&apos;ll tell you if we can build it, 
+              how long it takes, and what it costs. No sales pitch.
             </p>
 
             {/* What to expect */}

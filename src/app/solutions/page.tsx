@@ -84,7 +84,7 @@ export default function SolutionsPage() {
               Built for Your Stage of Growth
             </h1>
             <p className="text-xl text-ash">
-              Whether you&apos;re launching your first product, optimizing sales, or scaling operations,
+              Whether you're launching your first product, optimizing sales, or scaling operations,
               we have the expertise to accelerate your business.
             </p>
           </motion.div>

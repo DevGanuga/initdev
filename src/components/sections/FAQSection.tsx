@@ -21,16 +21,16 @@ export function FAQSection() {
       answer: "Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow."
     },
     {
-      question: "How do you use AI?",
-      answer: "AI is embedded into how we deliver, not used as a marketing add-on. Organization-wide Cursor AI IDE with MCP tools scoped per project. Engineers work with consistent context across the codebase."
+      question: "What if I need ongoing support?",
+      answer: "We offer flexible monthly retainers for continuous development. But here's the thing - our code is so clean and documented, your team can take over anytime."
     },
     {
-      question: "What have you shipped?",
-      answer: "inflio.ai, drip.love, aiblueprintrt.com, navigator.leadingwith.ai, convoai.studio, dyia.io. All production systems with real users and ongoing delivery requirements."
+      question: "What technologies do you work with?",
+      answer: "Modern stack only. React, Next.js, Node, Python, Go, AWS, and more. We choose based on your needs, not our preferences. If it scales, we know it."
     },
     {
-      question: "How do we start?",
-      answer: "Paid pilot sprint. We integrate into your workflow, deliver real output, and expand from there if it fits. No lengthy discovery phases."
+      question: "How much does it cost?",
+      answer: "Projects start at $10k. We're not the cheapest, but we're the best value. You get senior expertise without enterprise overhead. Most clients save 60% vs traditional agencies."
     }
   ];
 
