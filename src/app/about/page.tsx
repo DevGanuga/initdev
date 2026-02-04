@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Zap, Shield, Users, Target, TrendingUp, CheckCircle } from 'lucide-react';
+import { ArrowRight, Code2, Zap, Shield, Users, Target, TrendingUp, CheckCircle, Rocket } from 'lucide-react';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 
 export default function AboutPage() {
