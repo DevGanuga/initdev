@@ -52,8 +52,35 @@ export default function ContactPage() {
   };
 
   const handleSubmit = async () => {
-    console.log('Form submitted:', formData);
-    // Handle actual submission here
+    const messageBody = [
+      formData.description,
+      formData.challenges ? `Challenges: ${formData.challenges}` : null,
+      `---`,
+      `Project Type: ${formData.projectType}`,
+      `Budget: ${formData.budget}`,
+      `Timeline: ${formData.timeline}`,
+      formData.phone ? `Phone: ${formData.phone}` : null,
+    ].filter(Boolean).join('\n');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || '',
+          message: messageBody,
+        }),
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+      // TODO: show success state
+      console.log('[Contact] Multi-step form submitted successfully');
+    } catch (error) {
+      console.error('[Contact] Submission error:', error);
+      // TODO: show error state
+    }
   };
 
   const isStepValid = () => {

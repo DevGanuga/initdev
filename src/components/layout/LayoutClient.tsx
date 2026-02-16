@@ -12,12 +12,10 @@ import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 const ANNOUNCEMENT_STORAGE_KEY = 'announcement-dismissed-q1-2026';
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
-  const [mounted, setMounted] = useState(false);
   const [hasAnnouncement, setHasAnnouncement] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    // Check localStorage to determine if announcement should show
+    // Check localStorage after mount to avoid hydration mismatch
     const isDismissed = localStorage.getItem(ANNOUNCEMENT_STORAGE_KEY);
     if (!isDismissed) {
       setHasAnnouncement(true);
@@ -29,10 +27,7 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
     localStorage.setItem(ANNOUNCEMENT_STORAGE_KEY, 'true');
   };
 
-  // Only show announcement after client-side mount to avoid hydration mismatch
-  const showAnnouncement = mounted && hasAnnouncement;
-
-  const announcementContent = showAnnouncement ? (
+  const announcementContent = hasAnnouncement ? (
     <AnnouncementBanner 
       message="Limited spots available for Q1 2026 projects"
       ctaText="Reserve Your Spot"
@@ -45,7 +40,7 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
     <>
       <SkipToContent />
       <Header 
-        hasAnnouncement={showAnnouncement} 
+        hasAnnouncement={hasAnnouncement} 
         announcementContent={announcementContent}
       />
       <ScrollProgress />

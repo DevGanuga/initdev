@@ -16,7 +16,7 @@ export function HeroSection() {
   const y = useTransform(scrollYProgress, [0, 0.4], [0, -80]);
 
   return (
-    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]" style={{ position: 'relative' }}>
+    <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient base */}

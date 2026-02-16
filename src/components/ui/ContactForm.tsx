@@ -47,10 +47,29 @@ export function ContactForm({ variant = 'inline', onClose, preselectedType }: Co
     setIsSubmitting(true);
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Compose a message string from all the structured fields
+      const messageBody = [
+        data.message,
+        `\n---`,
+        `Project Type: ${data.projectType}`,
+        `Budget: ${data.budget}`,
+        `Timeline: ${data.timeline}`,
+        data.phone ? `Phone: ${data.phone}` : null,
+      ].filter(Boolean).join('\n');
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company || '',
+          message: messageBody,
+        }),
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
       
-      console.log('Form submitted:', data);
       setSubmitStatus('success');
       reset();
       

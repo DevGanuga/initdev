@@ -1,150 +1,156 @@
 'use client';
 
-import { motion } from 'framer-motion';
+/* eslint-disable @next/next/no-img-element */
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Code2, Server, Cloud, Sparkles } from 'lucide-react';
+import { Code2, Server, Cloud } from 'lucide-react';
+
+type Tech = { name: string; logo: string; invert?: boolean };
+
+const categories: {
+  key: string;
+  label: string;
+  icon: React.ReactNode;
+  techs: Tech[];
+}[] = [
+  {
+    key: 'frontend',
+    label: 'Frontend',
+    icon: <Code2 className="w-4 h-4" />,
+    techs: [
+      { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+      { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', invert: true },
+      { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+      { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
+    ],
+  },
+  {
+    key: 'backend',
+    label: 'Backend',
+    icon: <Server className="w-4 h-4" />,
+    techs: [
+      { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+      { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+      { name: 'Go', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg' },
+      { name: 'GraphQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg' },
+      { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+      { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
+    ],
+  },
+  {
+    key: 'infrastructure',
+    label: 'Infrastructure',
+    icon: <Cloud className="w-4 h-4" />,
+    techs: [
+      { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+      { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+      { name: 'Vercel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg', invert: true },
+      { name: 'Terraform', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg' },
+      { name: 'Kubernetes', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg' },
+    ],
+  },
+];
 
 export function TechStack() {
-  const [activeCategory, setActiveCategory] = useState('frontend');
-
-  const techCategories = {
-    frontend: {
-      label: 'Frontend',
-      icon: <Code2 className="w-4 h-4" />,
-      color: 'from-blue-500 to-cyan-500',
-      techs: ['React', 'Next.js', 'Vue', 'TypeScript', 'Tailwind', 'Three.js']
-    },
-    backend: {
-      label: 'Backend',
-      icon: <Server className="w-4 h-4" />,
-      color: 'from-purple-500 to-pink-500',
-      techs: ['Node.js', 'Python', 'Go', 'GraphQL', 'PostgreSQL', 'Redis']
-    },
-    cloud: {
-      label: 'Cloud & DevOps',
-      icon: <Cloud className="w-4 h-4" />,
-      color: 'from-green-500 to-teal-500',
-      techs: ['AWS', 'Vercel', 'Docker', 'Kubernetes', 'CI/CD', 'Terraform']
-    },
-    emerging: {
-      label: 'Emerging Tech',
-      icon: <Sparkles className="w-4 h-4" />,
-      color: 'from-orange-500 to-red-500',
-      techs: ['AI/ML', 'Blockchain', 'IoT', 'AR/VR', 'Web3', 'Edge Computing']
-    }
-  };
+  const [active, setActive] = useState('frontend');
+  const activeCategory = categories.find((c) => c.key === active)!;
 
   return (
     <section className="py-24 relative">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black" />
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#050505] to-black" />
+
       <div className="container-custom relative z-10">
+        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-blue-400 text-sm font-medium tracking-wider uppercase mb-4 block">
-            Technology Stack
+          <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase mb-4 block">
+            Technology
           </span>
           <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
-            Built with the Best
+            Our Stack
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We leverage cutting-edge technologies to build scalable, performant solutions that stand the test of time
+          <p className="text-lg text-white/60 max-w-2xl mx-auto">
+            The tools we ship production systems with.
           </p>
         </motion.div>
 
-        {/* Category Tabs */}
+        {/* Tab Pills */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {Object.entries(techCategories).map(([key, category]) => (
-            <motion.button
-              key={key}
-              onClick={() => setActiveCategory(key)}
-              className={`group relative px-6 py-3 rounded-xl font-medium text-sm transition-all ${
-                activeCategory === key
+          {categories.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => setActive(cat.key)}
+              className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                active === cat.key
                   ? 'text-white'
-                  : 'text-gray-400 hover:text-white'
+                  : 'text-white/40 hover:text-white/70'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              {/* Background */}
-              {activeCategory === key && (
+              {/* Active background pill */}
+              {active === cat.key && (
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-r ${category.color} rounded-xl opacity-20`}
-                  layoutId="activeTab"
-                  transition={{ type: "spring", duration: 0.5 }}
+                  className="absolute inset-0 bg-white/[0.08] border border-white/[0.12] rounded-xl"
+                  layoutId="techTab"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              
-              {/* Content */}
+
+              {/* Inactive border */}
+              {active !== cat.key && (
+                <div className="absolute inset-0 border border-white/[0.06] rounded-xl" />
+              )}
+
               <span className="relative flex items-center gap-2">
-                {category.icon}
-                {category.label}
+                {cat.icon}
+                {cat.label}
               </span>
-              
-              {/* Border */}
-              <div className={`absolute inset-0 rounded-xl border ${
-                activeCategory === key 
-                  ? 'border-blue-500/50' 
-                  : 'border-white/10 group-hover:border-white/20'
-              }`} />
-            </motion.button>
+            </button>
           ))}
         </div>
 
         {/* Tech Grid */}
-        <motion.div
-          key={activeCategory}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {techCategories[activeCategory as keyof typeof techCategories].techs.map((tech, index) => (
-            <motion.div
-              key={tech}
-              className="group relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -5 }}
-            >
-              {/* Card */}
-              <div className="relative glass-card p-6 text-center h-full hover:border-blue-500/30 transition-all">
-                <span className="text-white font-light text-lg">{tech}</span>
-                
-                {/* Hover gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${
-                  techCategories[activeCategory as keyof typeof techCategories].color
-                } opacity-0 group-hover:opacity-10 rounded-xl transition-opacity`} />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Bottom Stats */}
-        <motion.div
-          className="mt-16 grid md:grid-cols-3 gap-8 max-w-3xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          {[
-            { label: 'Technologies Mastered', value: '50+' },
-            { label: 'Years Combined Experience', value: '100+' },
-            { label: 'Production Deployments', value: '200+' }
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl font-light text-blue-400 mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-500">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-3 md:gap-4 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3 }}
+          >
+            {activeCategory.techs.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                className="group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -4 }}
+              >
+                <div className="flex flex-col items-center gap-3 p-5 md:p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#0084ff]/30 hover:bg-white/[0.05] transition-all duration-300">
+                  <img
+                    src={tech.logo}
+                    alt={`${tech.name} logo`}
+                    width={40}
+                    height={40}
+                    className={`w-9 h-9 md:w-10 md:h-10 object-contain transition-transform duration-300 group-hover:scale-110 ${
+                      tech.invert ? 'brightness-0 invert' : ''
+                    }`}
+                    loading="lazy"
+                  />
+                  <span className="text-xs md:text-sm text-white/50 group-hover:text-white/80 transition-colors font-medium text-center">
+                    {tech.name}
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
