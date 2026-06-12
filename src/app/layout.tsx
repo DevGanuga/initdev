@@ -18,11 +18,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://initdev.com'),
   title: {
-    default: 'InitDev | Full Stack Development Agency',
+    default: 'InitDev | Hire a Custom Software Development Team',
     template: '%s | InitDev'
   },
-  description: "Full stack development agency built for sprint-based delivery of custom software. SaaS platforms, internal tools, and AI-assisted products.",
-  keywords: "full stack development, SaaS development, internal tools, AI integration, sprint delivery, software agency, production systems, custom software",
+  description: "Hire a senior custom software development team. PM, engineers, QA, and security shipping production-ready SaaS, internal tools, and AI products in fixed-scope sprints. Engagements from $10k.",
+  keywords: "hire custom software development team, custom software development company, dedicated development team, MVP development company, SaaS development agency, full stack development, AI product development",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
   publisher: 'InitDev',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "InitDev | Full Stack Development Agency",
-    description: "Sprint-based delivery of SaaS platforms, internal tools, and AI-assisted products. Production ready.",
+    title: "InitDev | Hire a Custom Software Development Team",
+    description: "A senior dev team that ships production-ready software in fixed-scope sprints. SaaS, internal tools, and AI products. Engagements from $10k.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "InitDev | Full Stack Development Agency",
-    description: "Sprint-based delivery. SaaS, internal tools, AI products. Production ready.",
+    title: "InitDev | Hire a Custom Software Development Team",
+    description: "A senior dev team that ships in fixed-scope sprints. SaaS, internal tools, AI products. From $10k.",
     images: ['/twitter-image.jpg'],
     creator: '@initdev',
   },

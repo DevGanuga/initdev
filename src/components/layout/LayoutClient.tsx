@@ -9,7 +9,14 @@ import { SkipToContent } from "@/components/ui/SkipToContent";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
 
-const ANNOUNCEMENT_STORAGE_KEY = 'announcement-dismissed-q1-2026';
+// Key is quarter-scoped so the banner re-appears each new quarter
+function getCurrentQuarterKey(): string {
+  const now = new Date();
+  const quarter = Math.ceil((now.getMonth() + 1) / 3);
+  return `announcement-dismissed-q${quarter}-${now.getFullYear()}`;
+}
+
+const ANNOUNCEMENT_STORAGE_KEY = getCurrentQuarterKey();
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const [hasAnnouncement, setHasAnnouncement] = useState(false);
@@ -29,9 +36,8 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
 
   const announcementContent = hasAnnouncement ? (
     <AnnouncementBanner 
-      message="Limited spots available for Q1 2026 projects"
-      ctaText="Reserve Your Spot"
-      ctaLink="/contact"
+      ctaText="Get a Free Assessment"
+      ctaLink="/#contact"
       onDismiss={handleDismiss}
     />
   ) : null;

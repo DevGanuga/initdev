@@ -21,6 +21,10 @@ export function FAQSection() {
       answer: "Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow."
     },
     {
+      question: "How fast can you start?",
+      answer: "First call within 48 hours. Scoped proposal in 3-5 days. Development starts as soon as you sign off, typically within two weeks of first contact. If we don't have capacity, we'll tell you upfront instead of stretching your project thin."
+    },
+    {
       question: "What if I need ongoing support?",
       answer: "We offer flexible monthly retainers for continuous development. But here's the thing - our code is so clean and documented, your team can take over anytime."
     },
@@ -30,7 +34,7 @@ export function FAQSection() {
     },
     {
       question: "How much does it cost?",
-      answer: "Projects start at $10k. We're not the cheapest, but we're the best value. You get senior expertise without enterprise overhead. Most clients save 60% vs traditional agencies."
+      answer: "Engagements start at $10k, and every sprint is fixed-scope and fixed-price - you see exactly what you're paying for before we write a line of code. No hourly billing surprises, no scope creep. If your budget is under $10k, we're probably not the right fit, and we'll tell you that on the first call."
     }
   ];
 

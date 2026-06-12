@@ -40,7 +40,7 @@ export function HeroSection() {
           >
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-blue-500/50" />
             <span className="text-xs text-blue-400/90 uppercase tracking-[0.2em] font-medium">
-              Custom Software Development
+              Custom Software Development Teams
             </span>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-blue-500/50" />
           </motion.div>
@@ -53,10 +53,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
-              We Build Software
+              A Senior Dev Team
             </span>{' '}
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
-              <span className="text-gradient-blue">That Works</span>
+              <span className="text-gradient-blue">That Actually Ships</span>
             </span>
           </motion.h1>
 
@@ -67,25 +67,25 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            A full stack development agency built for{' '}
-            <span className="text-white font-normal">sprint-based delivery</span>.{' '}
-            SaaS platforms, internal tools, and AI-assisted products. Production ready.
+            PM, engineers, QA, and security — one coordinated team shipping{' '}
+            <span className="text-white font-normal">production-ready software in fixed-scope sprints</span>.{' '}
+            SaaS platforms, internal tools, and AI products. Engagements from $10k.
           </motion.p>
 
           {/* CTAs */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <motion.a
-              href="/contact"
+              href="#contact"
               className="btn-premium group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Start a Conversation</span>
+              <span>Get a Free Technical Assessment</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </motion.a>
             
@@ -98,6 +98,16 @@ export function HeroSection() {
               <span>What We Build</span>
             </motion.a>
           </motion.div>
+
+          {/* Response-time microcopy under CTA */}
+          <motion.p
+            className="text-sm text-gray-500 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Response within 2 hours · Scoped proposal in 3–5 days
+          </motion.p>
 
           {/* Feature pills */}
           <motion.div

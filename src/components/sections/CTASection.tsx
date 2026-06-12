@@ -26,6 +26,7 @@ const leadSchema = z.object({
       { message: 'Please use your work email' }
     ),
   company: z.string().optional(),
+  budget: z.string().optional(),
   message: z.string().min(5, 'Give us a sentence or two about your project'),
 });
 
@@ -50,10 +51,19 @@ export function CTASection() {
     setSubmitStatus('submitting');
 
     try {
+      const payload = {
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        message: data.budget
+          ? `${data.message}\n---\nBudget: ${data.budget}`
+          : data.message,
+      };
+
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) throw new Error('Submission failed');
@@ -223,22 +233,48 @@ export function CTASection() {
                       )}
                     </div>
 
-                    {/* Company (optional) */}
-                    <div>
-                      <label
-                        htmlFor="cta-company"
-                        className="block text-sm font-medium text-white/70 mb-1.5"
-                      >
-                        Company{' '}
-                        <span className="text-white/30 font-normal">(optional)</span>
-                      </label>
-                      <input
-                        {...register('company')}
-                        id="cta-company"
-                        type="text"
-                        placeholder="Acme Inc."
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#0084ff]/40 focus:ring-2 focus:ring-[#0084ff]/10 focus:outline-none transition-all text-sm"
-                      />
+                    {/* Company + Budget (optional) */}
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label
+                          htmlFor="cta-company"
+                          className="block text-sm font-medium text-white/70 mb-1.5"
+                        >
+                          Company{' '}
+                          <span className="text-white/30 font-normal">(optional)</span>
+                        </label>
+                        <input
+                          {...register('company')}
+                          id="cta-company"
+                          type="text"
+                          placeholder="Acme Inc."
+                          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder:text-white/25 focus:border-[#0084ff]/40 focus:ring-2 focus:ring-[#0084ff]/10 focus:outline-none transition-all text-sm"
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="cta-budget"
+                          className="block text-sm font-medium text-white/70 mb-1.5"
+                        >
+                          Budget{' '}
+                          <span className="text-white/30 font-normal">(optional)</span>
+                        </label>
+                        <select
+                          {...register('budget')}
+                          id="cta-budget"
+                          defaultValue=""
+                          className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white focus:border-[#0084ff]/40 focus:ring-2 focus:ring-[#0084ff]/10 focus:outline-none transition-all text-sm appearance-none [&>option]:bg-[#0a0a14]"
+                        >
+                          <option value="" disabled className="text-white/25">
+                            Select a range
+                          </option>
+                          <option value="$10k – $25k">$10k – $25k</option>
+                          <option value="$25k – $50k">$25k – $50k</option>
+                          <option value="$50k – $100k">$50k – $100k</option>
+                          <option value="$100k+">$100k+</option>
+                          <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                      </div>
                     </div>
 
                     {/* Message */}

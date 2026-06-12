@@ -75,7 +75,7 @@ export function Header({ hasAnnouncement = false, announcementContent }: HeaderP
                 href="/contact"
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40 flex items-center gap-2 group"
               >
-                Start Project
+                Get Free Assessment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -142,7 +142,7 @@ export function Header({ hasAnnouncement = false, announcementContent }: HeaderP
                       className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-medium text-center transition-all hover:shadow-lg"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      Start Project
+                      Get Free Assessment
                     </Link>
                   </div>
                 </div>

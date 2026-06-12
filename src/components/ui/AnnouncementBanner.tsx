@@ -25,7 +25,7 @@ export function AnnouncementBanner({
 }: AnnouncementBannerProps) {
   return (
     <div 
-      className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white h-12"
+      className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white h-12"
     >
       <div className="absolute inset-0 bg-black/10" />
       <div className="relative max-w-7xl mx-auto px-6 h-full">

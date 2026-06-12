@@ -197,12 +197,15 @@ export function CaseStudyPreview() {
           transition={{ delay: 0.3 }}
         >
           <a
-            href="/contact"
+            href="#contact"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#00a6ff] text-white font-medium rounded-xl shadow-xl shadow-[#0084ff]/20 hover:shadow-2xl hover:shadow-[#0084ff]/30 hover:scale-[1.02] transition-all duration-300"
           >
-            Start a Conversation
+            Get a Free Technical Assessment
             <ArrowRight className="w-5 h-5" />
           </a>
+          <p className="text-white/40 text-sm mt-3">
+            Honest feedback on scope, timeline, and cost — within 2 hours.
+          </p>
         </motion.div>
       </div>
     </section>
