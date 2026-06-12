@@ -2,6 +2,12 @@
 
 import { X, ArrowRight } from 'lucide-react';
 
+function getCurrentQuarter(): string {
+  const now = new Date();
+  const quarter = Math.ceil((now.getMonth() + 1) / 3);
+  return `Q${quarter} ${now.getFullYear()}`;
+}
+
 interface AnnouncementBannerProps {
   message?: string;
   ctaText?: string;
@@ -11,7 +17,7 @@ interface AnnouncementBannerProps {
 }
 
 export function AnnouncementBanner({
-  message = "Limited spots available for Q1 2026 projects",
+  message = `Limited spots available for ${getCurrentQuarter()} projects`,
   ctaText = "Reserve Your Spot",
   ctaLink = "/contact",
   dismissible = true,
