@@ -10,7 +10,11 @@ export function FAQSection() {
   const faqs = [
     {
       question: "What do you build?",
-      answer: "Full stack SaaS platforms, internal tools, and AI-assisted products. Multi-tenant systems, role-based access, complex workflows. Production ready, not demos."
+      answer: "Custom software across the stack — SaaS platforms, internal tools, AI-assisted products, consumer apps, and the secure infrastructure underneath them. Multi-tenant systems, role-based access, complex workflows. Production ready, not demos."
+    },
+    {
+      question: "Do you handle security and infrastructure?",
+      answer: "Yes. Security isn't an afterthought — we do secure architecture and threat modeling up front, plus application hardening, audits, network design, and monitoring. We also own cloud infrastructure, CI/CD, and observability so what we ship is reliable and defensible in production."
     },
     {
       question: "How does delivery work?",
@@ -26,11 +30,11 @@ export function FAQSection() {
     },
     {
       question: "What if I need ongoing support?",
-      answer: "We offer flexible monthly retainers for continuous development. But here's the thing - our code is so clean and documented, your team can take over anytime."
+      answer: "We offer flexible monthly retainers for continuous work. And because everything ships documented and tested in your repos, your own team can take it over whenever you want — you're never locked in."
     },
     {
       question: "What technologies do you work with?",
-      answer: "Modern stack only. React, Next.js, Node, Python, Go, AWS, and more. We choose based on your needs, not our preferences. If it scales, we know it."
+      answer: "React, Next.js, Node, Python, Go, Postgres, and AWS, plus the AI and data tooling around them. We pick the stack that fits your problem and your team — not whatever we used last."
     },
     {
       question: "How much does it cost?",

@@ -3,6 +3,7 @@
 import { ArrowRight, Code2, Users, Shield } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,11 +20,24 @@ export function HeroSection() {
     <section ref={sectionRef} className="min-h-screen relative overflow-hidden flex items-center justify-center bg-[#030306]">
       {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Generated ambient backdrop */}
+        <Image
+          src="/images/generated/hero-aurora.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-60"
+        />
+
         {/* Gradient base */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(0,100,255,0.12),transparent)]" />
-        
+
         {/* Accent glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(0,100,255,0.06)_0%,transparent_70%)]" />
+
+        {/* Bottom fade into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#030306]" />
       </div>
       
       <motion.div 
@@ -67,9 +81,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            PM, engineers, QA, and security — one coordinated team shipping{' '}
-            <span className="text-white font-normal">production-ready software in fixed-scope sprints</span>.{' '}
-            SaaS platforms, internal tools, and AI products. Engagements from $10k.
+            One coordinated team — product, engineering, QA, and security — that turns a spec into{' '}
+            <span className="text-white font-normal">deployed, tested software in two-week sprints</span>.{' '}
+            The kind you can already use: SaaS, AI, and consumer products in the wild. From $10k.
           </motion.p>
 
           {/* CTAs */}
@@ -118,9 +132,9 @@ export function HeroSection() {
           >
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                { icon: Code2, text: 'SaaS & Internal Tools' },
-                { icon: Users, text: 'Structured Team' },
-                { icon: Shield, text: 'Sprint-Based Delivery' },
+                { icon: Code2, text: 'Custom Software & AI' },
+                { icon: Users, text: 'Structured Senior Team' },
+                { icon: Shield, text: 'Security-First Delivery' },
               ].map((feature, index) => (
                 <motion.div
                   key={feature.text}

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Image from 'next/image';
 import {
   ArrowRight,
   CheckCircle,
@@ -78,8 +79,15 @@ export function CTASection() {
   return (
     <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#080812] to-[#050505]" />
+        <Image
+          src="/images/generated/cta-banner.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-50 mix-blend-screen"
+        />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(0,100,255,0.06),transparent)]" />
       </div>
 

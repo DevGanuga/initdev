@@ -39,8 +39,8 @@ export default function AboutPage() {
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                A full stack development agency built for sprint-based delivery of custom software.
-                We operate as a structured team that plugs into existing workflows.
+                A software firm that runs like an in-house team you don&apos;t have to hire — scoped
+                in sprints, plugged into your workflow, accountable for what ships.
               </p>
             </motion.div>
           </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
                 What We Build
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Full-stack development across the modern web stack
+                Frontend to infrastructure, with security built in from the first commit
               </p>
             </motion.div>
 
@@ -233,9 +233,9 @@ export default function AboutPage() {
                   description: "Scalable APIs and services"
                 },
                 {
-                  role: "Infrastructure",
-                  expertise: "AWS, Docker, CI/CD",
-                  description: "Reliable deployment pipelines"
+                  role: "Infrastructure & Security",
+                  expertise: "AWS, Docker, Zero-Trust",
+                  description: "Reliable, hardened deployments"
                 }
               ].map((member, idx) => (
                 <motion.div
@@ -292,7 +292,7 @@ export default function AboutPage() {
               >
                 <Rocket className="w-4 h-4 text-blue-400" />
                 <span className="text-sm text-gray-400 font-medium">
-                  Limited Availability for Q1 2025
+                  Limited availability — book early
                 </span>
               </motion.div>
 

@@ -88,7 +88,8 @@ export function CaseStudyPreview() {
             Production Systems
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Full stack platforms, internal tools, and AI products. Production ready, not demos.
+            The work we get hired for: multi-tenant SaaS, internal tooling, AI features, and the
+            infrastructure that keeps them standing.
           </p>
         </motion.div>
 

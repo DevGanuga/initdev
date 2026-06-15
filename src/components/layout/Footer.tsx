@@ -6,16 +6,16 @@ import { Mail, ArrowUpRight } from 'lucide-react';
 
 const footerLinks = {
   Services: [
-    { label: 'Web Applications', href: '/services' },
-    { label: 'Mobile Development', href: '/services' },
-    { label: 'API Development', href: '/services' },
-    { label: 'Cloud Solutions', href: '/services' },
+    { label: 'Custom Software', href: '/services' },
+    { label: 'AI & Data Systems', href: '/services' },
+    { label: 'Network & Cybersecurity', href: '/services' },
+    { label: 'Cloud & Infrastructure', href: '/services' },
   ],
   Company: [
+    { label: 'Selected Work', href: '/cases' },
     { label: 'About Us', href: '/about' },
     { label: 'Our Process', href: '/process' },
     { label: 'Contact', href: '/contact' },
-    { label: 'Blog', href: '/blog' },
   ],
 };
 
@@ -41,8 +41,8 @@ export function Footer() {
             </Link>
             
             <p className="text-gray-400 mb-6 max-w-sm leading-relaxed">
-              Custom software development for companies that need it done right. 
-              Senior engineers building production-ready solutions.
+              We build the software, AI, and secure systems companies actually run on.
+              Senior team. No fluff, no lock-in.
             </p>
             
             {/* Contact info */}

@@ -3,6 +3,7 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { CaseStudyPreview } from '@/components/sections/CaseStudyPreview';
+import { SelectedWork } from '@/components/sections/SelectedWork';
 import { SocialProof } from '@/components/sections/SocialProof';
 import { TechStack } from '@/components/sections/TechStack';
 import { EngagementFlow } from '@/components/sections/EngagementFlow';
@@ -24,6 +25,9 @@ export default function HomePage() {
         
         {/* What We Build (tabbed) */}
         <CaseStudyPreview />
+        
+        {/* Real builds, live in production */}
+        <SelectedWork />
         
         {/* Trust Signals & Track Record */}
         <SocialProof />

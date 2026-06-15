@@ -1,17 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  Code2, 
-  Smartphone, 
-  Cloud, 
-  Brain, 
+import Image from 'next/image';
+import {
+  Code2,
+  Smartphone,
+  Cloud,
+  Brain,
   Cpu,
-  Shield
+  Shield,
+  type LucideIcon,
 } from 'lucide-react';
 
+interface ServiceItem {
+  icon: LucideIcon;
+  title: string;
+  items: string[];
+  image?: string;
+}
+
 export function ServicesSection() {
-  const coreServices = [
+  const coreServices: ServiceItem[] = [
     {
       icon: Code2,
       title: 'Full-Stack Foundations',
@@ -44,7 +53,7 @@ export function ServicesSection() {
     }
   ];
 
-  const advancedServices = [
+  const advancedServices: ServiceItem[] = [
     {
       icon: Brain,
       title: 'AI/ML Integration',
@@ -57,22 +66,23 @@ export function ServicesSection() {
     },
     {
       icon: Shield,
-      title: 'Blockchain & Web3',
+      title: 'Network & Cybersecurity',
       items: [
-        'Smart contracts that do what they promise',
-        'DeFi protocols built for real use',
-        'NFT platforms beyond the hype',
-        'Decentralized applications users actually want'
-      ]
+        'Secure architecture and threat modeling from day one',
+        'Application hardening, audits, and penetration testing',
+        'Network design, segmentation, and zero-trust access',
+        'Monitoring, logging, and incident response'
+      ],
+      image: '/images/generated/cyber-shield.png'
     },
     {
       icon: Cpu,
-      title: 'IoT & Edge Computing',
+      title: 'Data & Automation',
       items: [
-        'Connected devices that stay connected',
-        'Edge processing that responds in real-time',
-        'Sensor networks that scale to thousands',
-        'Industrial IoT that drives real ROI'
+        'Data pipelines and warehousing that scale',
+        'Workflow automation that removes manual busywork',
+        'Third-party integrations and event-driven systems',
+        'Edge and real-time processing where it matters'
       ]
     }
   ];
@@ -91,7 +101,8 @@ export function ServicesSection() {
             Our Services
           </h2>
           <p className="text-xl text-white/60 leading-relaxed">
-            From foundation to innovation, we build the technology that drives your business forward.
+            From the platforms your business runs on to the security that protects them — and the
+            AI and automation that pull ahead of everyone still doing it by hand.
           </p>
         </motion.div>
 
@@ -153,17 +164,28 @@ export function ServicesSection() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
-                  <service.icon className="w-10 h-10 text-[#0084ff] mb-4" />
-                  <h4 className="text-xl font-medium text-white mb-4">{service.title}</h4>
-                  <ul className="space-y-2">
-                    {service.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-white/60 text-sm">
-                        <span className="text-[#0084ff] mt-1.5">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="relative overflow-hidden p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                  {service.image && (
+                    <Image
+                      src={service.image}
+                      alt=""
+                      width={260}
+                      height={260}
+                      className="pointer-events-none absolute -right-12 -top-10 w-48 opacity-25 group-hover:opacity-40 transition-opacity duration-500"
+                    />
+                  )}
+                  <div className="relative">
+                    <service.icon className="w-10 h-10 text-[#0084ff] mb-4" />
+                    <h4 className="text-xl font-medium text-white mb-4">{service.title}</h4>
+                    <ul className="space-y-2">
+                      {service.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-white/60 text-sm">
+                          <span className="text-[#0084ff] mt-1.5">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     default: 'InitDev | Hire a Custom Software Development Team',
     template: '%s | InitDev'
   },
-  description: "Hire a senior custom software development team. PM, engineers, QA, and security shipping production-ready SaaS, internal tools, and AI products in fixed-scope sprints. Engagements from $10k.",
-  keywords: "hire custom software development team, custom software development company, dedicated development team, MVP development company, SaaS development agency, full stack development, AI product development",
+  description: "Hire a senior custom software development team. PM, engineers, QA, and security shipping production-ready custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
+  keywords: "hire custom software development team, custom software development company, dedicated development team, AI product development, SaaS development agency, full stack development, network and cybersecurity services, secure infrastructure",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
   publisher: 'InitDev',
@@ -33,25 +33,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "InitDev | Hire a Custom Software Development Team",
-    description: "A senior dev team that ships production-ready software in fixed-scope sprints. SaaS, internal tools, and AI products. Engagements from $10k.",
+    description: "A senior dev team that ships production-ready software in fixed-scope sprints. Custom software, AI products, and secure infrastructure. Engagements from $10k.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
     locale: 'en_US',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'InitDev - Full Stack Development Agency',
+        url: '/images/generated/og-cover.png',
+        width: 1216,
+        height: 640,
+        alt: 'InitDev — Custom software, AI & secure infrastructure',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "InitDev | Hire a Custom Software Development Team",
-    description: "A senior dev team that ships in fixed-scope sprints. SaaS, internal tools, AI products. From $10k.",
-    images: ['/twitter-image.jpg'],
+    description: "A senior dev team that ships in fixed-scope sprints. Custom software, AI products, secure infrastructure. From $10k.",
+    images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
   },
   robots: {
