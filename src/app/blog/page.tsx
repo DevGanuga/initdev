@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'InitDev Blog | Engineering Insights & Startup Wisdom',
     description: 'Technical deep-dives and startup strategies from senior engineers.',
-    url: 'https://initdev.com/blog',
+    url: 'https://initdev.co/blog',
   },
 };
 

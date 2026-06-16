@@ -8,7 +8,7 @@ Disallow: /_next/
 Disallow: /private/
 
 # Sitemap
-Sitemap: https://initdev.com/sitemap.xml
+Sitemap: https://initdev.co/sitemap.xml
 
 # Crawl delay for bots
 User-agent: *

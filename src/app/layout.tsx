@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://initdev.com'),
+  metadataBase: new URL('https://initdev.co'),
   title: {
-    default: 'InitDev | A Software Development Studio',
+    default: 'InitDev | Custom Software Development Studio',
     template: '%s | InitDev'
   },
   description: "InitDev is a software development studio with 13+ production apps shipped. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "InitDev | A Software Development Studio",
+    title: "InitDev | Custom Software Development Studio",
     description: "A software development studio with 13+ apps shipped. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
-    url: "https://initdev.com",
+    url: "https://initdev.co",
     siteName: "InitDev",
     type: "website",
     locale: 'en_US',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "InitDev | A Software Development Studio",
+    title: "InitDev | Custom Software Development Studio",
     description: "A development studio with 13+ apps shipped. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
     images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
@@ -74,7 +74,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'InitDev',
-  url: 'https://initdev.com',
+  url: 'https://initdev.co',
   description:
     'A software development studio. A senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints.',
   email: 'success@initdev.co',
