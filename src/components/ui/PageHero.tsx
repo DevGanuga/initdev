@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 
 interface PageHeroProps {
@@ -19,6 +20,18 @@ interface PageHeroProps {
 export function PageHero({ eyebrow, icon: Icon, title, highlight, subtitle }: PageHeroProps) {
   return (
     <section className="pt-24 pb-16 relative overflow-hidden">
+      {/* Generated ambient backdrop — shared across page heroes for a unified open */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/generated/hero-aurora.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-40 object-top"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#050505]" />
+      </div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(0,100,255,0.10),transparent)]" />
 
       <div className="container-custom relative z-10">

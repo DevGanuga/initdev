@@ -65,6 +65,25 @@ export const projects: Project[] = [
     categories: ['AI', 'Realtime Video'],
     image: '/images/work/convoai.jpg',
     accent: 'from-purple-500/20 to-blue-500/20',
+  },
+  {
+    slug: 'animalia',
+    name: 'Animalia',
+    url: 'https://www.animalia.market',
+    domain: 'animalia.market',
+    tagline: 'For pets who are family.',
+    summary:
+      'A premium pet-wellness marketplace that pulls 50+ vet-approved brands into one curated storefront — joint support, calming, dental care, and daily nutrition, all organized around each pet\u2019s specific needs.',
+    built: [
+      'Curated multi-brand catalog organized by pet and by need',
+      'Conversion-focused storefront with reviews and trust signals',
+      'Cart, checkout, and order flows with free-shipping thresholds',
+      'Collections, brand pages, and merchandising for dogs and cats',
+    ],
+    tech: ['Next.js', 'Commerce', 'Stripe', 'PostgreSQL'],
+    categories: ['Marketplace', 'E-commerce', 'Consumer'],
+    image: '/images/work/animalia.jpg',
+    accent: 'from-emerald-500/20 to-amber-500/20',
     featured: true,
   },
   {

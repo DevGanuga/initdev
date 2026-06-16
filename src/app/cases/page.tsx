@@ -50,6 +50,17 @@ export default function CasesPage() {
     >
       {/* Hero */}
       <section className="pt-24 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <Image
+            src="/images/generated/hero-aurora.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-40 object-top"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#050505]" />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(0,100,255,0.10),transparent)]" />
 
         <div className="container-custom relative z-10">
@@ -101,7 +112,17 @@ export default function CasesPage() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true, margin: '-80px' }}
           >
-            <div className="grid lg:grid-cols-2">
+            {/* Generated radial accent behind the copy */}
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[520px] h-[520px] pointer-events-none opacity-30 hidden lg:block">
+              <Image
+                src="/images/generated/node-orbit.png"
+                alt=""
+                fill
+                sizes="520px"
+                className="object-contain"
+              />
+            </div>
+            <div className="relative grid lg:grid-cols-2">
               <a
                 href={foundry.url}
                 target="_blank"
@@ -175,8 +196,8 @@ export default function CasesPage() {
               </h2>
             </div>
             <p className="text-white/45 text-sm max-w-sm md:text-right">
-              Six live builds out of 90+. Every one is in production and open to the public — click
-              through and try them.
+              A live slice of the 90+ we&apos;ve shipped. Every one is in production and open to the
+              public — click through and try them.
             </p>
           </motion.div>
 
@@ -315,14 +336,29 @@ export default function CasesPage() {
       <section className="pb-28">
         <div className="container-custom">
           <motion.div
-            className="text-center"
+            className="relative text-center overflow-hidden rounded-3xl border border-white/[0.07] px-6 py-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-white/60 mb-8">
-              Have something you want built right? Let&apos;s talk through scope, timeline, and cost.
+            <div className="absolute inset-0 pointer-events-none">
+              <Image
+                src="/images/generated/topo-band.jpg"
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-[#050505]/70" />
+            </div>
+            <div className="relative">
+            <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
+              Have something worth building?
+            </h2>
+            <p className="text-white/60 mb-8 max-w-xl mx-auto">
+              Tell us what you&apos;re after. We&apos;ll come back with scope, timeline, and a fixed
+              price — usually within a few days.
             </p>
             <Link
               href="/contact"
@@ -331,6 +367,7 @@ export default function CasesPage() {
               Start a Conversation
               <ArrowRight className="w-4 h-4" />
             </Link>
+            </div>
           </motion.div>
         </div>
       </section>

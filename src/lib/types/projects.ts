@@ -8,6 +8,7 @@ export type ProjectCategory =
   | 'Platform'
   | 'Realtime Video'
   | 'E-commerce'
+  | 'Marketplace'
   | 'Payments'
   | 'Mobile'
   | 'Security'

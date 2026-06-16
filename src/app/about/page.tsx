@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowRight, Code2, Zap, Shield, Users, Target, TrendingUp, CheckCircle, Rocket } from 'lucide-react';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 
@@ -13,6 +14,17 @@ export default function AboutPage() {
           {/* Background Effects */}
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-gradient-mesh opacity-30" />
+            {/* Generated radial constellation accent */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] max-w-[120vw] pointer-events-none opacity-[0.18]">
+              <Image
+                src="/images/generated/node-orbit.png"
+                alt=""
+                fill
+                priority
+                sizes="760px"
+                className="object-contain"
+              />
+            </div>
             <motion.div
               className="absolute top-40 -right-40 w-[600px] h-[600px] bg-blue-500/10 rounded-full filter blur-3xl"
               animate={{

@@ -76,6 +76,34 @@ const VISUALS = [
       "'InitDev' in clean white geometric sans-serif. Below it a thin small tagline in muted gray reading " +
       "'Custom software, AI & secure infrastructure'. Faint blueprint grid lines. High contrast, premium. No people.",
   },
+  {
+    file: 'aurora-soft.jpg',
+    output_format: 'jpeg',
+    image_size: { width: 1920, height: 1080 },
+    prompt:
+      `Extremely subtle abstract ambient backdrop for a dark section behind text and cards. ${BRAND} ` +
+      'A faint horizontal band of deep blue glow drifting low across the frame, with a barely-visible field of tiny ' +
+      'particles and thin diagonal light streaks, very low contrast, mostly empty near-black space so overlaid text stays readable. ' +
+      'No text. 16:9.',
+  },
+  {
+    file: 'node-orbit.png',
+    output_format: 'png',
+    image_size: { width: 1024, height: 1024 },
+    prompt:
+      `Abstract radial constellation in precise thin vector line-art on a near-black canvas. ${BRAND} ` +
+      'Concentric orbital rings connecting glowing electric-blue to cyan network nodes around a single bright core, ' +
+      'delicate circuit traces, symmetrical centered composition, generous negative space. Premium, geometric. No text.',
+  },
+  {
+    file: 'topo-band.jpg',
+    output_format: 'jpeg',
+    image_size: { width: 1920, height: 600 },
+    prompt:
+      `Wide minimal abstract divider band. ${BRAND} ` +
+      'Flowing topographic contour lines in faint electric blue rippling left to right across a near-black field, ' +
+      'a soft cyan glow blooming subtly off-center, generous empty space. No text. Aspect 3.2:1.',
+  },
 ];
 
 async function generateOne(apiKey, spec) {

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 
 const metrics = [
@@ -30,6 +31,16 @@ export function SocialProof() {
     <section className="py-24 relative overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#080810] to-[#050505]" />
+      {/* Generated ambient glow */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/generated/aurora-soft.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-50"
+        />
+      </div>
 
       <div className="container-custom relative z-10">
         {/* Header */}
