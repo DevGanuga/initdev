@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
-import { CursorFollower } from "@/components/ui/CursorFollower";
 import { SkipToContent } from "@/components/ui/SkipToContent";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
 import { AnnouncementBanner } from "@/components/ui/AnnouncementBanner";
@@ -50,7 +49,6 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
         announcementContent={announcementContent}
       />
       <ScrollProgress />
-      <CursorFollower />
       
       <ErrorBoundary>
         <main id="main-content" className="relative">

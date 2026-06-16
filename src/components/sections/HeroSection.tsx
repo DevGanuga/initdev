@@ -67,10 +67,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
-              A Studio That
+              Custom software,
             </span>{' '}
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
-              <span className="text-gradient-blue">Actually Ships</span>
+              <span className="text-gradient-blue">built by a senior studio</span>
             </span>
           </motion.h1>
 
@@ -81,9 +81,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            A senior studio — product, engineering, QA, and security under one roof — that turns a spec into{' '}
-            <span className="text-white font-normal">deployed, tested software in two-week sprints</span>.{' '}
-            We&apos;ve shipped 90+ products you can already use: SaaS, AI, and consumer apps in the wild. From $10k.
+            InitDev is a software development studio. One senior team — engineering, product, QA, and security — that{' '}
+            <span className="text-white font-normal">designs, builds, and ships</span> custom software, AI products, and
+            secure infrastructure. 13+ products already live in production. Fixed scope, from $10k.
           </motion.p>
 
           {/* CTAs */}

@@ -20,7 +20,6 @@ export default function AboutPage() {
                 src="/images/generated/node-orbit.png"
                 alt=""
                 fill
-                priority
                 sizes="760px"
                 className="object-contain"
               />
@@ -52,7 +51,7 @@ export default function AboutPage() {
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 A development studio that runs like an in-house team you don&apos;t have to hire —
-                scoped in sprints, plugged into your workflow, accountable for what ships. 90+
+                scoped in sprints, plugged into your workflow, accountable for what ships. 13+
                 products shipped, and counting.
               </p>
             </motion.div>

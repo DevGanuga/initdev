@@ -3,7 +3,7 @@ import type { Project } from '@/lib/types/projects';
 /**
  * A selected few of the production applications shipped by the InitDev studio.
  * Descriptions are factual to each live product — no invented clients,
- * people, or outcome metrics. The studio has shipped 90+ applications in total.
+ * people, or outcome metrics. The studio has shipped 13+ applications in total.
  */
 export const projects: Project[] = [
   {
@@ -172,7 +172,7 @@ export const foundry = {
  * applications shipped across the studio and Foundry portfolio.
  */
 export const studioStats = {
-  shipped: '90+',
+  shipped: '13+',
   sprint: '2wk',
   ownership: '100%',
   reply: '2h',

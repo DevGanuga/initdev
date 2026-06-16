@@ -23,7 +23,8 @@ const nextConfig: NextConfig = {
   
   // Experimental features for better performance
   experimental: {
-    
+    // Tree-shake large UI/animation libs so only used icons/components ship
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
   // Headers for security and caching

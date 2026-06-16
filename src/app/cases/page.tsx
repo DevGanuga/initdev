@@ -72,7 +72,7 @@ export default function CasesPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] backdrop-blur-sm rounded-full border border-white/10 mb-8">
               <Rocket className="w-4 h-4 text-[#0084ff]" />
-              <span className="text-sm text-white/70">A development studio · 90+ apps shipped</span>
+              <span className="text-sm text-white/70">A development studio · 13+ apps shipped</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-light text-white mb-6 tracking-[-0.02em]">
@@ -80,7 +80,7 @@ export default function CasesPage() {
               <span className="text-gradient-blue">for the studio</span>
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-              We&apos;ve shipped 90+ production applications — SaaS, AI products, consumer apps, and
+              We&apos;ve shipped 13+ production applications — SaaS, AI products, consumer apps, and
               enterprise platforms. Below is a selected few you can open and use right now.
             </p>
           </motion.div>
@@ -196,7 +196,7 @@ export default function CasesPage() {
               </h2>
             </div>
             <p className="text-white/45 text-sm max-w-sm md:text-right">
-              A live slice of the 90+ we&apos;ve shipped. Every one is in production and open to the
+              A live slice of the 13+ we&apos;ve shipped. Every one is in production and open to the
               public — click through and try them.
             </p>
           </motion.div>

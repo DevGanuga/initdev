@@ -42,7 +42,7 @@ export function Footer() {
             
             <p className="text-gray-400 mb-6 max-w-sm leading-relaxed">
               A software development studio building the products, AI, and secure systems companies
-              actually run on. 90+ shipped. No fluff, no lock-in.
+              actually run on. 13+ shipped. No fluff, no lock-in.
             </p>
             
             {/* Contact info */}

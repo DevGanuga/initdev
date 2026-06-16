@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: 'InitDev | A Software Development Studio',
     template: '%s | InitDev'
   },
-  description: "InitDev is a software development studio with 90+ production apps shipped. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
+  description: "InitDev is a software development studio with 13+ production apps shipped. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
   keywords: "software development studio, custom software development, dedicated development team, AI product development, SaaS development, full stack development, network and cybersecurity services, secure infrastructure",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "InitDev | A Software Development Studio",
-    description: "A software development studio with 90+ apps shipped. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
+    description: "A software development studio with 13+ apps shipped. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
@@ -50,9 +50,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "InitDev | A Software Development Studio",
-    description: "A development studio with 90+ apps shipped. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
+    description: "A development studio with 13+ apps shipped. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
     images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
+  },
+  alternates: {
+    canonical: '/',
   },
   robots: {
     index: true,
@@ -65,10 +68,28 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'google-site-verification-code',
-    yandex: 'yandex-verification-code',
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'InitDev',
+  url: 'https://initdev.com',
+  description:
+    'A software development studio. A senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints.',
+  email: 'success@initdev.co',
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'The Dravidor Foundry',
+    url: 'https://www.thedravidorfoundry.org',
   },
+  knowsAbout: [
+    'Custom Software Development',
+    'AI Product Development',
+    'SaaS Platforms',
+    'Network & Cybersecurity',
+    'Cloud Infrastructure',
+  ],
 };
 
 export default function RootLayout({
@@ -81,6 +102,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <LayoutClient>
           {children}
         </LayoutClient>
