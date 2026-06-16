@@ -41,8 +41,8 @@ export function Footer() {
             </Link>
             
             <p className="text-gray-400 mb-6 max-w-sm leading-relaxed">
-              We build the software, AI, and secure systems companies actually run on.
-              Senior team. No fluff, no lock-in.
+              A software development studio building the products, AI, and secure systems companies
+              actually run on. 90+ shipped. No fluff, no lock-in.
             </p>
             
             {/* Contact info */}
@@ -52,6 +52,17 @@ export function Footer() {
             >
               <Mail className="w-4 h-4" />
               <span className="text-sm">success@initdev.co</span>
+            </a>
+
+            {/* Backed by */}
+            <a
+              href="https://www.thedravidorfoundry.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 flex items-center gap-2 text-xs text-gray-500 hover:text-gray-300 transition-colors group"
+            >
+              <span className="uppercase tracking-wider">A studio of The Dravidor Foundry</span>
+              <ArrowUpRight className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
 

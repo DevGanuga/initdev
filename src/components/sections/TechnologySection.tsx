@@ -81,9 +81,9 @@ export function TechnologySection() {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300">
+              <div className="p-8 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.07] hover:border-[#0084ff]/30 transition-all duration-300">
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-lg bg-[#0084ff]/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#0084ff]/10 flex items-center justify-center flex-shrink-0">
                     <category.icon className="w-6 h-6 text-[#0084ff]" />
                   </div>
                   <div>
@@ -115,7 +115,7 @@ export function TechnologySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center p-12 bg-gradient-to-r from-[#0084ff]/10 via-[#0066cc]/10 to-[#0084ff]/10 rounded-lg border border-[#0084ff]/20"
+          className="text-center p-12 bg-gradient-to-r from-[#0084ff]/10 via-[#0066cc]/10 to-[#0084ff]/10 rounded-2xl border border-[#0084ff]/20"
         >
           <h3 className="text-2xl font-light text-white mb-4">Always Learning, Always Leading</h3>
           <p className="text-white/60 max-w-2xl mx-auto">

@@ -94,7 +94,7 @@ export function ProcessSection() {
               >
                 <div className="flex gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-14 h-14 rounded-lg bg-[#0084ff]/10 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-xl bg-[#0084ff]/10 flex items-center justify-center">
                       <phase.icon className="w-7 h-7 text-[#0084ff]" />
                     </div>
                   </div>
@@ -145,7 +145,7 @@ export function ProcessSection() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                <div className="p-8 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.07] hover:border-[#0084ff]/30 transition-all duration-300 h-full">
                   <div className="flex items-start justify-between mb-4">
                     <model.icon className="w-8 h-8 text-[#0084ff]" />
                     <span className="text-[#0084ff] text-sm font-medium">{model.duration}</span>
@@ -167,7 +167,7 @@ export function ProcessSection() {
           transition={{ duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <button className="group px-8 py-4 bg-[#0084ff] text-white font-medium rounded-lg transition-all duration-300 hover:bg-[#0066cc] hover:shadow-lg hover:shadow-[#0084ff]/25">
+          <button className="group px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white font-medium rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,132,255,0.4)] hover:scale-[1.02]">
             <span className="flex items-center justify-center gap-2">
               Start Your Project
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -7,7 +7,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper';
 export default function AboutPage() {
   return (
     <>
-      <main className="min-h-screen bg-black">
+      <main className="min-h-screen bg-[#050505]">
         {/* Hero Section */}
         <section className="relative pt-8 pb-20 overflow-hidden">
           {/* Background Effects */}
@@ -39,8 +39,9 @@ export default function AboutPage() {
               </h1>
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                A software firm that runs like an in-house team you don&apos;t have to hire — scoped
-                in sprints, plugged into your workflow, accountable for what ships.
+                A development studio that runs like an in-house team you don&apos;t have to hire —
+                scoped in sprints, plugged into your workflow, accountable for what ships. 90+
+                products shipped, and counting.
               </p>
             </motion.div>
           </div>

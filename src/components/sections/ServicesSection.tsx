@@ -127,7 +127,7 @@ export function ServicesSection() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                <div className="p-8 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.07] hover:border-[#0084ff]/30 transition-all duration-300 h-full">
                   <service.icon className="w-10 h-10 text-[#0084ff] mb-4" />
                   <h4 className="text-xl font-medium text-white mb-4">{service.title}</h4>
                   <ul className="space-y-2">
@@ -164,7 +164,7 @@ export function ServicesSection() {
                 transition={{ delay: index * 0.1 }}
                 className="group"
               >
-                <div className="relative overflow-hidden p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full">
+                <div className="relative overflow-hidden p-8 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.07] hover:border-[#0084ff]/30 transition-all duration-300 h-full">
                   {service.image && (
                     <Image
                       src={service.image}

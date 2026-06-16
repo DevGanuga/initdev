@@ -18,11 +18,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://initdev.com'),
   title: {
-    default: 'InitDev | Hire a Custom Software Development Team',
+    default: 'InitDev | A Software Development Studio',
     template: '%s | InitDev'
   },
-  description: "Hire a senior custom software development team. PM, engineers, QA, and security shipping production-ready custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
-  keywords: "hire custom software development team, custom software development company, dedicated development team, AI product development, SaaS development agency, full stack development, network and cybersecurity services, secure infrastructure",
+  description: "InitDev is a software development studio with 90+ production apps shipped. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
+  keywords: "software development studio, custom software development, dedicated development team, AI product development, SaaS development, full stack development, network and cybersecurity services, secure infrastructure",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
   publisher: 'InitDev',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "InitDev | Hire a Custom Software Development Team",
-    description: "A senior dev team that ships production-ready software in fixed-scope sprints. Custom software, AI products, and secure infrastructure. Engagements from $10k.",
+    title: "InitDev | A Software Development Studio",
+    description: "A software development studio with 90+ apps shipped. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
     url: "https://initdev.com",
     siteName: "InitDev",
     type: "website",
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "InitDev | Hire a Custom Software Development Team",
-    description: "A senior dev team that ships in fixed-scope sprints. Custom software, AI products, secure infrastructure. From $10k.",
+    title: "InitDev | A Software Development Studio",
+    description: "A development studio with 90+ apps shipped. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
     images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
   },

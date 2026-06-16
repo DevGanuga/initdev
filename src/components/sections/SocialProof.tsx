@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const metrics = [
-  { value: '6+', label: 'Products Live in Production', sublabel: 'SaaS, AI, consumer, enterprise' },
+  { value: '90+', label: 'Production Apps Shipped', sublabel: 'SaaS, AI, consumer, enterprise' },
   { value: '2wk', label: 'Typical Sprint Cycle', sublabel: 'From signed spec to deployed code' },
   { value: '100%', label: 'Code You Own', sublabel: 'In your repos, no lock-in' },
   { value: '2h', label: 'Reply on New Projects', sublabel: 'A senior engineer, not a bot' },

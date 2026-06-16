@@ -1,10 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Check, Code2, Layers, Zap, Globe, Rocket } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, Code2, Layers, Zap, Globe, Rocket, FlaskConical } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { projects } from '@/lib/data/projects';
+import { projects, foundry, studioStats } from '@/lib/data/projects';
+
+const heroStats = [
+  { value: studioStats.shipped, label: 'Production apps shipped' },
+  { value: studioStats.sprint, label: 'Average time to first release' },
+  { value: studioStats.ownership, label: 'Code & IP you own' },
+  { value: studioStats.reply, label: 'Typical reply time' },
+];
 
 const capabilities = [
   {
@@ -54,24 +61,125 @@ export default function CasesPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] backdrop-blur-sm rounded-full border border-white/10 mb-8">
               <Rocket className="w-4 h-4 text-[#0084ff]" />
-              <span className="text-sm text-white/70">Selected Work</span>
+              <span className="text-sm text-white/70">A development studio · 90+ apps shipped</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-light text-white mb-6 tracking-[-0.02em]">
-              Products we&apos;ve shipped{' '}
-              <span className="text-gradient-blue">to production</span>
+              The work speaks{' '}
+              <span className="text-gradient-blue">for the studio</span>
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-              Every product below is live and in the hands of real users — SaaS, AI tools, consumer
-              apps, and enterprise platforms. Click through and see for yourself.
+              We&apos;ve shipped 90+ production applications — SaaS, AI products, consumer apps, and
+              enterprise platforms. Below is a selected few you can open and use right now.
             </p>
           </motion.div>
+
+          {/* Stat row */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-px max-w-4xl mx-auto mt-14 rounded-2xl overflow-hidden border border-white/[0.07] bg-white/[0.04]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="bg-[#070707] px-5 py-7 text-center">
+                <div className="text-3xl md:text-4xl font-light text-white tracking-tight">{stat.value}</div>
+                <div className="text-xs text-white/45 mt-2 leading-snug">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Backed by The Dravidor Foundry */}
+      <section className="py-12">
+        <div className="container-custom">
+          <motion.article
+            className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <div className="grid lg:grid-cols-2">
+              <a
+                href={foundry.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block aspect-[16/10] overflow-hidden bg-black group"
+              >
+                <Image
+                  src={foundry.image}
+                  alt={`${foundry.name} — ${foundry.tagline}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
+              </a>
+
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 mb-4 self-start px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-[#0084ff] bg-[#0084ff]/10 rounded-full">
+                  <FlaskConical className="w-3.5 h-3.5" />
+                  Our R&D Foundry
+                </div>
+                <h2 className="text-2xl md:text-3xl font-light text-white mb-1">{foundry.name}</h2>
+                <p className="text-white/80 text-lg font-light mb-4">{foundry.tagline}</p>
+                <p className="text-white/50 leading-relaxed mb-6">{foundry.summary}</p>
+
+                <div className="flex flex-wrap gap-2 mb-7">
+                  {foundry.ventures.map((v) => (
+                    <span
+                      key={v}
+                      className={`px-3 py-1 text-xs rounded-full border ${
+                        v === 'InitDev'
+                          ? 'bg-[#0084ff]/15 text-[#0084ff] border-[#0084ff]/30'
+                          : 'bg-white/[0.04] text-white/55 border-white/[0.08]'
+                      }`}
+                    >
+                      {v}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={foundry.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[#0084ff] transition-colors self-start group/link"
+                >
+                  Visit {foundry.domain}
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                </a>
+              </div>
+            </div>
+          </motion.article>
         </div>
       </section>
 
       {/* Portfolio — alternating feature rows */}
       <section className="py-12">
         <div className="container-custom">
+          <motion.div
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase mb-3 block">
+                Selected Work
+              </span>
+              <h2 className="text-3xl md:text-4xl font-light text-white">
+                A few of the products we ship
+              </h2>
+            </div>
+            <p className="text-white/45 text-sm max-w-sm md:text-right">
+              Six live builds out of 90+. Every one is in production and open to the public — click
+              through and try them.
+            </p>
+          </motion.div>
+
           <div className="space-y-8">
             {projects.map((project, index) => (
               <motion.article

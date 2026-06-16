@@ -54,7 +54,7 @@ export function HeroSection() {
           >
             <span className="h-px w-8 bg-gradient-to-r from-transparent to-blue-500/50" />
             <span className="text-xs text-blue-400/90 uppercase tracking-[0.2em] font-medium">
-              Custom Software Development Teams
+              A Software Development Studio
             </span>
             <span className="h-px w-8 bg-gradient-to-l from-transparent to-blue-500/50" />
           </motion.div>
@@ -67,10 +67,10 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em] text-white/95">
-              A Senior Dev Team
+              A Studio That
             </span>{' '}
             <span className="block text-[clamp(2.5rem,8vw,5rem)] font-extralight tracking-[-0.03em]">
-              <span className="text-gradient-blue">That Actually Ships</span>
+              <span className="text-gradient-blue">Actually Ships</span>
             </span>
           </motion.h1>
 
@@ -81,9 +81,9 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            One coordinated team — product, engineering, QA, and security — that turns a spec into{' '}
+            A senior studio — product, engineering, QA, and security under one roof — that turns a spec into{' '}
             <span className="text-white font-normal">deployed, tested software in two-week sprints</span>.{' '}
-            The kind you can already use: SaaS, AI, and consumer products in the wild. From $10k.
+            We&apos;ve shipped 90+ products you can already use: SaaS, AI, and consumer apps in the wild. From $10k.
           </motion.p>
 
           {/* CTAs */}

@@ -57,7 +57,7 @@ export function SimpleCTASection() {
               transition={{ delay: index * 0.15 }}
               className="group"
             >
-              <div className="p-8 bg-black/40 backdrop-blur-sm rounded-lg border border-white/10 hover:border-[#0084ff]/30 transition-all duration-300 h-full flex flex-col">
+              <div className="p-8 bg-white/[0.02] backdrop-blur-sm rounded-2xl border border-white/[0.07] hover:border-[#0084ff]/30 transition-all duration-300 h-full flex flex-col">
                 <offering.icon className="w-10 h-10 text-[#0084ff] mb-4" />
                 <h3 className="text-xl font-medium text-white mb-3">{offering.title}</h3>
                 <p className="text-white/60 flex-grow">{offering.description}</p>
@@ -76,7 +76,7 @@ export function SimpleCTASection() {
         >
           <Link 
             href="/contact"
-            className="group px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white font-medium rounded-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,132,255,0.5)] hover:scale-105"
+            className="group px-8 py-4 bg-gradient-to-r from-[#0084ff] to-[#0066cc] text-white font-medium rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,132,255,0.4)] hover:scale-[1.02]"
           >
             <span className="flex items-center justify-center gap-2">
               Get in Touch
@@ -85,7 +85,7 @@ export function SimpleCTASection() {
           </Link>
           <Link 
             href="/services"
-            className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-lg border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            className="px-8 py-4 bg-white/5 backdrop-blur-sm text-white font-medium rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
           >
             View Our Services
           </Link>

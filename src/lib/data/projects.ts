@@ -1,8 +1,9 @@
 import type { Project } from '@/lib/types/projects';
 
 /**
- * Real builds shipped by InitDev. Descriptions are factual to each live
- * product — no invented clients, people, or outcome metrics.
+ * A selected few of the production applications shipped by the InitDev studio.
+ * Descriptions are factual to each live product — no invented clients,
+ * people, or outcome metrics. The studio has shipped 90+ applications in total.
  */
 export const projects: Project[] = [
   {
@@ -126,3 +127,34 @@ export const projects: Project[] = [
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
+
+/**
+ * The R&D foundry that InitDev operates within. InitDev is the software studio
+ * inside The Dravidor Foundry — the research engine that feeds our work.
+ */
+export const foundry = {
+  name: 'The Dravidor Foundry',
+  url: 'https://www.thedravidorfoundry.org',
+  domain: 'thedravidorfoundry.org',
+  tagline: 'The R&D powerhouse behind market-disrupting businesses.',
+  summary:
+    'InitDev is the software studio inside The Dravidor Foundry — an R&D powerhouse working at the intersection of AI, quantum-classical systems, synthetic biology, and neuromorphic computing. The Foundry turns frontier research into category-defining ventures; we ship the software that brings them to market.',
+  points: [
+    'Anticipatory research across AI, quantum, and bio-digital systems',
+    'A portfolio of ventures spanning AI, infrastructure, and life sciences',
+    'Frontier research translated into production-grade products',
+  ],
+  ventures: ['XanderAI', 'InitDev', 'Systema', 'Animalia', 'XerxesAGI', 'Inflio'],
+  image: '/images/work/dravidor.jpg',
+};
+
+/**
+ * Studio-level proof points. The headline number reflects total production
+ * applications shipped across the studio and Foundry portfolio.
+ */
+export const studioStats = {
+  shipped: '90+',
+  sprint: '2wk',
+  ownership: '100%',
+  reply: '2h',
+};
