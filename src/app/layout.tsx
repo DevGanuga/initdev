@@ -58,9 +58,10 @@ export const metadata: Metadata = {
     images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
   },
-  alternates: {
-    canonical: '/',
-  },
+  // No canonical here. Layout metadata is inherited by every nested route, so
+  // a canonical set at this level told Google that /services, /cases, /process,
+  // /about and /contact were all duplicates of the homepage. Each page now
+  // declares its own.
   robots: {
     index: true,
     follow: true,

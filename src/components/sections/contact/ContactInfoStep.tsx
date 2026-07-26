@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { User, Mail, Building, Phone, ArrowLeft, Send, Shield } from 'lucide-react';
-import { FormData } from '@/app/contact/page';
+import { ContactFormData } from '@/lib/types/contact';
 
 interface ContactInfoStepProps {
-  formData: FormData;
-  setFormData: (data: FormData) => void;
+  formData: ContactFormData;
+  setFormData: (data: ContactFormData) => void;
   onSubmit: () => void;
   onBack: () => void;
   isValid: boolean;

@@ -71,6 +71,20 @@ export function needsConsentPrompt(): boolean {
   return !readCookie(CONSENT_COOKIE);
 }
 
+/**
+ * Reopens the consent prompt on demand.
+ *
+ * GDPR requires withdrawing consent to be as easy as giving it, and the banner
+ * hides itself permanently once answered — so without this there is no way
+ * back. Fired from a footer control and handled by ConsentBanner.
+ */
+export const CONSENT_REOPEN_EVENT = 'initdev:open-consent';
+
+export function openConsentSettings() {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new Event(CONSENT_REOPEN_EVENT));
+}
+
 export function getStoredConsent(): ConsentChoice | undefined {
   const value = readCookie(CONSENT_COOKIE);
   return value === 'granted' || value === 'denied' ? value : undefined;

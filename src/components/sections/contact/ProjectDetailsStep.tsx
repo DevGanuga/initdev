@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { MessageSquare, Target, ArrowRight, ArrowLeft, Lightbulb } from 'lucide-react';
-import { FormData } from '@/app/contact/page';
+import { ContactFormData } from '@/lib/types/contact';
 
 interface ProjectDetailsStepProps {
-  formData: FormData;
-  setFormData: (data: FormData) => void;
+  formData: ContactFormData;
+  setFormData: (data: ContactFormData) => void;
   onNext: () => void;
   onBack: () => void;
   isValid: boolean;

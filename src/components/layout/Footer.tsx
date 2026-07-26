@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, ArrowUpRight } from 'lucide-react';
+import { openConsentSettings } from '@/lib/analytics';
 
 const footerLinks = {
   Services: [
@@ -101,6 +102,17 @@ export function Footer() {
             <Link href="/contact" className="text-gray-500 hover:text-white text-sm transition-colors">
               Contact
             </Link>
+            {/*
+              Withdrawing consent has to be as easy as giving it. The banner
+              hides permanently once answered, so this is the only way back.
+            */}
+            <button
+              type="button"
+              onClick={openConsentSettings}
+              className="text-gray-500 hover:text-white text-sm transition-colors"
+            >
+              Cookie settings
+            </button>
           </div>
         </div>
       </div>

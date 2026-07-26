@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { needsConsentPrompt, setConsent } from '@/lib/analytics';
+import {
+  CONSENT_REOPEN_EVENT,
+  getStoredConsent,
+  needsConsentPrompt,
+  setConsent,
+  type ConsentChoice,
+} from '@/lib/analytics';
 
 /**
  * Consent Mode v2 prompt. Shown only to visitors in the EEA, UK, and
@@ -13,15 +19,28 @@ import { needsConsentPrompt, setConsent } from '@/lib/analytics';
  */
 export function ConsentBanner() {
   const [visible, setVisible] = useState(false);
+  const [current, setCurrent] = useState<ConsentChoice | undefined>();
 
   useEffect(() => {
     // Deferred to an effect so the server-rendered markup is identical for
     // every visitor and the page stays static.
     setVisible(needsConsentPrompt());
+    setCurrent(getStoredConsent());
+
+    // Reopened from the footer. Shown to anyone who asks, regardless of
+    // region — a visitor outside the EEA who wants to opt out should be able
+    // to, even though their default is granted.
+    const reopen = () => {
+      setCurrent(getStoredConsent());
+      setVisible(true);
+    };
+    window.addEventListener(CONSENT_REOPEN_EVENT, reopen);
+    return () => window.removeEventListener(CONSENT_REOPEN_EVENT, reopen);
   }, []);
 
-  const choose = (choice: 'granted' | 'denied') => {
+  const choose = (choice: ConsentChoice) => {
     setConsent(choice);
+    setCurrent(choice);
     setVisible(false);
   };
 
@@ -39,11 +58,22 @@ export function ConsentBanner() {
         >
           <div className="max-w-3xl mx-auto rounded-2xl border border-white/[0.08] bg-[#0a0a0f]/95 backdrop-blur-md p-5 sm:p-6 shadow-2xl">
             <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-              <p className="text-sm text-white/70 leading-relaxed flex-1">
-                We use cookies to measure how people find this site and whether our
-                ads work. Decline and we&apos;ll only count you anonymously — the
-                site works exactly the same either way.
-              </p>
+              <div className="flex-1">
+                <p className="text-sm text-white/70 leading-relaxed">
+                  We use cookies to measure how people find this site and whether our
+                  ads work. Decline and we&apos;ll only count you anonymously — the
+                  site works exactly the same either way.
+                </p>
+                {current && (
+                  <p className="text-xs text-white/40 mt-2">
+                    Current setting: analytics and advertising cookies{' '}
+                    <span className="text-white/60">
+                      {current === 'granted' ? 'accepted' : 'declined'}
+                    </span>
+                    .
+                  </p>
+                )}
+              </div>
 
               <div className="flex gap-3 shrink-0">
                 <button

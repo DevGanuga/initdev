@@ -2,11 +2,11 @@
 
 import { motion } from 'framer-motion';
 import { Rocket, Shield, Zap, Users, Code2, Brain, ArrowRight } from 'lucide-react';
-import { FormData } from '@/app/contact/page';
+import { ContactFormData } from '@/lib/types/contact';
 
 interface ProjectTypeStepProps {
-  formData: FormData;
-  setFormData: (data: FormData) => void;
+  formData: ContactFormData;
+  setFormData: (data: ContactFormData) => void;
   onNext: () => void;
   isValid: boolean;
 }

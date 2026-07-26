@@ -1,29 +1,19 @@
-'use client';
+import type { Metadata } from 'next';
+import { ProcessContent } from './ProcessContent';
 
-import { motion } from 'framer-motion';
-import { GitBranch } from 'lucide-react';
-import { ProcessSection } from '@/components/sections/ProcessSection';
-import { SimpleCTASection } from '@/components/sections/SimpleCTASection';
-import { PageHero } from '@/components/ui/PageHero';
+export const metadata: Metadata = {
+  title: 'Our Process — From Spec to Shipped',
+  description:
+    'How an engagement runs: written scope and acceptance criteria, two-week sprints, and clean handover. No black boxes, and you own the code at every step.',
+  alternates: { canonical: '/process' },
+  openGraph: {
+    title: 'Our Process — From Spec to Shipped | InitDev',
+    description:
+      'Written scope and acceptance criteria, two-week sprints, and clean handover. No black boxes, and you own the code at every step.',
+    url: '/process',
+  },
+};
 
 export default function ProcessPage() {
-  return (
-    <motion.main 
-      className="bg-[#050505] min-h-screen"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <PageHero
-        eyebrow="How we work"
-        icon={GitBranch}
-        title="A clear path from"
-        highlight="spec to shipped"
-        subtitle="No black boxes and no surprises — written scope, two-week sprints, and code you own at every step."
-      />
-
-      <ProcessSection />
-      <SimpleCTASection />
-    </motion.main>
-  );
+  return <ProcessContent />;
 }
