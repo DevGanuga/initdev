@@ -96,6 +96,9 @@ export function HeroSection() {
             <motion.a
               href="#contact"
               className="btn-premium group"
+              data-track="cta_click"
+              data-track-label="Get a Free Technical Assessment"
+              data-track-location="hero_primary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -106,6 +109,9 @@ export function HeroSection() {
             <motion.a
               href="/services"
               className="btn-secondary"
+              data-track="cta_click"
+              data-track-label="What We Build"
+              data-track-location="hero_secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

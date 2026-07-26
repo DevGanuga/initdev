@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { trackFaqOpen } from '@/lib/events';
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -69,7 +70,11 @@ export function FAQSection() {
                 transition={{ delay: index * 0.05 }}
               >
                 <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  onClick={() => {
+                    // Only the open counts — a close is the same click again.
+                    if (openIndex !== index) trackFaqOpen(faq.question, index);
+                    setOpenIndex(openIndex === index ? null : index);
+                  }}
                   className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
                 >
                   <span className="text-lg text-white font-medium pr-4">

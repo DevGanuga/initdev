@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Users, Building2, Briefcase, Check, X, Minus } from 'lucide-react';
+import { trackTabView } from '@/lib/events';
 
 type Rating = 'yes' | 'no' | 'partial';
 
@@ -114,7 +115,10 @@ export function ComparisonSection() {
           {alternatives.map((alt) => (
             <button
               key={alt.key}
-              onClick={() => setActive(alt.key)}
+              onClick={() => {
+                trackTabView('alternatives', alt.key);
+                setActive(alt.key);
+              }}
               className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 active === alt.key
                   ? 'text-white'

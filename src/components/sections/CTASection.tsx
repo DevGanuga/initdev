@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,6 +15,9 @@ import {
   Loader2,
   AlertCircle,
 } from 'lucide-react';
+import { trackLead } from '@/lib/analytics';
+import { getAttribution } from '@/lib/attribution';
+import { trackFormError, trackFormStart, trackFormValidationError } from '@/lib/events';
 
 // ─── Schema ─────────────────────────────────────────────────
 const leadSchema = z.object({
@@ -33,6 +36,8 @@ const leadSchema = z.object({
 
 type LeadFormData = z.infer<typeof leadSchema>;
 
+const FORM_ID = 'homepage_cta';
+
 // ─── Component ──────────────────────────────────────────────
 export function CTASection() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>(
@@ -48,6 +53,19 @@ export function CTASection() {
     resolver: zodResolver(leadSchema),
   });
 
+  // Fires once, on the first real interaction with any field. This is the
+  // denominator for form drop-off — without it we only ever see completions.
+  const startedRef = useRef(false);
+  const onFieldFocus = () => {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackFormStart(FORM_ID);
+  };
+
+  const onInvalid = (formErrors: Record<string, unknown>) => {
+    trackFormValidationError(FORM_ID, Object.keys(formErrors));
+  };
+
   const onSubmit = async (data: LeadFormData) => {
     setSubmitStatus('submitting');
 
@@ -59,6 +77,8 @@ export function CTASection() {
         message: data.budget
           ? `${data.message}\n---\nBudget: ${data.budget}`
           : data.message,
+        budget: data.budget,
+        attribution: getAttribution(),
       };
 
       const res = await fetch('/api/contact', {
@@ -69,9 +89,20 @@ export function CTASection() {
 
       if (!res.ok) throw new Error('Submission failed');
 
+      // Only after the server confirms — firing on click would report leads
+      // that were never actually captured.
+      await trackLead({
+        formId: FORM_ID,
+        email: data.email,
+        budget: data.budget,
+      });
+
       setSubmitStatus('success');
       reset();
-    } catch {
+    } catch (error) {
+      // A lead that reached the server and failed. Without this event nobody
+      // would ever learn it happened.
+      trackFormError(FORM_ID, error instanceof Error ? error.message : 'unknown');
       setSubmitStatus('error');
     }
   };
@@ -196,7 +227,10 @@ export function CTASection() {
                 ) : (
                   <motion.form
                     key="form"
-                    onSubmit={handleSubmit(onSubmit)}
+                    onSubmit={handleSubmit(onSubmit, onInvalid)}
+                    // Capture phase so a single handler on the form sees the
+                    // first focus of any field without touching each input.
+                    onFocusCapture={onFieldFocus}
                     className="space-y-5"
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

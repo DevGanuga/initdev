@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { LayoutClient } from "@/components/layout/LayoutClient";
+import { Analytics } from "@/components/analytics/Analytics";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+import { EngagementTracker } from "@/components/analytics/EngagementTracker";
+import { WebVitals } from "@/components/analytics/WebVitals";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -106,9 +110,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
+        <EngagementTracker />
+        <WebVitals />
         <LayoutClient>
           {children}
         </LayoutClient>
+        <ConsentBanner />
       </body>
     </html>
   );

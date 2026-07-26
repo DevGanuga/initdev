@@ -1,9 +1,16 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
-  
+
+  // A stray lockfile in the user's home directory makes Next infer the wrong
+  // workspace root. Pin it to this project so builds resolve consistently.
+  turbopack: {
+    root: path.join(__dirname),
+  },
+
   // Image optimization
   images: {
     remotePatterns: [
@@ -99,6 +106,15 @@ const nextConfig: NextConfig = {
       {
         source: '/home',
         destination: '/',
+        permanent: true,
+      },
+      // /solutions was removed; /services is the genuine content match.
+      // /blog and /demo are deliberately left to 404 instead of redirecting —
+      // mass-redirecting removed pages to an unrelated one reads as a soft 404
+      // and slows deindexing rather than speeding it up.
+      {
+        source: '/solutions',
+        destination: '/services',
         permanent: true,
       },
     ];

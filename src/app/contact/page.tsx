@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 
 import { ContactHero } from '@/components/sections/contact/ContactHero';
@@ -11,6 +12,12 @@ import { ContactInfoStep } from '@/components/sections/contact/ContactInfoStep';
 import { FormProgress } from '@/components/sections/contact/FormProgress';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle, AlertCircle } from 'lucide-react';
+import { trackLead } from '@/lib/analytics';
+import { getAttribution } from '@/lib/attribution';
+import { trackEvent, trackFormError, trackFormStart, trackFormStep } from '@/lib/events';
+
+const FORM_ID = 'contact_page';
+const STEP_NAMES = ['project_type', 'budget_timeline', 'project_details', 'contact_info'];
 
 export interface FormData {
   projectType: string;
@@ -41,20 +48,46 @@ export default function ContactPage() {
 
   const totalSteps = 4;
 
+  // Fires once, the moment any field is first filled. Step 1 is a click-to-
+  // select, so there is no focus event to hang this on.
+  const startedRef = useRef(false);
+  useEffect(() => {
+    if (startedRef.current) return;
+    if (!Object.values(formData).some(Boolean)) return;
+    startedRef.current = true;
+    trackFormStart(FORM_ID);
+  }, [formData]);
+
+  /**
+   * Step-level funnel. On a four-step form this is the difference between
+   * knowing the form converts badly and knowing *which* question loses people
+   * — usually the budget step.
+   */
   const handleNext = () => {
     if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
+      const next = currentStep + 1;
+      // The step being completed, not the one being entered.
+      trackFormStep(FORM_ID, currentStep, STEP_NAMES[currentStep - 1]);
+      setCurrentStep(next);
     }
   };
 
   const handleBack = () => {
     if (currentStep > 1) {
+      // Going backwards signals hesitation on the step being left.
+      trackEvent('form_step_back', {
+        form_id: FORM_ID,
+        step: currentStep,
+        step_name: STEP_NAMES[currentStep - 1],
+      });
       setCurrentStep(currentStep - 1);
     }
   };
 
   const handleSubmit = async () => {
     setSubmitStatus('submitting');
+    // The final step completes on submit rather than via handleNext.
+    trackFormStep(FORM_ID, totalSteps, STEP_NAMES[totalSteps - 1]);
 
     const messageBody = [
       formData.description,
@@ -75,13 +108,29 @@ export default function ContactPage() {
           email: formData.email,
           company: formData.company || '',
           message: messageBody,
+          budget: formData.budget,
+          attribution: getAttribution(),
         }),
       });
 
       if (!res.ok) throw new Error('Submission failed');
+
+      // Only after the server confirms — firing on click would report leads
+      // that were never actually captured.
+      await trackLead({
+        formId: 'contact_page',
+        email: formData.email,
+        budget: formData.budget,
+        params: {
+          project_type: formData.projectType,
+          timeline: formData.timeline,
+        },
+      });
+
       setSubmitStatus('success');
     } catch (error) {
       console.error('[Contact] Submission error:', error);
+      trackFormError(FORM_ID, error instanceof Error ? error.message : 'unknown');
       setSubmitStatus('error');
     }
   };
@@ -126,9 +175,9 @@ export default function ContactPage() {
                   within 2 hours during business hours — usually with a few clarifying
                   questions and a proposed time for your free strategy call.
                 </p>
-                <a href="/" className="btn-secondary">
+                <Link href="/" className="btn-secondary">
                   Back to Home
-                </a>
+                </Link>
               </motion.div>
             ) : (
             <>
