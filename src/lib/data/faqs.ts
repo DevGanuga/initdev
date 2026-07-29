@@ -29,7 +29,7 @@ export const faqs: Faq[] = [
   {
     question: 'What does the team look like?',
     answer:
-      'Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow.',
+      'Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow — with deep experience pressure-testing systems across retail, banking, healthcare, and enterprise platforms.',
   },
   {
     question: 'How fast can you start?',

@@ -44,36 +44,19 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      {/* Hook & Value Prop */}
       <HeroSection />
 
-      {/* Problem / Capabilities */}
       <div id="problem">
         <ProblemSection />
       </div>
 
-      {/* What We Build (tabbed) */}
       <CaseStudyPreview />
-
-      {/* Real builds, live in production */}
       <SelectedWork />
-
-      {/* Trust Signals & Track Record */}
       <SocialProof />
-
-      {/* Technical Credibility (tabbed) */}
       <TechStack />
-
-      {/* How to Start Working Together */}
       <EngagementFlow />
-
-      {/* Why Us Over Alternatives (tabbed) */}
       <ComparisonSection />
-
-      {/* Objection Handling (accordion) */}
       <FAQSection />
-
-      {/* Final Push */}
       <CTASection />
     </div>
   );

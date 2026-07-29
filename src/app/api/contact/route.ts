@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { leadValueFromBudget } from '@/lib/analytics';
+import { getSupabaseAdmin } from '@/lib/supabase/server';
 
 // ─── Validation ─────────────────────────────────────────────
 
@@ -39,9 +40,14 @@ const contactSchema = z.object({
   name: z.string().min(2, 'Name is required'),
   email: z.string().email('Valid work email is required'),
   company: z.string().optional(),
-  message: z.string().min(5, 'Tell us a bit more about your project'),
-  /** Sent as its own field so it can drive conversion value and CRM routing. */
+  phone: z.string().optional(),
+  projectType: z.string().optional(),
   budget: z.string().optional(),
+  timeline: z.string().optional(),
+  referralSource: z.string().optional(),
+  // TCPA: lead must explicitly opt in before the SMS agent texts them
+  smsConsent: z.boolean().optional().default(false),
+  message: z.string().min(5, 'Tell us a bit more about your project'),
   attribution: attributionSchema,
 });
 
@@ -59,7 +65,6 @@ async function submitToHubSpot(data: ContactData, pageUri?: string) {
     return null;
   }
 
-  // Split name into first/last for HubSpot contact properties
   const nameParts = data.name.trim().split(/\s+/);
   const firstName = nameParts[0];
   const lastName = nameParts.length > 1 ? nameParts.slice(1).join(' ') : '';
@@ -73,9 +78,6 @@ async function submitToHubSpot(data: ContactData, pageUri?: string) {
    * uploading offline conversions back into Google Ads once a lead turns into
    * a real opportunity. Without it stored against the contact, bidding can
    * only ever learn to chase form fills.
-   *
-   * These map to custom contact properties in HubSpot — see .env.example for
-   * the internal names to create before they will persist.
    */
   const attributionFields: Array<[string, string | undefined]> = [
     ['budget_range', data.budget],
@@ -108,7 +110,6 @@ async function submitToHubSpot(data: ContactData, pageUri?: string) {
         .map(([name, value]) => ({ objectTypeId: '0-1', name, value })),
     ],
     context: {
-      // Ties the submission to HubSpot's own tracking timeline for this visitor.
       ...(attribution?.hubspotutk ? { hutk: attribution.hubspotutk } : {}),
       pageUri: pageUri || 'https://initdev.co',
       pageName: 'InitDev — Contact Form',
@@ -137,24 +138,14 @@ async function submitToHubSpot(data: ContactData, pageUri?: string) {
 
 /**
  * Sends the lead from the server, where ad blockers and tracking prevention
- * cannot reach it. Client-side conversion tracking typically loses a
- * meaningful share of events; this is the reliable copy.
- *
- * Deliberately named `lead_submitted_server` rather than reusing
- * `generate_lead`: firing both under one name would double-count every lead.
- * Run the two side by side, measure the gap, and once you trust the server
- * number, make it the key event in GA4.
- *
- * Fire-and-forget — the Measurement Protocol accepts anything and reports
- * nothing, so its failure must never affect the visitor's response.
+ * cannot reach it. Deliberately named `lead_submitted_server` rather than
+ * reusing `generate_lead` to avoid double-counting with the client event.
  */
 async function sendServerConversion(data: ContactData, value: number) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const apiSecret = process.env.GA_MEASUREMENT_API_SECRET;
   const clientId = data.attribution?.gaClientId;
 
-  // Without a client id the event cannot be joined to the visitor's session
-  // and would land as a phantom one-page user, which is worse than nothing.
   if (!measurementId || !apiSecret || !clientId) return;
 
   const last = data.attribution?.last;
@@ -172,8 +163,6 @@ async function sendServerConversion(data: ContactData, value: number) {
               params: {
                 value,
                 currency: 'USD',
-                // Marks the hit as belonging to an existing session rather
-                // than opening a new one.
                 session_id: data.attribution?.gaSessionId,
                 engagement_time_msec: 1,
                 has_gclid: Boolean(last?.gclid || data.attribution?.first?.gclid),
@@ -190,6 +179,38 @@ async function sendServerConversion(data: ContactData, value: number) {
   }
 }
 
+// ─── Supabase Lead Capture ──────────────────────────────────
+async function saveLeadToSupabase(data: ContactData, sourcePage?: string) {
+  const supabase = getSupabaseAdmin();
+  if (!supabase) return null;
+
+  const { data: lead, error } = await supabase
+    .from('leads')
+    .insert({
+      name: data.name,
+      email: data.email,
+      company: data.company || null,
+      phone: data.phone || null,
+      project_type: data.projectType || null,
+      budget: data.budget || null,
+      timeline: data.timeline || null,
+      message: data.message,
+      referral_source: data.referralSource || null,
+      sms_consent: data.smsConsent ?? false,
+      status: 'new',
+      source_page: sourcePage || null,
+    })
+    .select('id')
+    .single();
+
+  if (error) {
+    console.error('[Contact] Supabase insert failed:', error.message);
+    throw new Error(`Supabase insert failed: ${error.message}`);
+  }
+
+  return lead;
+}
+
 // ─── Route Handler ──────────────────────────────────────────
 export async function POST(request: Request) {
   try {
@@ -204,12 +225,6 @@ export async function POST(request: Request) {
     const data = parsed.data;
     const pageUri = request.headers.get('referer') || undefined;
 
-    /**
-     * WARNING: when HubSpot is unconfigured or failing, the only record of the
-     * lead is this log line — and serverless logs expire. The visitor is still
-     * told we received their message. Wiring an email fallback here is the one
-     * remaining gap in the capture path.
-     */
     const leadRecord = {
       name: data.name,
       email: data.email,
@@ -220,6 +235,17 @@ export async function POST(request: Request) {
       campaign: data.attribution?.last?.utm_campaign || '—',
       timestamp: new Date().toISOString(),
     };
+
+    // Persist to Supabase first (source of truth for SMS agent). Failures
+    // must not block HubSpot / conversion tracking.
+    try {
+      const lead = await saveLeadToSupabase(data, pageUri);
+      if (lead) {
+        console.log('[Contact] Lead saved to Supabase:', lead.id);
+      }
+    } catch (supabaseError) {
+      console.error('[Contact] Supabase error (continuing):', supabaseError);
+    }
 
     try {
       const hsResult = await submitToHubSpot(data, pageUri);
@@ -236,8 +262,6 @@ export async function POST(request: Request) {
       console.error('[Contact] Lead payload:', leadRecord);
     }
 
-    // Awaited so the serverless function is not frozen mid-flight, but its
-    // own failures are swallowed internally and cannot fail the request.
     await sendServerConversion(data, leadValueFromBudget(data.budget));
 
     return NextResponse.json(

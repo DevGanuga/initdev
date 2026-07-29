@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { domainExperience } from '@/lib/data/certifications';
 
 const metrics = [
   { value: '13+', label: 'Production Apps Shipped', sublabel: 'SaaS, AI, consumer, enterprise' },
@@ -29,9 +31,7 @@ const commitments = [
 export function SocialProof() {
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#080810] to-[#050505]" />
-      {/* Generated ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/images/generated/aurora-soft.jpg"
@@ -43,9 +43,8 @@ export function SocialProof() {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,56 +56,94 @@ export function SocialProof() {
             The standard we hold
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            We&apos;d rather show you working software than a wall of logos. Here&apos;s what stays
-            true on every engagement.
+            Working software first. Clear scope. Seniors who have already pressure-tested
+            systems across the domains below.
           </p>
         </motion.div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+        {/* Metrics */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-10">
           {metrics.map((metric, index) => (
             <motion.div
               key={metric.label}
-              className="relative p-6 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] text-center group hover:border-[#0084ff]/20 transition-all duration-300"
+              className="relative p-5 md:p-7 rounded-2xl border border-white/[0.06] bg-white/[0.02] text-center hover:border-[#0084ff]/20 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              whileHover={{ y: -3 }}
+              transition={{ delay: index * 0.06 }}
+              whileHover={{ y: -2 }}
             >
-              <div className="text-3xl md:text-4xl font-light text-white mb-2">
+              <div className="text-3xl md:text-4xl font-extralight text-white mb-2">
                 {metric.value}
               </div>
-              <div className="text-sm text-white/70 font-medium mb-1">
-                {metric.label}
-              </div>
-              <div className="text-xs text-white/40">
-                {metric.sublabel}
-              </div>
+              <div className="text-sm text-white/70 font-medium mb-1">{metric.label}</div>
+              <div className="text-xs text-white/35">{metric.sublabel}</div>
             </motion.div>
           ))}
         </div>
 
-        {/* Commitment Cards */}
-        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+        {/* Domain experience — folded into shipped-work narrative */}
+        <motion.div
+          className="mb-10 rounded-2xl border border-white/[0.06] bg-white/[0.015] p-6 md:p-8"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
+            <div>
+              <h3 className="text-white text-lg font-medium mb-1">
+                Project domains we know under load
+              </h3>
+              <p className="text-sm text-white/40 max-w-xl">
+                Alongside InitDev product builds, the team has performance and reliability
+                experience across these kinds of systems.
+              </p>
+            </div>
+            <Link
+              href="/certifications"
+              className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 transition-colors shrink-0"
+            >
+              Team certifications
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {domainExperience.map((d, i) => (
+              <motion.div
+                key={d.label}
+                className="px-4 py-3.5 rounded-xl border border-white/[0.05] bg-black/20"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.04 * i }}
+              >
+                <div className="text-sm text-white/80 font-medium mb-0.5">{d.label}</div>
+                <div className="text-[11px] text-white/35 leading-snug">{d.detail}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Commitments */}
+        <div className="grid md:grid-cols-3 gap-3 md:gap-4">
           {commitments.map((item, index) => (
             <motion.div
               key={item.label}
-              className="group relative p-6 md:p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#0084ff]/20 hover:bg-white/[0.04] transition-all duration-300"
+              className="group relative p-6 md:p-7 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#0084ff]/20 hover:bg-white/[0.04] transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 + index * 0.1 }}
-              whileHover={{ y: -3 }}
+              transition={{ delay: 0.15 + index * 0.08 }}
+              whileHover={{ y: -2 }}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs text-[#0084ff] font-medium px-3 py-1 rounded-full bg-[#0084ff]/10">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs text-[#0084ff] font-medium px-2.5 py-1 rounded-full bg-[#0084ff]/10">
                   {item.label}
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-white/20 group-hover:text-[#0084ff]/60 transition-colors" />
+                <ArrowUpRight className="w-4 h-4 text-white/15 group-hover:text-[#0084ff]/50 transition-colors" />
               </div>
-
-              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+              <p className="text-white/65 leading-relaxed text-sm md:text-[15px]">
                 {item.text}
               </p>
             </motion.div>

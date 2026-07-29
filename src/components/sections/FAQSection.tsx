@@ -9,7 +9,6 @@ import { faqs } from '@/lib/data/faqs';
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-
   return (
     <section className="py-20">
       <div className="container-custom">

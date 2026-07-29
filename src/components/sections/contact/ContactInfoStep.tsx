@@ -25,7 +25,6 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
       
       <div className="space-y-6 mb-8">
         <div className="grid md:grid-cols-2 gap-4">
-          {/* Name */}
           <div>
             <label className="text-white text-sm font-medium mb-2 flex items-center gap-2">
               <User className="w-4 h-4 text-[#0084ff]" />
@@ -40,7 +39,6 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
             />
           </div>
           
-          {/* Email */}
           <div>
             <label className="text-white text-sm font-medium mb-2 flex items-center gap-2">
               <Mail className="w-4 h-4 text-[#0084ff]" />
@@ -55,7 +53,6 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
             />
           </div>
           
-          {/* Company */}
           <div>
             <label className="text-white text-sm font-medium mb-2 flex items-center gap-2">
               <Building className="w-4 h-4 text-[#0084ff]" />
@@ -70,7 +67,6 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
             />
           </div>
           
-          {/* Phone */}
           <div>
             <label className="text-white text-sm font-medium mb-2 flex items-center gap-2">
               <Phone className="w-4 h-4 text-[#0084ff]" />
@@ -86,7 +82,28 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
           </div>
         </div>
 
-        {/* Privacy Notice */}
+        {formData.phone.trim() !== '' && (
+          <motion.label
+            htmlFor="smsConsent"
+            className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border-2 border-white/10 cursor-pointer hover:border-[#0084ff]/40 transition-all"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <input
+              id="smsConsent"
+              type="checkbox"
+              checked={formData.smsConsent}
+              onChange={(e) => setFormData({ ...formData, smsConsent: e.target.checked })}
+              className="mt-0.5 h-4 w-4 rounded border-white/20 bg-white/5 text-[#0084ff] focus:ring-[#0084ff]"
+            />
+            <span className="text-sm text-white/70">
+              I agree to receive text messages from InitDev about my inquiry, including
+              qualification and scheduling. Message &amp; data rates may apply. Reply STOP to
+              opt out at any time.
+            </span>
+          </motion.label>
+        )}
+
         <motion.div 
           className="p-4 bg-green-500/10 rounded-lg border border-green-500/20"
           initial={{ opacity: 0, y: 10 }}
@@ -103,7 +120,6 @@ export function ContactInfoStep({ formData, setFormData, onSubmit, onBack, isVal
         </motion.div>
       </div>
 
-      {/* Navigation */}
       <div className="flex justify-between">
         <motion.button
           onClick={onBack}

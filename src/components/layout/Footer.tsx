@@ -15,6 +15,7 @@ const footerLinks = {
   Company: [
     { label: 'Selected Work', href: '/cases' },
     { label: 'About Us', href: '/about' },
+    { label: 'Certifications', href: '/certifications' },
     { label: 'Our Process', href: '/process' },
     { label: 'Contact', href: '/contact' },
   ],

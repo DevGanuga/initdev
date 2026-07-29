@@ -32,7 +32,8 @@ export function ContactContent() {
     name: '',
     email: '',
     company: '',
-    phone: ''
+    phone: '',
+    smsConsent: false,
   });
 
   const totalSteps = 4;
@@ -96,8 +97,12 @@ export function ContactContent() {
           name: formData.name,
           email: formData.email,
           company: formData.company || '',
-          message: messageBody,
+          phone: formData.phone || '',
+          projectType: formData.projectType,
           budget: formData.budget,
+          timeline: formData.timeline,
+          smsConsent: formData.smsConsent,
+          message: messageBody,
           attribution: getAttribution(),
         }),
       });

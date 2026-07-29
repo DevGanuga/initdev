@@ -62,6 +62,7 @@ export function Navigation() {
     { label: 'Process', href: '/process' },
     { label: 'Cases', href: '/cases' },
     { label: 'About', href: '/about' },
+    { label: 'Certifications', href: '/certifications' },
   ];
 
   return (
