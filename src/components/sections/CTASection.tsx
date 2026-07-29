@@ -184,6 +184,25 @@ export function CTASection() {
               ))}
             </div>
 
+            {/* Team pedigree — last credibility push before the form */}
+            <motion.div
+              className="mb-8 p-4 rounded-xl border border-white/[0.06] bg-white/[0.02]"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <p className="text-sm text-white/45 leading-relaxed">
+                <span className="text-white/70 font-medium">Who reviews your project: </span>
+                a team with <span className="text-white/70">Stanford</span> and{' '}
+                <span className="text-white/70">Harvard</span>-trained leadership,{' '}
+                <span className="text-white/70">Microsoft</span> and{' '}
+                <span className="text-white/70">IBM</span> AI credentials, and reliability
+                engineers who&apos;ve run production systems inside{' '}
+                <span className="text-white/70">Citi, Kroger, Target, and VMware</span>.
+              </p>
+            </motion.div>
+
             {/* Direct email fallback */}
             <p className="text-sm text-white/30">
               Prefer email?{' '}

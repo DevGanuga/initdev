@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { certifications } from '@/lib/data/certifications';
+import { PedigreeMarquee } from '@/components/sections/PedigreeMarquee';
 
 const layerOrder = ['leadership', 'ai', 'reliability'] as const;
 
@@ -41,6 +42,11 @@ export default function CertificationsPageClient() {
           </motion.div>
         </div>
       </section>
+
+      {/* Where these credentials were earned */}
+      <div className="mb-20">
+        <PedigreeMarquee />
+      </div>
 
       <section className="pb-20">
         <div className="container-custom max-w-4xl space-y-14">

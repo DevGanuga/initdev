@@ -3,9 +3,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Code2, Server, Cloud } from 'lucide-react';
+import { Code2, Server, Cloud, Activity } from 'lucide-react';
 
-type Tech = { name: string; logo: string; invert?: boolean };
+type Tech = { name: string; logo: string; invert?: boolean; certified?: boolean };
 
 const categories: {
   key: string;
@@ -50,6 +50,21 @@ const categories: {
       { name: 'Kubernetes', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg' },
     ],
   },
+  {
+    key: 'observability',
+    label: 'Observability',
+    icon: <Activity className="w-4 h-4" />,
+    techs: [
+      { name: 'Dynatrace', logo: 'https://cdn.simpleicons.org/dynatrace', certified: true },
+      { name: 'Datadog', logo: 'https://cdn.simpleicons.org/datadog/white', certified: true },
+      { name: 'New Relic', logo: 'https://cdn.simpleicons.org/newrelic', certified: true },
+      { name: 'Splunk', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/splunk/splunk-original-wordmark.svg', invert: true, certified: true },
+      { name: 'AppDynamics', logo: 'https://cdn.simpleicons.org/cisco/white', certified: true },
+      { name: 'Grafana', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg' },
+      { name: 'Prometheus', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg' },
+      { name: 'OpenTelemetry', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opentelemetry/opentelemetry-original.svg' },
+    ],
+  },
 ];
 
 export function TechStack() {
@@ -75,7 +90,8 @@ export function TechStack() {
             Our Stack
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            The tools we ship production systems with.
+            The tools we ship production systems with — including the observability stack
+            our team is certified in, proven at Fortune-500 scale.
           </p>
         </motion.div>
 
@@ -132,7 +148,12 @@ export function TechStack() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex flex-col items-center gap-3 p-5 md:p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#0084ff]/30 hover:bg-white/[0.05] transition-all duration-300">
+                <div className="relative flex flex-col items-center gap-3 p-5 md:p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-[#0084ff]/30 hover:bg-white/[0.05] transition-all duration-300">
+                  {tech.certified && (
+                    <span className="absolute top-2 right-2 text-[8px] uppercase tracking-wider text-[#0084ff]/80 font-semibold px-1.5 py-0.5 rounded bg-[#0084ff]/10 border border-[#0084ff]/20">
+                      Certified
+                    </span>
+                  )}
                   <img
                     src={tech.logo}
                     alt={`${tech.name} logo`}

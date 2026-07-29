@@ -32,6 +32,11 @@ export const faqs: Faq[] = [
       'Dedicated PM, backend and frontend engineers, QA, performance engineers, and cybersecurity professionals. A structured team that plugs into your workflow — with deep experience pressure-testing systems across retail, banking, healthcare, and enterprise platforms.',
   },
   {
+    question: 'Have you actually worked at enterprise scale?',
+    answer:
+      "Our senior engineers have run performance, observability, and reliability engagements inside Citi, HSBC, Kroger, Target, Lowe's, Walgreens, VMware, Gilead Sciences, HCA HealthTrust, and Renault Nissan — think Black Friday checkout loads, SLA-critical payment paths, and 130+ production applications monitored across 22 countries. Those were career engagements, not InitDev contracts, and that's exactly the experience your sprint gets.",
+  },
+  {
     question: 'How fast can you start?',
     answer:
       "First call within 48 hours. Scoped proposal in 3-5 days. Development starts as soon as you sign off, typically within two weeks of first contact. If we don't have capacity, we'll tell you upfront instead of stretching your project thin.",

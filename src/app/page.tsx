@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { PedigreeMarquee } from '@/components/sections/PedigreeMarquee';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { CaseStudyPreview } from '@/components/sections/CaseStudyPreview';
 import { SelectedWork } from '@/components/sections/SelectedWork';
@@ -45,6 +46,9 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <HeroSection />
+
+      {/* Enterprise pedigree — first thing after the hero */}
+      <PedigreeMarquee />
 
       <div id="problem">
         <ProblemSection />

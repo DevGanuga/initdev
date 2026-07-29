@@ -82,15 +82,70 @@ export const certifications = {
   ],
 } as const;
 
-/** Soft domain experience — no company names. Amplifies the shipped-work story. */
+/**
+ * Engineering pedigree — enterprise environments where InitDev senior
+ * engineers have run performance, observability, and reliability engagements.
+ * Framed as team career experience, never as InitDev client logos.
+ */
+export const engineeringPedigree = {
+  statement:
+    'Senior engineers on this team have run production performance and reliability inside',
+  disclaimer:
+    'Career engagements of our senior engineers — the production scar tissue behind every InitDev sprint.',
+  companies: [
+    { name: 'Citi', sector: 'Banking' },
+    { name: 'Kroger', sector: 'Retail' },
+    { name: 'Target', sector: 'Retail' },
+    { name: 'HSBC', sector: 'Banking' },
+    { name: "Lowe's", sector: 'Retail' },
+    { name: 'Prudential', sector: 'Financial Services' },
+    { name: 'Walgreens', sector: 'Retail' },
+    { name: 'VMware', sector: 'Enterprise Software' },
+    { name: 'Gilead Sciences', sector: 'Life Sciences' },
+    { name: 'City National Bank', sector: 'Banking' },
+    { name: 'HCA HealthTrust', sector: 'Healthcare' },
+    { name: 'Renault Nissan', sector: 'Automotive' },
+    { name: 'Papa Johns', sector: 'POS · E-commerce' },
+    { name: 'Advance Auto Parts', sector: 'Retail' },
+    { name: 'Southern California Edison', sector: 'Energy' },
+    { name: 'EY', sector: 'Professional Services' },
+  ],
+} as const;
+
+/** Domain experience with the names attached — used in the trust section. */
 export const domainExperience = [
-  { label: 'Retail & e-commerce', detail: 'Checkout, inventory, loyalty, peak traffic' },
-  { label: 'Banking & payments', detail: 'Transaction paths, SLA-critical flows' },
-  { label: 'Healthcare', detail: 'Staffing systems, production monitoring' },
-  { label: 'Automotive & global ops', detail: 'Multi-country platforms, 24/7 monitoring' },
-  { label: 'Enterprise software', detail: 'Portals, SaaS, cloud migrations' },
-  { label: 'Energy & utilities', detail: 'High-availability operational systems' },
+  {
+    label: 'Retail & e-commerce',
+    detail: 'Peak-traffic checkout, POS, inventory, loyalty — Black Friday-grade load',
+    names: "Kroger · Target · Lowe's · Walgreens · Advance Auto Parts · Papa Johns",
+  },
+  {
+    label: 'Banking & payments',
+    detail: 'End-to-end payment flows, SLA-critical transaction paths',
+    names: 'Citi · HSBC · City National Bank · Prudential',
+  },
+  {
+    label: 'Healthcare & life sciences',
+    detail: 'Hospital staffing systems, 24/7 production monitoring',
+    names: 'HCA HealthTrust · Gilead Sciences',
+  },
+  {
+    label: 'Automotive & global ops',
+    detail: '130+ critical applications monitored across 22 countries',
+    names: 'Renault Nissan',
+  },
+  {
+    label: 'Enterprise software',
+    detail: 'Commerce portals, licensing platforms, cloud migrations',
+    names: 'VMware · EY',
+  },
+  {
+    label: 'Energy & utilities',
+    detail: 'High-availability operational and SAP systems',
+    names: 'Southern California Edison',
+  },
 ] as const;
 
 export type CertLayer = keyof typeof certifications.layers;
 export type Certification = (typeof certifications.items)[number];
+export type PedigreeCompany = (typeof engineeringPedigree.companies)[number];

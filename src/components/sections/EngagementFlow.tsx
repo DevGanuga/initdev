@@ -127,7 +127,10 @@ export function EngagementFlow() {
               Get a Free Technical Assessment
               <ArrowRight className="w-5 h-5" />
             </a>
-            <p className="text-white/40 text-sm mt-3">Free 30-minute call with a senior engineer. No strings attached.</p>
+            <p className="text-white/40 text-sm mt-3">
+              Free 30-minute call with a senior engineer — the same caliber that&apos;s kept
+              banking and retail systems alive at enterprise scale. No strings attached.
+            </p>
           </motion.div>
         </div>
       </div>

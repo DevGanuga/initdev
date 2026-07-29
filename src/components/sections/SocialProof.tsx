@@ -56,8 +56,8 @@ export function SocialProof() {
             The standard we hold
           </h2>
           <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            Working software first. Clear scope. Seniors who have already pressure-tested
-            systems across the domains below.
+            Working software first. Clear scope. And seniors who&apos;ve kept checkout,
+            payments, and clinical systems alive inside Citi, Kroger, Target, and more.
           </p>
         </motion.div>
 
@@ -92,11 +92,11 @@ export function SocialProof() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
             <div>
               <h3 className="text-white text-lg font-medium mb-1">
-                Project domains we know under load
+                Systems our seniors have run under real load
               </h3>
               <p className="text-sm text-white/40 max-w-xl">
-                Alongside InitDev product builds, the team has performance and reliability
-                experience across these kinds of systems.
+                Career engagements of the engineers on this team — the production experience
+                behind every InitDev sprint.
               </p>
             </div>
             <Link
@@ -112,13 +112,16 @@ export function SocialProof() {
             {domainExperience.map((d, i) => (
               <motion.div
                 key={d.label}
-                className="px-4 py-3.5 rounded-xl border border-white/[0.05] bg-black/20"
+                className="px-4 py-4 rounded-xl border border-white/[0.05] bg-black/20 hover:border-[#0084ff]/20 transition-colors"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.04 * i }}
               >
-                <div className="text-sm text-white/80 font-medium mb-0.5">{d.label}</div>
+                <div className="text-sm text-white/80 font-medium mb-1">{d.label}</div>
+                <div className="text-[13px] text-[#4da3ff]/90 font-light mb-1.5 leading-snug">
+                  {d.names}
+                </div>
                 <div className="text-[11px] text-white/35 leading-snug">{d.detail}</div>
               </motion.div>
             ))}

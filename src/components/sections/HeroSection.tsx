@@ -154,6 +154,21 @@ export function HeroSection() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Pedigree line — enterprise names above the fold */}
+            <motion.p
+              className="text-xs text-gray-500 max-w-lg leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+            >
+              On the bench: senior engineers who&apos;ve run production systems inside{' '}
+              <span className="text-gray-300">Citi</span>,{' '}
+              <span className="text-gray-300">Kroger</span>,{' '}
+              <span className="text-gray-300">Target</span>,{' '}
+              <span className="text-gray-300">VMware</span>,{' '}
+              <span className="text-gray-300">HSBC</span> &amp; more.
+            </motion.p>
           </motion.div>
         </div>
       </motion.div>
