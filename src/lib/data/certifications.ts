@@ -93,56 +93,67 @@ export const engineeringPedigree = {
   disclaimer:
     'Career engagements of our senior engineers — the production scar tissue behind every InitDev sprint.',
   companies: [
-    { name: 'Citi', sector: 'Banking' },
-    { name: 'Kroger', sector: 'Retail' },
-    { name: 'Target', sector: 'Retail' },
-    { name: 'HSBC', sector: 'Banking' },
-    { name: "Lowe's", sector: 'Retail' },
-    { name: 'Prudential', sector: 'Financial Services' },
-    { name: 'Walgreens', sector: 'Retail' },
-    { name: 'VMware', sector: 'Enterprise Software' },
-    { name: 'Gilead Sciences', sector: 'Life Sciences' },
-    { name: 'City National Bank', sector: 'Banking' },
-    { name: 'HCA HealthTrust', sector: 'Healthcare' },
-    { name: 'Renault Nissan', sector: 'Automotive' },
-    { name: 'Papa Johns', sector: 'POS · E-commerce' },
-    { name: 'Advance Auto Parts', sector: 'Retail' },
-    { name: 'Southern California Edison', sector: 'Energy' },
-    { name: 'EY', sector: 'Professional Services' },
+    { name: 'Citi', sector: 'Banking', domain: 'citi.com' },
+    { name: 'Kroger', sector: 'Retail', domain: 'kroger.com' },
+    { name: 'Target', sector: 'Retail', domain: 'target.com' },
+    { name: 'HSBC', sector: 'Banking', domain: 'hsbc.com' },
+    { name: "Lowe's", sector: 'Retail', domain: 'lowes.com' },
+    { name: 'Prudential', sector: 'Financial Services', domain: 'prudential.com' },
+    { name: 'Walgreens', sector: 'Retail', domain: 'walgreens.com' },
+    { name: 'VMware', sector: 'Enterprise Software', domain: 'vmware.com' },
+    { name: 'Gilead Sciences', sector: 'Life Sciences', domain: 'gilead.com' },
+    { name: 'City National Bank', sector: 'Banking', domain: 'cnb.com' },
+    { name: 'HCA HealthTrust', sector: 'Healthcare', domain: 'hcahealthcare.com' },
+    { name: 'Renault Nissan', sector: 'Automotive', domain: 'renaultgroup.com' },
+    { name: 'Papa Johns', sector: 'POS · E-commerce', domain: 'papajohns.com' },
+    { name: 'Advance Auto Parts', sector: 'Retail', domain: 'advanceautoparts.com' },
+    { name: 'Southern California Edison', sector: 'Energy', domain: 'sce.com' },
+    { name: 'EY', sector: 'Professional Services', domain: 'ey.com' },
   ],
 } as const;
+
+/** Company logo via Google's favicon service — no API key, reliable at 128px. */
+export function companyLogo(domain: string, size: number = 128): string {
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=${size}`;
+}
 
 /** Domain experience with the names attached — used in the trust section. */
 export const domainExperience = [
   {
     label: 'Retail & e-commerce',
     detail: 'Peak-traffic checkout, POS, inventory, loyalty — Black Friday-grade load',
-    names: "Kroger · Target · Lowe's · Walgreens · Advance Auto Parts · Papa Johns",
+    names: "Kroger · Target · Lowe's · Walgreens · Advance Auto · Papa Johns",
+    domains: ['kroger.com', 'target.com', 'lowes.com', 'walgreens.com', 'advanceautoparts.com', 'papajohns.com'],
   },
   {
     label: 'Banking & payments',
     detail: 'End-to-end payment flows, SLA-critical transaction paths',
     names: 'Citi · HSBC · City National Bank · Prudential',
+    domains: ['citi.com', 'hsbc.com', 'cnb.com', 'prudential.com'],
   },
   {
     label: 'Healthcare & life sciences',
     detail: 'Hospital staffing systems, 24/7 production monitoring',
     names: 'HCA HealthTrust · Gilead Sciences',
+    domains: ['hcahealthcare.com', 'gilead.com'],
   },
   {
     label: 'Automotive & global ops',
     detail: '130+ critical applications monitored across 22 countries',
     names: 'Renault Nissan',
+    domains: ['renaultgroup.com'],
   },
   {
     label: 'Enterprise software',
     detail: 'Commerce portals, licensing platforms, cloud migrations',
     names: 'VMware · EY',
+    domains: ['vmware.com', 'ey.com'],
   },
   {
     label: 'Energy & utilities',
     detail: 'High-availability operational and SAP systems',
     names: 'Southern California Edison',
+    domains: ['sce.com'],
   },
 ] as const;
 

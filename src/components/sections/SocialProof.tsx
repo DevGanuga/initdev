@@ -1,10 +1,11 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { domainExperience } from '@/lib/data/certifications';
+import { domainExperience, companyLogo } from '@/lib/data/certifications';
 
 const metrics = [
   { value: '13+', label: 'Production Apps Shipped', sublabel: 'SaaS, AI, consumer, enterprise' },
@@ -112,12 +113,30 @@ export function SocialProof() {
             {domainExperience.map((d, i) => (
               <motion.div
                 key={d.label}
-                className="px-4 py-4 rounded-xl border border-white/[0.05] bg-black/20 hover:border-[#0084ff]/20 transition-colors"
+                className="group px-4 py-4 rounded-xl border border-white/[0.05] bg-black/20 hover:border-[#0084ff]/20 transition-colors"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.04 * i }}
               >
+                {/* Company marks */}
+                <div className="flex items-center gap-1.5 mb-2.5">
+                  {d.domains.map((domain) => (
+                    <span
+                      key={domain}
+                      className="w-6 h-6 rounded-md bg-white/[0.06] flex items-center justify-center overflow-hidden"
+                    >
+                      <img
+                        src={companyLogo(domain, 32)}
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="w-4 h-4 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </span>
+                  ))}
+                </div>
                 <div className="text-sm text-white/80 font-medium mb-1">{d.label}</div>
                 <div className="text-[13px] text-[#4da3ff]/90 font-light mb-1.5 leading-snug">
                   {d.names}

@@ -38,6 +38,10 @@ const faqJsonLd = {
   })),
 };
 
+/**
+ * Funnel order: hook → instant trust → pain → solution → proof → standards →
+ * technical credibility → objections → path to action → close.
+ */
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
@@ -45,22 +49,37 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      {/* 1. Hook */}
       <HeroSection />
 
-      {/* Enterprise pedigree — first thing after the hero */}
+      {/* 2. Instant trust — enterprise logos before anything else */}
       <PedigreeMarquee />
 
+      {/* 3. Pain */}
       <div id="problem">
         <ProblemSection />
       </div>
 
+      {/* 4. Solution — what we build */}
       <CaseStudyPreview />
+
+      {/* 5. Proof — live products */}
       <SelectedWork />
+
+      {/* 6. Standards + enterprise domain depth */}
       <SocialProof />
+
+      {/* 7. Technical credibility — certified stack */}
       <TechStack />
-      <EngagementFlow />
+
+      {/* 8. Objection handling — alternatives, then questions */}
       <ComparisonSection />
       <FAQSection />
+
+      {/* 9. Path to action — how an engagement starts */}
+      <EngagementFlow />
+
+      {/* 10. Close */}
       <CTASection />
     </div>
   );
