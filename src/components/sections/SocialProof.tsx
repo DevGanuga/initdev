@@ -8,7 +8,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { domainExperience, companyLogo } from '@/lib/data/certifications';
 
 const metrics = [
-  { value: '13+', label: 'Production Apps Shipped', sublabel: 'SaaS, AI, consumer, enterprise' },
+  { value: '528', label: 'Commits on One Product', sublabel: 'Drip — sole engineer, end-to-end' },
   { value: '2wk', label: 'Typical Sprint Cycle', sublabel: 'From signed spec to deployed code' },
   { value: '100%', label: 'Code You Own', sublabel: 'In your repos, no lock-in' },
   { value: '2h', label: 'Reply on New Projects', sublabel: 'A senior engineer, not a bot' },

@@ -25,8 +25,8 @@ export function SelectedWork() {
               Live in production
             </h2>
             <p className="text-lg text-white/60 max-w-xl">
-              A few of the 13+ products we&apos;ve shipped — real software with real users, not
-              mockups. Open any of them in a new tab.
+              Dyia, Drip, AI Blueprint — flagship products built end-to-end, live with real
+              users. Open any of them in a new tab.
             </p>
           </div>
 

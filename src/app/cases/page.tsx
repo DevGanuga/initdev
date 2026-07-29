@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { CasesContent } from './CasesContent';
 
 export const metadata: Metadata = {
-  title: 'Selected Work — Products Live in Production',
+  title: 'Case Studies — Flagship Products, Built End-to-End',
   description:
-    'Real software with real users, not mockups: SaaS platforms, AI products, marketplaces, and consumer apps we have designed, built, and shipped. Open any of them and look around.',
+    'Dyia, Drip, AI Blueprint, Animalia, ConvoAI Studio — flagship products built end-to-end, with the commit counts, API routes, and architecture decisions behind each one. All live in production.',
   alternates: { canonical: '/cases' },
   openGraph: {
-    title: 'Selected Work — Products Live in Production | InitDev',
+    title: 'Case Studies — Flagship Products, Built End-to-End | InitDev',
     description:
-      'SaaS platforms, AI products, marketplaces, and consumer apps we have designed, built, and shipped. Real software with real users.',
+      'Flagship products with the engineering record behind each one: commits, API routes, and architecture decisions. All live in production.',
     url: '/cases',
   },
 };

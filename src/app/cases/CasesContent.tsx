@@ -1,17 +1,25 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Check, Code2, Layers, Zap, Globe, Rocket, FlaskConical } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Code2,
+  Layers,
+  Zap,
+  Globe,
+  Terminal,
+  FlaskConical,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { projects, foundry, studioStats } from '@/lib/data/projects';
-
-const heroStats = [
-  { value: studioStats.shipped, label: 'Production apps shipped' },
-  { value: studioStats.sprint, label: 'Average time to first release' },
-  { value: studioStats.ownership, label: 'Code & IP you own' },
-  { value: studioStats.reply, label: 'Typical reply time' },
-];
+import {
+  flagshipProjects,
+  secondaryProjects,
+  foundry,
+  engineeringStats,
+} from '@/lib/data/projects';
 
 const capabilities = [
   {
@@ -71,40 +79,203 @@ export function CasesContent() {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/[0.03] backdrop-blur-sm rounded-full border border-white/10 mb-8">
-              <Rocket className="w-4 h-4 text-[#0084ff]" />
-              <span className="text-sm text-white/70">A development studio · 13+ apps shipped</span>
+              <Terminal className="w-4 h-4 text-[#0084ff]" />
+              <span className="text-sm text-white/70">Every product below is live. Open it and look around.</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl font-light text-white mb-6 tracking-[-0.02em]">
-              The work speaks{' '}
-              <span className="text-gradient-blue">for the studio</span>
+              Not a portfolio.{' '}
+              <span className="text-gradient-blue">A production record.</span>
             </h1>
             <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-              We&apos;ve shipped 13+ production applications — SaaS, AI products, consumer apps, and
-              enterprise platforms. Below is a selected few you can open and use right now.
+              Anyone can show screenshots. Below are the flagship products we&apos;ve built
+              end-to-end — with the commit counts, API routes, and architecture decisions
+              behind each one. Depth beats a big number.
             </p>
           </motion.div>
 
-          {/* Stat row */}
+          {/* Depth-first stat row */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-px max-w-4xl mx-auto mt-14 rounded-2xl overflow-hidden border border-white/[0.07] bg-white/[0.04]"
+            className="grid grid-cols-2 md:grid-cols-4 gap-px max-w-5xl mx-auto mt-14 rounded-2xl overflow-hidden border border-white/[0.07] bg-white/[0.04]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            {heroStats.map((stat) => (
+            {engineeringStats.map((stat) => (
               <div key={stat.label} className="bg-[#070707] px-5 py-7 text-center">
                 <div className="text-3xl md:text-4xl font-light text-white tracking-tight">{stat.value}</div>
-                <div className="text-xs text-white/45 mt-2 leading-snug">{stat.label}</div>
+                <div className="text-xs text-white/60 mt-2 leading-snug font-medium">{stat.label}</div>
+                <div className="text-[10px] text-white/30 mt-1 leading-snug">{stat.sublabel}</div>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
+      {/* Flagship case studies */}
+      <section className="py-12">
+        <div className="container-custom">
+          <motion.div
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase mb-3 block">
+                Flagship Builds
+              </span>
+              <h2 className="text-3xl md:text-4xl font-light text-white">
+                Five products, built end-to-end
+              </h2>
+            </div>
+            <p className="text-white/45 text-sm max-w-sm md:text-right">
+              Each one includes the engineering record — role, scale, and the decisions
+              under the hood. Nothing here is a mockup.
+            </p>
+          </motion.div>
+
+          <div className="space-y-10">
+            {flagshipProjects.map((project, index) => (
+              <motion.article
+                key={project.slug}
+                className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-[#0084ff]/30 transition-colors duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true, margin: '-80px' }}
+              >
+                <div className={`grid lg:grid-cols-2 ${index % 2 === 1 ? 'lg:[direction:rtl]' : ''}`}>
+                  {/* Screenshot */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block aspect-[16/10] lg:aspect-auto lg:min-h-full overflow-hidden bg-black [direction:ltr]"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-40 mix-blend-screen z-10 pointer-events-none`} />
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} — ${project.tagline}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 ring-1 ring-inset ring-white/5 z-20" />
+                  </a>
+
+                  {/* Details */}
+                  <div className="p-8 md:p-10 flex flex-col justify-center [direction:ltr]">
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      {project.categories.map((cat) => (
+                        <span
+                          key={cat}
+                          className="px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-[#0084ff] bg-[#0084ff]/10 rounded-full"
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                      {project.engineering && (
+                        <span className="px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-emerald-400/90 bg-emerald-500/10 rounded-full">
+                          {project.engineering.status}
+                        </span>
+                      )}
+                    </div>
+
+                    <h2 className="text-2xl md:text-3xl font-light text-white mb-1">{project.name}</h2>
+                    <p className="text-white/80 text-lg font-light mb-4">{project.tagline}</p>
+                    <p className="text-white/50 leading-relaxed mb-6">{project.summary}</p>
+
+                    <ul className="space-y-2.5 mb-6">
+                      {project.built.slice(0, 4).map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <Check className="w-4 h-4 text-[#0084ff] flex-shrink-0 mt-1" />
+                          <span className="text-sm text-white/70 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2 mb-7">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-white/[0.04] text-white/55 text-xs rounded-full border border-white/[0.08]"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[#0084ff] transition-colors self-start group/link"
+                    >
+                      Visit {project.domain}
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Engineering record */}
+                {project.engineering && (
+                  <div className="border-t border-white/[0.06] bg-black/40 px-8 md:px-10 py-7">
+                    <div className="flex items-center gap-2 mb-5">
+                      <Terminal className="w-3.5 h-3.5 text-[#0084ff]" />
+                      <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-white/40">
+                        Under the hood
+                      </span>
+                      <span className="text-[11px] text-white/25">·</span>
+                      <span className="text-[11px] text-[#4da3ff]/80">{project.engineering.role}</span>
+                    </div>
+
+                    <div className="grid md:grid-cols-[auto_1fr] gap-6 md:gap-10">
+                      {/* Scale markers */}
+                      <div className="flex md:flex-col gap-5 md:gap-4 shrink-0">
+                        {project.engineering.scale.map((s) => (
+                          <div key={s.label}>
+                            <div className="text-xl font-light text-white tracking-tight">{s.value}</div>
+                            <div className="text-[11px] text-white/35 leading-snug max-w-[130px]">{s.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Highlights */}
+                      <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                        {project.engineering.highlights.map((h) => (
+                          <li key={h} className="flex items-start gap-2.5">
+                            <span className="w-1 h-1 rounded-full bg-[#0084ff] mt-2 shrink-0" />
+                            <span className="text-[13px] text-white/55 leading-relaxed">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Backed by The Dravidor Foundry */}
       <section className="py-12">
         <div className="container-custom">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase mb-3 block">
+              The Engine Behind It
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light text-white">
+              Where the products come from
+            </h2>
+          </motion.div>
+
           <motion.article
             className="relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
@@ -178,105 +349,74 @@ export function CasesContent() {
         </div>
       </section>
 
-      {/* Portfolio — alternating feature rows */}
+      {/* More from the studio — compact grid */}
       <section className="py-12">
         <div className="container-custom">
           <motion.div
-            className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10"
+            className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div>
               <span className="text-[#0084ff] text-sm font-medium tracking-wider uppercase mb-3 block">
-                Selected Work
+                Also Shipped
               </span>
-              <h2 className="text-3xl md:text-4xl font-light text-white">
-                A few of the products we ship
+              <h2 className="text-2xl md:text-3xl font-light text-white">
+                More from the studio
               </h2>
             </div>
-            <p className="text-white/45 text-sm max-w-sm md:text-right">
-              A live slice of the 13+ we&apos;ve shipped. Every one is in production and open to the
-              public — click through and try them.
-            </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {projects.map((project, index) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {secondaryProjects.map((project, index) => (
               <motion.article
                 key={project.slug}
                 className="group relative rounded-2xl border border-white/[0.07] bg-white/[0.02] overflow-hidden hover:border-[#0084ff]/30 transition-colors duration-300"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: (index % 2) * 0.05 }}
-                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true, margin: '-60px' }}
               >
-                <div className={`grid lg:grid-cols-2 ${index % 2 === 1 ? 'lg:[direction:rtl]' : ''}`}>
-                  {/* Screenshot */}
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block aspect-[16/9] overflow-hidden bg-black"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-40 mix-blend-screen z-10 pointer-events-none`} />
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} — ${project.tagline}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/5 z-20" />
+                </a>
+
+                <div className="p-6 md:p-7">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    {project.categories.map((cat) => (
+                      <span
+                        key={cat}
+                        className="px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[#0084ff] bg-[#0084ff]/10 rounded-full"
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-xl font-light text-white mb-1">{project.name}</h3>
+                  <p className="text-white/50 text-sm leading-relaxed mb-4">{project.summary}</p>
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative block aspect-[16/10] overflow-hidden bg-black [direction:ltr]"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[#0084ff] transition-colors group/link"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-40 mix-blend-screen z-10 pointer-events-none`} />
-                    <Image
-                      src={project.image}
-                      alt={`${project.name} — ${project.tagline}`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 ring-1 ring-inset ring-white/5 z-20" />
+                    Visit {project.domain}
+                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
                   </a>
-
-                  {/* Details */}
-                  <div className="p-8 md:p-10 flex flex-col justify-center [direction:ltr]">
-                    <div className="flex flex-wrap items-center gap-2 mb-4">
-                      {project.categories.map((cat) => (
-                        <span
-                          key={cat}
-                          className="px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-[#0084ff] bg-[#0084ff]/10 rounded-full"
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
-
-                    <h2 className="text-2xl md:text-3xl font-light text-white mb-1">{project.name}</h2>
-                    <p className="text-white/80 text-lg font-light mb-4">{project.tagline}</p>
-                    <p className="text-white/50 leading-relaxed mb-6">{project.summary}</p>
-
-                    <ul className="space-y-2.5 mb-6">
-                      {project.built.slice(0, 4).map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <Check className="w-4 h-4 text-[#0084ff] flex-shrink-0 mt-1" />
-                          <span className="text-sm text-white/70 leading-relaxed">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-2 mb-7">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-white/[0.04] text-white/55 text-xs rounded-full border border-white/[0.08]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-[#0084ff] transition-colors self-start group/link"
-                    >
-                      Visit {project.domain}
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                    </a>
-                  </div>
                 </div>
               </motion.article>
             ))}
@@ -354,11 +494,12 @@ export function CasesContent() {
             </div>
             <div className="relative">
             <h2 className="text-3xl md:text-4xl font-light text-white mb-4">
-              Have something worth building?
+              Want your product built like these?
             </h2>
             <p className="text-white/60 mb-8 max-w-xl mx-auto">
-              Tell us what you&apos;re after. We&apos;ll come back with scope, timeline, and a fixed
-              price — usually within a few days.
+              Same team, same standards — atomic billing, human-in-the-loop AI, monitoring
+              from day one. Tell us what you&apos;re after and we&apos;ll come back with scope,
+              timeline, and a fixed price.
             </p>
             <Link
               href="/contact"

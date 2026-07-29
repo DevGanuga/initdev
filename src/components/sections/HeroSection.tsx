@@ -83,7 +83,7 @@ export function HeroSection() {
           >
             InitDev is a software development studio. One senior team — engineering, product, QA, and security — that{' '}
             <span className="text-white font-normal">designs, builds, and ships</span> custom software, AI products, and
-            secure infrastructure. 13+ products already live in production. Fixed scope, from $10k.
+            secure infrastructure. Flagship products like Dyia, Drip, and AI Blueprint already live in production. Fixed scope, from $10k.
           </motion.p>
 
           {/* CTAs */}

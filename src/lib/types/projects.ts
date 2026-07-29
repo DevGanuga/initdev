@@ -14,6 +14,18 @@ export type ProjectCategory =
   | 'Security'
   | 'B2B';
 
+/** Deep engineering detail shown on flagship case studies. */
+export interface ProjectEngineering {
+  /** Who built it and how much of it, factually. */
+  role: string;
+  /** Current production status. */
+  status: string;
+  /** Verifiable scale markers — commits, routes, LOC, etc. */
+  scale: { value: string; label: string }[];
+  /** Under-the-hood engineering highlights. */
+  highlights: string[];
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -37,4 +49,8 @@ export interface Project {
   accent: string;
   /** Featured builds surface on the homepage teaser. */
   featured?: boolean;
+  /** Flagship builds get the full case-study treatment on /cases. */
+  flagship?: boolean;
+  /** Deep engineering panel for flagship case studies. */
+  engineering?: ProjectEngineering;
 }

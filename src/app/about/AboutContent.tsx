@@ -51,8 +51,8 @@ export function AboutContent() {
               
               <p className="text-xl text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 A development studio that runs like an in-house team you don&apos;t have to hire —
-                scoped in sprints, plugged into your workflow, accountable for what ships. 13+
-                products shipped, and counting.
+                scoped in sprints, plugged into your workflow, accountable for what ships.
+                Flagship products like Dyia, Drip, and AI Blueprint live in production.
               </p>
             </motion.div>
           </div>

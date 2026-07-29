@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: 'InitDev | Custom Software Development Studio',
     template: '%s | InitDev'
   },
-  description: "InitDev is a software development studio with 13+ production apps shipped. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
+  description: "InitDev is a software development studio with flagship products live in production. A senior team — PM, engineers, QA, and security — building custom software, AI products, and secure infrastructure in fixed-scope sprints. Engagements from $10k.",
   keywords: "software development studio, custom software development, dedicated development team, AI product development, SaaS development, full stack development, network and cybersecurity services, secure infrastructure",
   authors: [{ name: "InitDev" }],
   creator: 'InitDev',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "InitDev | Custom Software Development Studio",
-    description: "A software development studio with 13+ apps shipped. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
+    description: "A software development studio with flagship products live in production. Senior team building custom software, AI products, and secure infrastructure in fixed-scope sprints. From $10k.",
     url: "https://initdev.co",
     siteName: "InitDev",
     type: "website",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "InitDev | Custom Software Development Studio",
-    description: "A development studio with 13+ apps shipped. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
+    description: "A development studio with flagship products live in production. Custom software, AI products, secure infrastructure — in fixed-scope sprints. From $10k.",
     images: ['/images/generated/og-cover.png'],
     creator: '@initdev',
   },
