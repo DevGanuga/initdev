@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { HirePageClient } from './HirePageClient';
 
 export const metadata: Metadata = {
-  title: 'Dev Ganugapenta — Senior Full-Stack Engineer',
+  title: 'Dev Ganugapenta — Product Engineer & Systems Architect',
   description:
-    'Senior full-stack engineer based in West Palm Beach, FL. 18 months of production AI and SaaS work. 6 production applications built end-to-end — Next.js, Supabase, OpenAI, Anthropic, Stripe. Upwork Top Rated Plus, 100% Job Success. Open to senior W2 engineering roles on-site or remote.',
+    'Product engineer and systems architect based in West Palm Beach, FL. Technically led five startups as sole engineering owner — AI products, SaaS platforms, payments infrastructure. Next.js, Supabase, OpenAI, Anthropic, Stripe. Upwork Top Rated Plus, 100% Job Success. Open to senior W2 roles, remote.',
   openGraph: {
-    title: 'Dev Ganugapenta — Senior Full-Stack Engineer',
+    title: 'Dev Ganugapenta — Product Engineer & Systems Architect',
     description:
-      'Senior full-stack engineer. 6 production apps built end-to-end. Next.js · Supabase · OpenAI · Anthropic · Stripe. Upwork Top Rated Plus · 100% JSS. Open to senior W2 roles.',
+      'Product engineer & architect. 5 startups technically led, 6 production platforms shipped. Next.js · Supabase · OpenAI · Anthropic · Stripe. Open to senior W2 roles.',
     url: 'https://initdev.co/hire',
   },
 };

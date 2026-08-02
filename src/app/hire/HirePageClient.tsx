@@ -17,6 +17,8 @@ import {
   GraduationCap,
   Award,
   Star,
+  Linkedin,
+  Workflow,
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -34,29 +36,30 @@ const fadeUp = {
 
 const person = {
   name: 'Dev Ganugapenta',
-  title: 'Senior Full-Stack Engineer',
-  focus: 'AI Applications · SaaS · Production Systems',
+  title: 'Product Engineer · Systems Architect',
+  focus: 'AI Products · SaaS Platforms · Domain Architecture',
   location: 'West Palm Beach, FL',
   email: 'dganuga@gmail.com',
   github: 'DevGanuga',
+  linkedin: 'https://www.linkedin.com/in/dev-ganuga-4b3b6431a',
   status: 'Open to senior W2 roles',
   summary:
-    'Full-stack engineer who architects and ships production systems end-to-end — cloud infrastructure, Postgres schema design, REST API layers, Stripe billing, and multi-service AI integration — all in production, all owned personally. Six systems built from a blank repo: data model through deployment, with no hand-holding on the hard parts (billing integrity, AI reliability patterns, cross-store consistency). Two systems delivered under enterprise client contract.',
+    'Product engineer who architects the whole thing — the domain model, the system design, and the product decisions in between. Founders across five startups handed me an ambiguous business problem and got back a live platform: privacy-first AI memory, real-money credit economies, deterministic merchandising engines, clinical triage pipelines. I don\'t take tickets; I take a domain, model it into coherent architecture, and ship it to production with the billing, reliability, and failure semantics already thought through.',
 };
 
 const roleTypes = [
-  'Senior Full-Stack Engineer',
-  'Senior Software Engineer',
-  'Staff Engineer (small–mid team)',
-  'Lead Engineer (product-focused)',
-  'AI Application Engineer',
+  'Senior Product Engineer',
+  'Product Architect',
+  'Staff Product Engineer',
+  'Founding Engineer',
+  'AI Product Engineer',
 ];
 
 const stats = [
-  { value: '6', label: 'Production systems built end-to-end' },
-  { value: '18mo', label: 'Independent production work' },
-  { value: '5', label: 'AI integrations shipped' },
-  { value: '2', label: 'Invoiced client deliveries' },
+  { value: '5', label: 'Startups built & technically led' },
+  { value: '1,197', label: 'GitHub contributions in the last year' },
+  { value: '96%', label: 'Of activity is shipped commits — not meetings' },
+  { value: '100%', label: 'Job Success Score — every engagement 5.0' },
 ];
 
 const testimonials = [
@@ -129,31 +132,81 @@ const certifications = [
 
 const experience = [
   {
-    title: 'Contract Full-Stack Engineer',
-    org: 'Self-directed (via InitDev)',
-    period: '2025 – Present',
-    type: 'Contract / Independent',
+    title: 'Founding Engineer & Technical Lead',
+    org: 'Drip · Dyia · AI Blueprint · ConvoAI Studio · Inflio',
+    period: '2024 – Present',
+    type: 'Sole technical owner · 5 startups',
     description:
-      'Architected and shipped six production systems from zero — full ownership of cloud infrastructure, database schema, API design, Stripe billing, and multi-service AI integration. Two systems delivered under enterprise client contract.',
+      'The technical half of five founder partnerships — not a hired hand. Owned every technical decision from first schema to production incident: architecture, cloud infrastructure, data modeling, billing systems, AI pipelines, deployment, and monitoring. 1,197 GitHub contributions in the last twelve months, 96% of them shipped commits.',
     bullets: [
-      'Drip: Architected privacy-first AI relationship platform — dual-store memory (Supabase + Pinecone), OpenAI structured-output pipeline with retry/backoff, Human-in-the-Loop operator console with draft→approve→send state machine. Sole engineer across 528 commits and 38 database migrations.',
-      'Dyia: Led full-stack development of a live SaaS for service businesses — Stripe subscription billing (webhooks, idempotent grants, customer portal), Google Maps routing, Anthropic AI intelligence layer, Sentry production monitoring. Dominant author of the entire production codebase.',
-      'Company Challenges: Delivered enterprise learning platform under commercial contract — reusable content architecture, sprint scheduling system, TipTap rich-text editor, Vercel Cron lifecycle emails, and PostgREST incident response in production.',
-      'AI Blueprint: Engineered multi-studio AI creative platform with a full Stripe credit economy — atomic SQL spend, idempotent webhook processing, credits-on-hold during generation, and automatic failure refunds. Identity-preserving image generation via fal.ai Gemini 3 Pro.',
-      'AI Navigator: Delivered enterprise AI readiness platform under client contract — GPT-4o chat with action execution, 25-zone sentiment heatmap, and capability maturity assessment framework.',
-      'Animalia: Built headless Shopify storefront with deterministic merchandising engine (revenue-weighted ranking, concern labeling, safety-filtered ingredients) and AI product photography pipeline via fal.ai Admin API.',
+      'Drip — Architected the platform around a hard privacy constraint: two partners share one AI companion, neither may ever access the other’s memories. Dual-store design — Postgres for structured partner data, Pinecone for semantic retrieval — with ownership-scoped embedding filters enforcing privacy at the query layer and cross-store rollback so a write never lands in one store without the other. Built the OpenAI conversation engine: strict JSON-schema structured output, 3-attempt exponential backoff, conversation chaining via previous_response_id. 98 API routes, 38 migrations, HITL operator console with a draft→approve→send state machine.',
+      'Dyia — Took a field-service SaaS from zero to live production revenue: tiered Stripe subscriptions with signed webhook verification and idempotent plan grants, Anthropic-powered business intelligence, geographic job dispatch with Google Maps clustering, Sentry instrumentation across edge and server runtimes, Vitest coverage, and documented QA evidence packs gating every release.',
+      'AI Blueprint — Engineered a real-money credit economy for AI generation: atomic SQL spend under database-level non-negative constraints, credits escrowed while generation runs, automatic refunds on model failure, idempotent Stripe webhook processing. Dual-path fal.ai webhook + polling recovery with result deduplication. 36 pages across four creative studios behind one subscription gate, with identity-preserving Gemini 3 Pro prompt orchestration.',
+      'ConvoAI Studio — Built the full Tavus API v2 integration layer (672-line typed client: personas, replicas, conversations, dynamic call-to-action injection, real-time webhook event routing) and a clinical triage pipeline: video conversation → Claude structured symptom extraction → generated PDF clinical report → automated delivery. Dual-path completion with conversation-level deduplication, because third-party event delivery cannot be trusted in a clinical context.',
+      'Inflio — Designed and built a production-scale AI video platform: 399 TypeScript files, 119K LOC — clip generation, transcription, subtitle editing, multi-platform scheduling and publishing. Made the honest commercial call to close it after market validation, then shut it down like a professional: 14,600+ lines of dead code removed, clean 27-second build.',
+      'Animalia — Own-venture headless commerce: typed domain layer unifying Shopify Storefront, Cart, and Admin GraphQL APIs across 33 operations; deterministic merchandising engine converting raw supplier catalog text into ranked, revenue-weighted storefront intelligence — no LLM in the hot path, fully testable; AI product-photography pipeline that pulls from the Admin API, generates brand-constrained imagery, and writes back automatically.',
     ],
   },
   {
-    title: 'Full-Stack Engineer (Solo)',
-    org: 'Inflio — AI Video Platform (Closed)',
-    period: '~2024',
-    type: 'Independent build',
+    title: 'Enterprise Delivery Engineer',
+    org: 'InitDev — enterprise client contracts',
+    period: '2025 – Present',
+    type: 'Commercial contracts · invoiced delivery',
     description:
-      'Designed and built a production-scale AI video content platform: 399 TypeScript files, full cloud backend on Supabase + Vercel, multi-platform publishing pipeline. Commercially closed after market validation. Conducted a professional codebase audit before closing.',
+      'Scoped, built, and delivered production platforms for enterprise clients under commercial contract — including proposal authorship, milestone planning, and client-facing QA protocol.',
     bullets: [
-      'Production AI pipeline: long-form video → clip generation, transcription, subtitle editing, multi-platform content scheduling and publishing',
-      'Systematic engineering discipline on shutdown: removed dead code, enforced naming conventions, achieved clean 27-second build — full production handoff standard maintained',
+      'Company Challenges — Enterprise learning platform, live in production. Designed a reusable content architecture letting administrators author a challenge once and deploy across unlimited sprint cohorts without duplication; TipTap rich-content editing across 73 source files; Vercel Cron lifecycle emails. When a Supabase platform upgrade silently broke aggregate queries in production, diagnosed the PostgREST regression and shipped the fix within hours.',
+      'AI Navigator — Enterprise AI readiness platform: GPT-4o chat with action execution, 25-zone organizational sentiment heatmap, capability maturity assessment framework. Authored the Phase 2 production proposal — team structure, milestone plan, and financial breakdown.',
+    ],
+  },
+  {
+    title: 'Consulting Engineer — AI & Full-Stack',
+    org: 'Upwork · Top Rated Plus',
+    period: '2025 – Present',
+    type: 'Top-3% performer tier · 100% Job Success',
+    description:
+      'Ran a client practice in parallel with the startups above — enterprise SaaS hardening, AI application builds, and workflow automation. Every completed engagement rated 5.0 with verified client reviews.',
+    bullets: [
+      'Architected a fully automated AI content repurposing and publishing system — multi-platform pipeline integrating Zapier, Notion, and AI generation services for a long-term retained client.',
+      'Led production hardening and multi-user rollout of an enterprise SaaS platform; owned full-stack development for a DTC startup end-to-end — client review: "an expert at modern development."',
+      'Designed and deployed AI sales-agent infrastructure on n8n + GoHighLevel; retained for ongoing AI architecture advisory.',
+    ],
+  },
+  {
+    title: 'AI Automation Lead',
+    org: 'Yorali USA',
+    period: '2023 – 2024',
+    type: 'Full-time · Boynton Beach, FL',
+    description:
+      'Owned AI-driven sales automation across the organization — the bridge role between business operations and engineering that led into full-stack product work.',
+    bullets: [
+      'Implemented AI-driven sales automation reducing customer acquisition costs by 45%',
+      'Built custom automation tooling that cut manual processes by 60% while maintaining 99.8% system uptime across cross-departmental integrations',
+      'Trained a team of 8 on the new systems — 95% adoption rate and 30% increase in sales productivity',
+    ],
+  },
+  {
+    title: 'Business Development Manager',
+    org: '4D Global — an Inc. 5000 company',
+    period: '2023',
+    type: 'Full-time · Miami, FL',
+    description:
+      'Systematized outbound and appointment-booking operations at a fast-growth Inc. 5000 healthcare revenue company.',
+    bullets: [
+      'Streamlined cold outreach and booking workflows with automated follow-ups — 35% increase in successful appointments',
+      'Built targeted client acquisition strategy producing 25% growth in qualified leads; negotiated vendor contracts reducing operational costs by 20%',
+    ],
+  },
+  {
+    title: 'Early Career — Operations & Digital Marketing',
+    org: 'SK Stones · Independent e-commerce ventures',
+    period: '2021 – 2022',
+    type: 'Full-time & independent',
+    description:
+      'Ran multi-platform digital marketing at SK Stones and built independent e-commerce operations — including a Japanese import retailer that became the top-trending in its category in North America (Q1 2021). The operating and go-to-market grounding behind everything since.',
+    bullets: [
+      'Grew multi-platform social presence at SK Stones: 40% engagement lift, 95% positive sentiment',
+      'Built international supply chain and fulfillment operations from scratch for direct-to-consumer retail',
     ],
   },
 ];
@@ -162,59 +215,83 @@ const projects = [
   {
     name: 'Drip',
     tagline: 'AI relationship companion',
-    role: 'Sole engineer · 528 commits · 7.5 months',
+    role: 'Sole engineer · full platform ownership',
     status: 'live' as const,
     statusLabel: 'Investor-demo',
     url: null as string | null,
-    pdf: '/portfolio/drip-technical-showcase.pdf',
+    github: null as string | null,
+    pdf: '/portfolio/drip-technical-showcase.pdf' as string | null,
+    onePager: '/portfolio/drip-one-pager.pdf' as string | null,
     highlight: 'Privacy-first dual-store memory · HITL operator console · 98 API routes',
     tech: ['Next.js 15', 'Supabase', 'Pinecone', 'OpenAI', 'Stripe', 'Clerk'],
     accent: 'from-blue-500/15 to-indigo-500/15',
   },
   {
     name: 'Dyia',
-    tagline: 'SaaS for junk removal businesses',
-    role: '~82% of 229 commits · dominant author',
+    tagline: 'SaaS for service businesses',
+    role: 'Lead engineer · dominant author',
     status: 'live' as const,
     statusLabel: 'Live in production',
     url: 'https://dyia.io',
-    pdf: null as string | null,
-    highlight: 'Stripe billing · Sentry monitoring · 5+ documented QA rounds',
+    github: 'https://github.com/DevGanuga/dyiabase-master',
+    pdf: '/portfolio/dyia-technical-showcase.pdf',
+    onePager: '/portfolio/dyia-one-pager.pdf',
+    highlight: 'Stripe billing · Anthropic AI intelligence · Sentry monitoring · documented QA cycles',
     tech: ['Next.js 15', 'Supabase', 'Anthropic', 'Stripe', 'Google Maps', 'Sentry'],
     accent: 'from-emerald-500/15 to-cyan-500/15',
   },
   {
     name: 'Company Challenges',
     tagline: 'Enterprise learning platform',
-    role: 'Sole engineer · 61 commits · invoiced client delivery',
+    role: 'Sole engineer · enterprise client delivery',
     status: 'live' as const,
-    statusLabel: 'Live · Client-billed',
+    statusLabel: 'Live · Client contract',
     url: 'https://companychallenges.com',
+    github: null,
     pdf: '/portfolio/company-challenges-technical-showcase.pdf',
-    highlight: 'AssignmentUsage domain · TipTap editor · PostgREST incident response',
+    onePager: '/portfolio/company-challenges-one-pager.pdf',
+    highlight: 'Reusable content architecture · TipTap editor · Production incident response',
     tech: ['Next.js 15', 'Supabase', 'TipTap', 'Stripe', 'Resend'],
     accent: 'from-orange-500/15 to-amber-500/15',
   },
   {
     name: 'AI Blueprint',
     tagline: 'Multi-studio AI creative platform',
-    role: 'Primary engineer · 3 contributors',
+    role: 'Primary engineer · led 3-person build',
     status: 'active' as const,
     statusLabel: 'Active',
     url: null,
+    github: null,
     pdf: '/portfolio/ai-blueprint-technical-showcase.pdf',
-    highlight: 'Credit economy · fal.ai Gemini 3 Pro · Idempotent Stripe billing',
+    onePager: null,
+    highlight: 'Stripe credit economy · fal.ai Gemini 3 Pro · Idempotent billing integrity',
     tech: ['Next.js 15', 'Supabase', 'fal.ai', 'Stripe', 'Clerk'],
     accent: 'from-purple-500/15 to-pink-500/15',
   },
   {
+    name: 'ConvoAI Studio',
+    tagline: 'AI video conversation platform',
+    role: 'Primary engineer · full architecture',
+    status: 'active' as const,
+    statusLabel: 'Active',
+    url: null,
+    github: 'https://github.com/DevGanuga/narratorapp',
+    pdf: '/portfolio/convoai-studio-technical-showcase.pdf',
+    onePager: '/portfolio/convoai-studio-one-pager.pdf',
+    highlight: 'Tavus video AI · Claude clinical extraction · Dual-path webhook/polling completion',
+    tech: ['Next.js 15', 'Tavus API v2', 'Anthropic', 'Supabase', 'react-pdf'],
+    accent: 'from-rose-500/15 to-red-500/15',
+  },
+  {
     name: 'Animalia',
     tagline: 'Headless Shopify storefront',
-    role: 'Sole engineer · 13 commits',
+    role: 'Sole engineer · commerce architecture',
     status: 'pre' as const,
     statusLabel: 'Pre-launch',
     url: 'https://www.animalia.market',
+    github: 'https://github.com/DevGanuga/animaliamarket',
     pdf: '/portfolio/animalia-technical-showcase.pdf',
+    onePager: '/portfolio/animalia-one-pager.pdf',
     highlight: 'Deterministic merch engine · AI photography pipeline · 33 GraphQL ops',
     tech: ['Next.js 16', 'Shopify APIs', 'fal.ai', 'TypeScript', 'Tailwind 4'],
     accent: 'from-teal-500/15 to-emerald-500/15',
@@ -251,6 +328,12 @@ const skills = [
     icon: <Server className="w-4 h-4" />,
     label: 'Infrastructure',
     items: ['Vercel (edge, cron, preview envs)', 'Clerk auth middleware', 'Sentry production monitoring', 'GitHub Actions CI', 'Svix webhook verification'],
+  },
+  {
+    key: 'automation',
+    icon: <Workflow className="w-4 h-4" />,
+    label: 'Automation & Integration',
+    items: ['n8n workflow orchestration', 'Zapier multi-service pipelines', 'LangGraph agent workflows', 'GoHighLevel + AI sales agents', 'Notion API integrations', 'FastAPI / Node.js services'],
   },
 ];
 
@@ -356,6 +439,15 @@ export function HirePageClient() {
                   <span>Get in touch</span>
                 </a>
                 <a
+                  href={person.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary inline-flex items-center gap-2"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
                   href={`https://github.com/${person.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -364,6 +456,13 @@ export function HirePageClient() {
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
                 </a>
+                <Link
+                  href="/hire/resume"
+                  className="btn-secondary inline-flex items-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Resume</span>
+                </Link>
               </motion.div>
             </div>
 
@@ -518,8 +617,8 @@ export function HirePageClient() {
               What I&apos;ve built
             </h2>
             <p className="text-white/45 max-w-xl">
-              Each built personally — not managed or reviewed. Sole or dominant
-              engineer from blank repo to production.
+              Startups I built and technically led as the founders&apos; engineering
+              partner — every schema, API, billing system, and deploy, personally.
             </p>
           </motion.div>
 
@@ -737,18 +836,19 @@ export function HirePageClient() {
               </h2>
               <div className="space-y-4 text-white/55 text-sm leading-relaxed">
                 <p>
-                  I want to work on a product that matters, with engineers I can learn from.
-                  I&apos;m strongest in the full stack — data model through API through billing through
-                  frontend — and I want a role where that breadth is an asset, not a compromise.
+                  I want to own a product surface, not a backlog column. My value is the full arc —
+                  understanding the business domain, modeling it into architecture, and shipping the
+                  product — and I want a role where that arc stays intact.
                 </p>
                 <p>
                   I&apos;m best suited at a company where AI is core to the product — not bolted on.
-                  I&apos;ve shipped five distinct AI integrations across five products and understand the
-                  specific reliability design work that makes them production-safe.
+                  I&apos;ve shipped five distinct AI integrations to production and my architecture
+                  starts from the assumption that models fail: retries, fallbacks, deduplication,
+                  and billing that stays correct through all of it.
                 </p>
                 <p>
-                  I want to be on a small-to-mid engineering team where what I ship matters,
-                  not a team of 200 where I&apos;m one story-point generator.
+                  I want to be on a small-to-mid product team where engineers sit in product
+                  decisions — not a team of 200 where architecture is someone else&apos;s job.
                 </p>
               </div>
             </motion.div>
@@ -764,7 +864,7 @@ export function HirePageClient() {
                 {
                   icon: <Briefcase className="w-4 h-4" />,
                   label: 'Role level',
-                  value: 'Senior, Staff, or Lead — IC track',
+                  value: 'Senior / Staff Product Engineer or Architect — IC track',
                 },
                 {
                   icon: <Code2 className="w-4 h-4" />,
@@ -833,6 +933,15 @@ export function HirePageClient() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
+                href={person.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary inline-flex items-center gap-2"
+              >
+                <Linkedin className="w-4 h-4" />
+                <span>LinkedIn</span>
+              </a>
+              <a
                 href={`https://github.com/${person.github}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -887,16 +996,38 @@ function ProjectCard({ p }: { p: typeof projects[number] }) {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-3 pt-3 border-t border-white/[0.05]">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 border-t border-white/[0.05]">
           {p.url && (
             <a
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/70 transition-colors"
+              className="flex items-center gap-1 text-[11px] text-emerald-400/60 hover:text-emerald-400 transition-colors"
             >
               <ExternalLink className="w-3 h-3" />
-              <span>{new URL(p.url).hostname}</span>
+              <span>{new URL(p.url).hostname.replace('www.', '')}</span>
+            </a>
+          )}
+          {p.github && (
+            <a
+              href={p.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/70 transition-colors"
+            >
+              <Github className="w-3 h-3" />
+              <span>Source</span>
+            </a>
+          )}
+          {p.onePager && (
+            <a
+              href={p.onePager}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-[11px] text-white/35 hover:text-white/70 transition-colors"
+            >
+              <Download className="w-3 h-3" />
+              <span>One-pager</span>
             </a>
           )}
           {p.pdf && (
@@ -907,7 +1038,7 @@ function ProjectCard({ p }: { p: typeof projects[number] }) {
               className="flex items-center gap-1 text-[11px] text-blue-400/50 hover:text-blue-400 transition-colors ml-auto"
             >
               <Download className="w-3 h-3" />
-              <span>Technical showcase</span>
+              <span>Deep dive</span>
             </a>
           )}
         </div>
