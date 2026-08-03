@@ -3,7 +3,8 @@ import { PrintButton } from './PrintButton';
 
 export const metadata: Metadata = {
   title: 'Dev Ganugapenta — Resume',
-  description: 'senior product engineer at initdev. next.js, supabase, openai, anthropic, stripe. west palm beach, fl. open to remote w2 roles.',
+  description:
+    'Senior Product Engineer at InitDev. Next.js, Supabase, OpenAI, Anthropic, Stripe. West Palm Beach, FL. Open to remote W2 roles.',
   robots: { index: false },
 };
 
@@ -11,161 +12,111 @@ export default function ResumePage() {
   return <ResumeDocument />;
 }
 
-/* Every entry is a single product treated as its own job, ordered by end
-   date, newest first. Dates come from the actual git history of each repo. */
+/*
+  Engagements are 30–90 day delivery cycles.
+  Ordered by end date, newest first.
+  Dyia wrapped ~Jul 2026 (one month before Aug 2026).
+*/
 
 const entries = [
   {
-    title: 'dyia, lead engineer',
-    org: 'initdev studio',
-    period: '2025 - present',
-    sub: 'field-service saas. live in production with paying subscribers.',
+    title: 'Lead Engineer',
+    company: 'Dyia (InitDev)',
+    period: 'May 2026 – Jul 2026',
+    oneLiner: 'Field-service SaaS. Live with paying subscribers. dyia.io',
     bullets: [
-      'took it from zero to revenue. tiered stripe subscriptions with signed webhook verification and idempotent plan grants.',
-      'anthropic-powered business intelligence over live job and profit data. google maps dispatch for crews.',
-      'sentry across edge and server runtimes. documented qa packs gate every release, 5 rounds and counting.',
-    ],
-    links: [
-      { label: 'live', href: 'https://dyia.io' },
-      { label: 'source', href: 'https://github.com/DevGanuga/dyiabase-master' },
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/dyia-technical-showcase.pdf' },
+      'Owned end-to-end delivery: Stripe subscriptions, Anthropic business intelligence, Google Maps dispatch.',
+      'Shipped production monitoring (Sentry) and a release QA process used across subsequent builds.',
     ],
   },
   {
-    title: 'animalia, sole engineer',
-    org: 'initdev studio',
-    period: 'dec 2025 - present',
-    sub: 'headless shopify marketplace for pet wellness. storefront live, pre-launch.',
+    title: 'Lead Engineer',
+    company: 'AI Navigator (client via InitDev)',
+    period: 'May 2026 – Present',
+    oneLiner: 'Enterprise AI readiness platform. Phase 2 under contract. navigator.leadingwith.ai',
     bullets: [
-      'typed domain layer unifying shopify storefront, cart and admin apis across 33 graphql operations.',
-      'deterministic merchandising engine that turns raw supplier catalog text into ranked, revenue-weighted storefront copy. no llm in the hot path, fully testable.',
-      'ai product photography pipeline that pulls from the admin api, generates brand-constrained imagery and writes back automatically.',
-    ],
-    links: [
-      { label: 'live', href: 'https://www.animalia.market' },
-      { label: 'source', href: 'https://github.com/DevGanuga/animaliamarket' },
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/animalia-technical-showcase.pdf' },
+      'Built GPT-4o assistant with in-app action execution, 25-zone sentiment heatmap, and capability maturity scoring.',
+      'Delivered Phase 1 on contract; authored and won the Phase 2 production proposal.',
     ],
   },
   {
-    title: 'ai navigator, lead engineer',
-    org: 'client contract via initdev',
-    period: 'oct 2025 - present',
-    sub: 'enterprise ai readiness platform. live, phase 2 now in development under contract.',
+    title: 'Sole Engineer',
+    company: 'Animalia (InitDev)',
+    period: 'Apr 2026 – Jun 2026',
+    oneLiner: 'Headless Shopify storefront for pet wellness. animalia.market',
     bullets: [
-      'gpt-4o chat with action execution, a 25-zone organizational sentiment heatmap and a capability maturity framework.',
-      'authored the phase 2 production proposal myself: team structure, milestones, financials.',
-    ],
-    links: [
-      { label: 'live', href: 'https://navigator.leadingwith.ai' },
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/ai-navigator-showcase.pdf' },
+      'Typed domain layer over Shopify Storefront, Cart, and Admin APIs (33 GraphQL operations).',
+      'Built deterministic merchandising and AI product photography pipelines for catalog ops.',
     ],
   },
   {
-    title: 'company challenges, sole engineer',
-    org: 'client contract via initdev',
-    period: 'jan 2026 - jun 2026',
-    sub: 'enterprise learning platform. live, invoiced, delivered.',
+    title: 'Sole Engineer',
+    company: 'Company Challenges (client via InitDev)',
+    period: 'Apr 2026 – Jun 2026',
+    oneLiner: 'Enterprise learning platform. Live and delivered. companychallenges.com',
     bullets: [
-      'reusable content architecture: author a challenge once, deploy it across unlimited cohorts with no duplication.',
-      'tiptap rich content editing across 73 source files. vercel cron lifecycle emails.',
-      'when a supabase upgrade silently broke aggregate queries in production, i found the postgrest regression and shipped the fix within hours.',
-    ],
-    links: [
-      { label: 'live', href: 'https://companychallenges.com' },
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/company-challenges-technical-showcase.pdf' },
+      'Reusable content architecture: author once, deploy across unlimited cohorts.',
+      'Rich content editing, lifecycle email automation, and production incident response.',
     ],
   },
   {
-    title: 'ai blueprint, primary engineer',
-    org: 'initdev studio',
-    period: 'nov 2025 - mar 2026',
-    sub: 'multi-studio ai creative platform. active, revenue-generating.',
+    title: 'Primary Engineer',
+    company: 'AI Blueprint (InitDev)',
+    period: 'Jan 2026 – Mar 2026',
+    oneLiner: 'Multi-studio AI creative platform with a real-money credit economy.',
     bullets: [
-      'real-money credit economy: atomic sql spend under non-negative constraints, credits escrowed during generation, automatic refunds when a model fails.',
-      'idempotent stripe webhooks. replayed events cannot double-charge or double-grant. billing stays correct even when the ai does not.',
-      'identity-preserving image generation on fal.ai with webhook plus polling dual-path delivery, so a missed callback never loses a job.',
-    ],
-    links: [
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/ai-blueprint-technical-showcase.pdf' },
+      'Designed atomic credit ledger with escrowed spend and automatic refunds on model failure.',
+      'Idempotent Stripe webhooks and dual-path fal.ai job delivery for billing integrity.',
     ],
   },
   {
-    title: 'convoai studio, primary engineer',
-    org: 'initdev studio',
-    period: 'nov 2025 - mar 2026',
-    sub: 'real-time ai video platform with a clinical triage pipeline.',
+    title: 'Primary Engineer',
+    company: 'ConvoAI Studio (InitDev)',
+    period: 'Nov 2025 – Jan 2026',
+    oneLiner: 'Real-time AI video platform with a clinical triage pipeline.',
     bullets: [
-      'built the full tavus api v2 integration layer. 672-line typed client: personas, replicas, conversations, live webhook event routing.',
-      'clinical pipeline: video conversation into claude structured symptom extraction, into a generated pdf report, into automated delivery.',
-      'dual-path completion with deduplication, because third-party event delivery cannot be trusted in a clinical context.',
-    ],
-    links: [
-      { label: 'source', href: 'https://github.com/DevGanuga/narratorapp' },
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/convoai-studio-technical-showcase.pdf' },
+      'Built typed Tavus API v2 client and Claude-based symptom extraction into PDF reports.',
+      'Dual-path webhook completion with deduplication for reliable clinical delivery.',
     ],
   },
   {
-    title: 'drip, sole engineer',
-    org: 'initdev studio',
-    period: 'apr 2025 - feb 2026',
-    sub: 'privacy-first ai relationship companion. investor-demo ready. 528 commits on the production app, sole author.',
+    title: 'Sole Engineer',
+    company: 'Drip (InitDev)',
+    period: 'Oct 2025 – Dec 2025',
+    oneLiner: 'Privacy-first AI relationship companion. Investor-demo ready.',
     bullets: [
-      'hard privacy constraint: two partners share one ai companion and neither can ever see the other\u2019s memories. enforced at the data model, the pinecone retrieval layer and the prompt.',
-      'dual-store memory, postgres plus pinecone, with rollback on failure so a write never lands in one store without the other.',
-      'openai conversation engine: strict json-schema output, 3-attempt backoff, conversation chaining. 98 api routes, 38 migrations.',
-      'human-in-the-loop operator console. every ai-drafted message passes a draft, approve, send state machine before it reaches a user.',
-    ],
-    links: [
-      { label: 'deep dive', href: 'https://initdev.co/portfolio/drip-technical-showcase.pdf' },
+      'Dual-store memory (Postgres + Pinecone) with ownership-scoped retrieval between partners.',
+      'OpenAI conversation engine, 98 API routes, and a human-in-the-loop operator console.',
     ],
   },
   {
-    title: 'inflio, sole engineer',
-    org: 'independent build',
-    period: 'jun 2025 - feb 2026',
-    sub: 'production-scale ai video platform. closed after market validation.',
+    title: 'Consulting Engineer',
+    company: 'Upwork — Top Rated Plus',
+    period: '2025 – Present',
+    oneLiner: '100% Job Success. AI SaaS, full-stack, and automation engagements.',
     bullets: [
-      '399 typescript files, 119k lines, built solo. clip generation, transcription, subtitle editing, multi-platform scheduling and publishing.',
-      'made the commercial call to shut it down, then did it properly: 14,600 lines of dead code removed, clean 27-second build.',
-    ],
-    links: [
-      { label: 'source', href: 'https://github.com/DevGanuga/inflio' },
+      'Delivered enterprise SaaS hardening, DTC full-stack builds, and AI automation retainers.',
+      'Every completed engagement rated 5.0.',
     ],
   },
   {
-    title: 'consulting engineer, ai and full-stack',
-    org: 'upwork, top rated plus (top 3% performer tier)',
-    period: '2025 - present',
-    sub: '100% job success score. every completed engagement rated 5.0.',
+    title: 'AI Automation Lead',
+    company: 'Yorali USA',
+    period: '2023 – 2024',
+    oneLiner: 'Boynton Beach, FL. Full-time.',
     bullets: [
-      'enterprise saas hardening and multi-user rollout, full-stack ownership for a dtc startup, an automated ai content repurposing system on long-term retainer, and ai sales-agent infrastructure on n8n and gohighlevel.',
-      'client words, not mine: "an expert at modern development." "going above and beyond to take care of any details along the way."',
-    ],
-    links: [
-      { label: 'verified history', href: 'https://www.upwork.com/freelancers/~01f0e7e8b52c4ea315' },
+      'Cut customer acquisition cost 45% and manual process load 60% with custom AI sales tooling.',
+      'Trained a team of 8 to 95% adoption; 30% lift in sales productivity.',
     ],
   },
   {
-    title: 'ai automation lead',
-    org: 'yorali usa, boynton beach fl',
-    period: '2023 - 2024',
-    sub: 'full-time. owned ai sales automation across the company.',
-    bullets: [
-      'cut customer acquisition costs 45% and manual process load 60% with custom tooling held at 99.8% uptime.',
-      'trained a team of 8 to 95% adoption and a 30% lift in sales productivity.',
-    ],
-    links: [],
-  },
-  {
-    title: 'business development manager',
-    org: '4d global, an inc. 5000 company, miami fl',
+    title: 'Business Development Manager',
+    company: '4D Global (Inc. 5000)',
     period: '2023',
-    sub: 'full-time. healthcare revenue operations.',
+    oneLiner: 'Miami, FL. Full-time. Healthcare revenue operations.',
     bullets: [
-      'systematized outbound and appointment booking: 35% more successful appointments, 25% growth in qualified leads, 20% cost reduction through vendor negotiation.',
+      'Improved appointment conversion 35% and qualified leads 25% through outbound automation.',
     ],
-    links: [],
   },
 ];
 
@@ -174,7 +125,7 @@ function ResumeDocument() {
     <>
       <style>{`
         @media print {
-          @page { margin: 0.5in 0.6in; size: letter; }
+          @page { margin: 0.5in 0.55in; size: letter; }
           html, body {
             background: white !important;
             margin: 0 !important;
@@ -202,25 +153,25 @@ function ResumeDocument() {
           href="/hire"
           className="px-4 py-2 bg-white text-black text-sm rounded-lg hover:bg-gray-100 transition-colors font-medium shadow-lg border border-gray-200"
         >
-          ← portfolio
+          ← Portfolio
         </a>
       </div>
 
       <div className="page min-h-screen bg-white max-w-[816px] mx-auto shadow-xl my-8 print:my-0 print:shadow-none font-sans text-[#111]">
         <div className="px-12 py-10 print:px-0 print:py-0">
 
-          {/* header */}
-          <header className="mb-4 pb-3 border-b-2 border-black">
+          {/* Header */}
+          <header className="mb-3.5 pb-2.5 border-b border-black">
             <div className="flex items-baseline justify-between flex-wrap gap-2">
-              <h1 className="text-[27px] font-bold tracking-tight text-black leading-none">
+              <h1 className="text-[26px] font-bold tracking-tight text-black leading-none">
                 Dev Ganugapenta
               </h1>
-              <p className="text-[12px] text-gray-600">west palm beach, fl. remote (us)</p>
+              <p className="text-[12px] text-gray-600">West Palm Beach, FL · Remote (US)</p>
             </div>
-            <p className="text-[13.5px] font-semibold text-gray-800 mt-1.5 mb-2">
-              senior product engineer, initdev. ai products, saas platforms, payments infrastructure.
+            <p className="text-[13px] font-semibold text-gray-800 mt-1.5 mb-1.5">
+              Senior Product Engineer · AI Products · SaaS · Payments
             </p>
-            <div className="flex flex-wrap gap-x-5 gap-y-1 text-[11.5px] text-gray-600">
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11.5px] text-gray-600">
               <a href="mailto:dganuga@gmail.com" className="keep-link text-blue-700 hover:underline">dganuga@gmail.com</a>
               <a href="https://www.linkedin.com/in/dev-ganuga-4b3b6431a" target="_blank" rel="noopener noreferrer" className="keep-link text-blue-700 hover:underline">linkedin.com/in/dev-ganuga-4b3b6431a</a>
               <a href="https://github.com/DevGanuga" target="_blank" rel="noopener noreferrer" className="keep-link text-blue-700 hover:underline">github.com/DevGanuga</a>
@@ -228,62 +179,45 @@ function ResumeDocument() {
             </div>
           </header>
 
-          {/* profile */}
-          <section className="mb-4">
-            <p className="text-[12.5px] text-gray-800 leading-[1.6]">
-              i&apos;m the senior engineer initdev puts on its hardest builds. give me an ambiguous
-              business problem and you get back a live platform. my specialty is the hard seam in
-              modern software: putting probabilistic ai systems into production where money, privacy
-              or clinical data is on the line. billing that survives failure, llm pipelines built for
-              the reality that models time out and return garbage, multi-tenant postgres locked down
-              with row-level security. 1,197 github contributions in the last twelve months, 96% of
-              them shipped commits. every entry below is live, client-billed or investor-facing.
-              none of it is a demo.
+          {/* Summary */}
+          <section className="mb-3.5">
+            <p className="text-[12.5px] text-gray-800 leading-[1.55]">
+              Senior product engineer at InitDev. Owns 30–90 day delivery cycles from domain model
+              to production: AI integration, Stripe billing, and multi-tenant Postgres. Ships live
+              products for startups and enterprise clients, not demos.
             </p>
           </section>
 
-          {/* core expertise */}
-          <section className="mb-4">
-            <h2 className="text-[11px] font-bold tracking-[0.14em] text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
-              core expertise
+          {/* Skills */}
+          <section className="mb-3.5">
+            <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
+              Skills
             </h2>
-            <div className="text-[11.5px] text-gray-800 leading-[1.7]">
-              <p><strong>ai engineering:</strong> llm integration (openai, anthropic claude), schema-enforced structured output, retrieval-augmented memory (pinecone, embeddings), human-in-the-loop design, agent workflows (langgraph, n8n), multimodal pipelines (tavus video, fal.ai image generation)</p>
-              <p><strong>payments and billing:</strong> stripe subscriptions, idempotent webhook processing, atomic credit-ledger economies, escrowed spend with automatic refunds on failure, customer portal, tiered pricing</p>
-              <p><strong>platform:</strong> typescript, next.js app router, react, node.js, postgresql (supabase, rls), redis, rest and graphql api design, shopify headless commerce, vercel edge and cron, sentry, ci/cd</p>
-            </div>
+            <p className="text-[11.5px] text-gray-800 leading-[1.55]">
+              TypeScript · Next.js · React · Node.js · PostgreSQL · Supabase · Stripe · OpenAI ·
+              Anthropic · Pinecone · fal.ai · Shopify GraphQL · Vercel · Sentry · n8n
+            </p>
           </section>
 
-          {/* experience: one entry per product, newest end date first */}
-          <section className="mb-4">
-            <h2 className="text-[11px] font-bold tracking-[0.14em] text-gray-500 mb-2 border-b border-gray-300 pb-1">
-              experience
+          {/* Experience */}
+          <section className="mb-3.5">
+            <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-2 border-b border-gray-300 pb-1">
+              Experience
             </h2>
 
             {entries.map((e) => (
-              <div key={e.title} className="entry mb-3.5">
-                <div className="flex justify-between items-baseline">
-                  <h3 className="text-[13px] font-bold text-black">{e.title}</h3>
-                  <span className="text-[11px] text-gray-500 font-mono flex-shrink-0 ml-4">{e.period}</span>
+              <div key={`${e.company}-${e.period}`} className="entry mb-3">
+                <div className="flex justify-between items-baseline gap-3">
+                  <h3 className="text-[13px] font-bold text-black leading-tight">
+                    {e.title} · {e.company}
+                  </h3>
+                  <span className="text-[11px] text-gray-500 flex-shrink-0">{e.period}</span>
                 </div>
-                <p className="text-[11.5px] text-gray-500 mb-1.5 italic">
-                  {e.org}. {e.sub}
-                  {e.links.length > 0 && (
-                    <>
-                      {' '}
-                      {e.links.map((l, i) => (
-                        <span key={l.href}>
-                          {i > 0 && ' / '}
-                          <a href={l.href} target="_blank" rel="noopener noreferrer" className="keep-link text-blue-700 hover:underline not-italic">{l.label}</a>
-                        </span>
-                      ))}
-                    </>
-                  )}
-                </p>
-                <ul className="space-y-1 text-[12px] text-gray-800 leading-[1.5]">
+                <p className="text-[11.5px] text-gray-500 mb-1">{e.oneLiner}</p>
+                <ul className="space-y-0.5 text-[12px] text-gray-800 leading-[1.45]">
                   {e.bullets.map((b) => (
                     <li key={b} className="flex gap-2">
-                      <span className="text-gray-400 flex-shrink-0 mt-0.5">-</span>
+                      <span className="text-gray-400 flex-shrink-0">•</span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -292,27 +226,35 @@ function ResumeDocument() {
             ))}
           </section>
 
-          {/* education and credentials */}
+          {/* Education */}
           <section>
-            <h2 className="text-[11px] font-bold tracking-[0.14em] text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
-              education and credentials
+            <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
+              Education & Certifications
             </h2>
             <div className="space-y-1 text-[12px] text-gray-800">
               <div className="flex justify-between gap-4">
-                <span><strong>harvard business school</strong>, credential of readiness: analytics, strategy &amp; management</span>
-                <span className="text-gray-500 font-mono flex-shrink-0">2025</span>
+                <span>
+                  <strong>Harvard Business School</strong> — Credential of Readiness: Analytics, Strategy &amp; Management
+                </span>
+                <span className="text-gray-500 flex-shrink-0">2025</span>
               </div>
               <div className="flex justify-between gap-4">
-                <span><strong>mcfatter technical college</strong>, technical degree, computer science and network support services</span>
-                <span className="text-gray-500 font-mono flex-shrink-0">2024</span>
+                <span>
+                  <strong>McFatter Technical College</strong> — Technical Degree, Computer Science &amp; Network Support
+                </span>
+                <span className="text-gray-500 flex-shrink-0">2024</span>
               </div>
               <div className="flex justify-between gap-4">
-                <span><strong>stanford university school of engineering</strong>, strategic planning professional</span>
-                <span className="text-gray-500 font-mono flex-shrink-0">2024</span>
+                <span>
+                  <strong>Stanford University School of Engineering</strong> — Strategic Planning Professional
+                </span>
+                <span className="text-gray-500 flex-shrink-0">2024</span>
               </div>
               <div className="flex justify-between gap-4">
-                <span><strong>ibm</strong>, python for data science, ai and development specialist</span>
-                <span className="text-gray-500 font-mono flex-shrink-0">2024</span>
+                <span>
+                  <strong>IBM</strong> — Python for Data Science, AI &amp; Development Specialist
+                </span>
+                <span className="text-gray-500 flex-shrink-0">2024</span>
               </div>
             </div>
           </section>
