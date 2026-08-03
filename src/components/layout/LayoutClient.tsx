@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -17,7 +18,11 @@ function getCurrentQuarterKey(): string {
 
 const ANNOUNCEMENT_STORAGE_KEY = getCurrentQuarterKey();
 
+// Standalone printable documents rendered without the site chrome.
+const BARE_ROUTES = ['/hire/resume'];
+
 export function LayoutClient({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [hasAnnouncement, setHasAnnouncement] = useState(false);
 
   useEffect(() => {
@@ -32,6 +37,10 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
     setHasAnnouncement(false);
     localStorage.setItem(ANNOUNCEMENT_STORAGE_KEY, 'true');
   };
+
+  if (pathname && BARE_ROUTES.includes(pathname)) {
+    return <main id="main-content">{children}</main>;
+  }
 
   const announcementContent = hasAnnouncement ? (
     <AnnouncementBanner 
