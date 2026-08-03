@@ -299,7 +299,7 @@ function ResumeDocument() {
             </h2>
             <div className="space-y-1 text-[12px] text-gray-800">
               <div className="flex justify-between gap-4">
-                <span><strong>harvard business school</strong>, credential of readiness (core): analytics, strategy and management</span>
+                <span><strong>harvard business school</strong>, credential of readiness: analytics, strategy &amp; management</span>
                 <span className="text-gray-500 font-mono flex-shrink-0">2025</span>
               </div>
               <div className="flex justify-between gap-4">

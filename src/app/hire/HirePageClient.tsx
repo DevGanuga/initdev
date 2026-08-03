@@ -14,8 +14,6 @@ import {
   Download,
   CheckCircle,
   Briefcase,
-  GraduationCap,
-  Award,
   Star,
   Linkedin,
   Workflow,
@@ -43,6 +41,7 @@ const person = {
   email: 'dganuga@gmail.com',
   github: 'DevGanuga',
   linkedin: 'https://www.linkedin.com/in/dev-ganuga-4b3b6431a',
+  upwork: 'https://www.upwork.com/freelancers/~01f0e7e8b52c4ea315',
   status: 'open to senior w2 roles',
   summary:
     'i\u2019m the engineer initdev puts on its hardest builds. hand me an ambiguous business problem and you get back a live platform: privacy-first ai memory, real-money credit economies, clinical triage pipelines. everything i ship goes out with billing, reliability and failure handling already thought through. i don\u2019t take tickets. i take a domain and ship it.',
@@ -93,41 +92,35 @@ const testimonials = [
   },
 ];
 
-const education = [
+/* Big names lead. Phrased the way the resume phrases them. */
+const credentials = [
   {
-    credential: 'credential of readiness (core)',
-    field: 'analytics, strategy and management',
-    institution: 'harvard business school',
-    location: 'boston, ma',
-    year: 'feb 2025',
-    icon: <GraduationCap className="w-5 h-5" />,
-    accent: 'from-red-500/10 to-rose-500/10',
-    iconColor: 'text-red-400',
-    iconBg: 'bg-red-500/10',
+    institution: 'Harvard Business School',
+    credential: 'credential of readiness: analytics, strategy & management',
+    detail: 'boston, ma',
+    year: '02/2025',
+    accent: 'border-l-red-500/60',
   },
   {
-    credential: 'technical degree',
-    field: 'computer science and network support services',
-    institution: 'mcfatter technical college',
-    location: 'davie, fl',
-    year: 'jun 2024',
-    icon: <GraduationCap className="w-5 h-5" />,
-    accent: 'from-blue-500/10 to-indigo-500/10',
-    iconColor: 'text-blue-400',
-    iconBg: 'bg-blue-500/10',
-  },
-];
-
-const certifications = [
-  {
-    name: 'strategic planning professional',
-    issuer: 'stanford university school of engineering',
+    institution: 'Stanford University School of Engineering',
+    credential: 'strategic planning professional',
+    detail: 'certification',
     year: '2024',
+    accent: 'border-l-rose-400/60',
   },
   {
-    name: 'python for data science, ai and development specialist',
-    issuer: 'ibm',
+    institution: 'IBM',
+    credential: 'python for data science, ai & development specialist',
+    detail: 'certification',
     year: '2024',
+    accent: 'border-l-blue-500/60',
+  },
+  {
+    institution: 'McFatter Technical College',
+    credential: 'technical degree: computer science & network support services',
+    detail: 'davie, fl',
+    year: '06/2024',
+    accent: 'border-l-cyan-500/60',
   },
 ];
 
@@ -379,8 +372,43 @@ export function HirePageClient() {
   return (
     <main className="min-h-screen bg-[#050505]">
 
+      {/* ── Slim header: no agency funnel, one goal ── */}
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#050505]/85 border-b border-white/[0.06]">
+        <div className="container-custom flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/1966510796844172572-removebg-preview.png"
+              alt="InitDev"
+              width={80}
+              height={26}
+              className="h-6 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+            />
+            <span className="text-[11px] text-white/30 font-mono border-l border-white/10 pl-3 tracking-wide">
+              talent
+            </span>
+          </Link>
+          <div className="flex items-center gap-2">
+            <a
+              href={`mailto:${person.email}`}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs text-white/60 hover:text-white rounded-lg border border-white/[0.08] hover:border-white/20 transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              email me
+            </a>
+            <a
+              href="/resume/Dev-Ganugapenta-Resume.pdf"
+              download
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-lg bg-[#0084ff] text-white hover:bg-[#0074e0] transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              resume (pdf)
+            </a>
+          </div>
+        </div>
+      </header>
+
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-20 pb-20 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,100,255,0.07),transparent)]" />
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full filter blur-3xl" />
@@ -480,6 +508,15 @@ export function HirePageClient() {
                   <span>get in touch</span>
                 </a>
                 <a
+                  href={person.upwork}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#14a800] text-white text-sm font-medium hover:bg-[#118f00] transition-colors"
+                >
+                  <Star className="w-4 h-4 fill-white" />
+                  <span>upwork profile</span>
+                </a>
+                <a
                   href={person.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -570,7 +607,7 @@ export function HirePageClient() {
             viewport={{ once: true }}
           >
             <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-3 block">
-              portfolio
+              01 / portfolio
             </span>
             <h2 className="text-4xl md:text-5xl font-light text-white mb-2">
               what i&apos;ve built
@@ -598,6 +635,97 @@ export function HirePageClient() {
         </div>
       </section>
 
+      {/* ── References: proof before the history ── */}
+      <section className="py-24 border-t border-white/[0.05]">
+        <div className="container-custom">
+          <motion.div
+            className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-2 block">
+                02 / references
+              </span>
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-2">
+                what clients say
+              </h2>
+              <p className="text-white/40 text-sm max-w-lg">
+                verified reviews from production engagements. saas platforms, ai applications, enterprise builds.
+              </p>
+            </div>
+            <div className="sm:ml-auto flex-shrink-0">
+              <a
+                href={person.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex flex-col items-end gap-1.5 px-5 py-3 rounded-xl bg-white/[0.03] border border-white/[0.07] hover:border-[#14a800]/40 hover:bg-white/[0.05] transition-all group"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-semibold text-white/80">upwork</span>
+                  <span className="px-2 py-0.5 text-[10px] rounded-full bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 font-medium">
+                    top rated plus
+                  </span>
+                </div>
+                <p className="text-[11px] text-white/35 font-mono">
+                  100% job success · 500+ hours delivered
+                </p>
+                <p className="text-[11px] text-[#14a800] font-medium inline-flex items-center gap-1">
+                  view verified profile
+                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                </p>
+              </a>
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="glass-card p-5 flex flex-col gap-4 hover:border-blue-500/20 transition-all"
+              >
+                {/* Stars */}
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <Star key={s} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
+                  <span className="text-[10px] text-white/30 ml-2 font-mono">5.0</span>
+                </div>
+
+                {/* Quote */}
+                <p className="text-sm text-white/65 leading-relaxed flex-1">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+
+                {/* Footer */}
+                <div className="flex flex-wrap items-end justify-between gap-3 pt-3 border-t border-white/[0.05]">
+                  <div>
+                    <p className="text-xs text-white/50 font-medium mb-0.5">{t.project}</p>
+                    <p className="text-[11px] text-white/25 mb-1.5">{t.context}</p>
+                    <div className="flex flex-wrap gap-1">
+                      {t.endorsements.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-[10px] rounded-full bg-blue-500/8 border border-blue-500/15 text-blue-400/70"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Experience / Resume ── */}
       <section className="py-24 border-t border-white/[0.05]">
         <div className="container-custom">
@@ -609,7 +737,7 @@ export function HirePageClient() {
           >
             <div>
               <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-3 block">
-                experience
+                03 / experience
               </span>
               <h2 className="text-4xl md:text-5xl font-light text-white">
                 work history
@@ -665,7 +793,7 @@ export function HirePageClient() {
             viewport={{ once: true }}
           >
             <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-3 block">
-              technical skills
+              04 / technical skills
             </span>
             <h2 className="text-4xl md:text-5xl font-light text-white">
               stack
@@ -701,7 +829,7 @@ export function HirePageClient() {
         </div>
       </section>
 
-      {/* ── Education & Credentials ── */}
+      {/* ── Credentials: the big names lead ── */}
       <section className="py-24 border-t border-white/[0.05]">
         <div className="container-custom">
           <motion.div
@@ -711,148 +839,37 @@ export function HirePageClient() {
             viewport={{ once: true }}
           >
             <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-3 block">
-              education and credentials
+              05 / credentials
             </span>
-            <h2 className="text-4xl md:text-5xl font-light text-white">
-              formal background
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-2">
+              Harvard. Stanford. IBM.
             </h2>
+            <p className="text-white/45 max-w-xl">
+              the formal backing behind the shipped work.
+            </p>
           </motion.div>
 
-          {/* Degree cards */}
-          <div className="grid md:grid-cols-2 gap-4 mb-4 max-w-3xl">
-            {education.map((e, i) => (
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl">
+            {credentials.map((c, i) => (
               <motion.div
-                key={e.institution}
+                key={c.institution}
                 custom={i}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 variants={fadeUp}
-                className="glass-card p-5 hover:border-blue-500/20 transition-all"
+                className={`glass-card p-6 border-l-2 ${c.accent} hover:border-blue-500/20 transition-all`}
               >
-                <div className="flex items-start gap-3 mb-3">
-                  <div className={`p-2 ${e.iconBg} rounded-lg ${e.iconColor} flex-shrink-0`}>
-                    {e.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-white font-medium text-sm leading-snug">{e.credential}</h3>
-                    <p className="text-white/45 text-xs mt-0.5 leading-snug">{e.field}</p>
-                  </div>
-                </div>
-                <div className="flex items-end justify-between">
-                  <div>
-                    <p className="text-white/60 text-sm font-medium">{e.institution}</p>
-                    <p className="text-white/30 text-xs mt-0.5">{e.location}</p>
-                  </div>
-                  <span className="text-[11px] text-white/30 font-mono bg-white/[0.04] px-2.5 py-1 rounded-full">
-                    {e.year}
+                <div className="flex items-start justify-between gap-4 mb-2.5">
+                  <h3 className="text-xl md:text-2xl text-white font-light leading-tight">
+                    {c.institution}
+                  </h3>
+                  <span className="text-[11px] text-white/30 font-mono bg-white/[0.04] px-2.5 py-1 rounded-full flex-shrink-0">
+                    {c.year}
                   </span>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Certification badges */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-3 max-w-3xl"
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-          >
-            {certifications.map((c) => (
-              <div
-                key={c.name}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-all flex-1"
-              >
-                <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <div>
-                  <p className="text-xs text-white/65 leading-snug font-medium">{c.name}</p>
-                  <p className="text-[11px] text-white/30 mt-0.5">{c.issuer} · {c.year}</p>
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Client Testimonials ── */}
-      <section className="py-24 border-t border-white/[0.05]">
-        <div className="container-custom">
-          {/* Section header */}
-          <motion.div
-            className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div>
-              <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-2 block">
-                references
-              </span>
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-2">
-                what clients say
-              </h2>
-              <p className="text-white/40 text-sm max-w-lg">
-                verified reviews from production engagements. saas platforms, ai applications, enterprise builds.
-              </p>
-            </div>
-            <div className="sm:ml-auto flex-shrink-0">
-              <div className="inline-flex flex-col items-end gap-1.5 px-5 py-3 rounded-xl bg-white/[0.03] border border-white/[0.07]">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold text-white/80">upwork</span>
-                  <span className="px-2 py-0.5 text-[10px] rounded-full bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 font-medium">
-                    top rated plus
-                  </span>
-                </div>
-                <p className="text-[11px] text-white/35 font-mono">
-                  100% job success · 500+ hours delivered
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="glass-card p-5 flex flex-col gap-4 hover:border-blue-500/20 transition-all"
-              >
-                {/* Stars */}
-                <div className="flex items-center gap-0.5">
-                  {Array.from({ length: 5 }).map((_, s) => (
-                    <Star key={s} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="text-[10px] text-white/30 ml-2 font-mono">5.0</span>
-                </div>
-
-                {/* Quote */}
-                <p className="text-sm text-white/65 leading-relaxed flex-1">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-
-                {/* Footer */}
-                <div className="flex flex-wrap items-end justify-between gap-3 pt-3 border-t border-white/[0.05]">
-                  <div>
-                    <p className="text-xs text-white/50 font-medium mb-0.5">{t.project}</p>
-                    <p className="text-[11px] text-white/25 mb-1.5">{t.context}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {t.endorsements.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 text-[10px] rounded-full bg-blue-500/8 border border-blue-500/15 text-blue-400/70"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <p className="text-sm text-white/60 leading-relaxed">{c.credential}</p>
+                <p className="text-xs text-white/25 mt-1.5">{c.detail}</p>
               </motion.div>
             ))}
           </div>
@@ -870,7 +887,7 @@ export function HirePageClient() {
               transition={{ duration: 0.7 }}
             >
               <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-4 block">
-                what i&apos;m looking for
+                06 / what i&apos;m looking for
               </span>
               <h2 className="text-4xl font-light text-white mb-6">
                 the right
@@ -956,7 +973,7 @@ export function HirePageClient() {
             viewport={{ once: true }}
           >
             <span className="text-[#0084ff] text-sm font-medium tracking-wider mb-4 block">
-              contact
+              07 / contact
             </span>
             <h2 className="text-4xl font-light text-white mb-4">
               let&apos;s talk.
@@ -1006,6 +1023,15 @@ export function HirePageClient() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
+                href={person.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#14a800] text-white text-sm font-medium hover:bg-[#118f00] transition-colors"
+              >
+                <Star className="w-4 h-4 fill-white" />
+                <span>hire on upwork</span>
+              </a>
+              <a
                 href={person.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -1027,6 +1053,21 @@ export function HirePageClient() {
           </motion.div>
         </div>
       </section>
+
+      {/* ── Slim footer ── */}
+      <footer className="border-t border-white/[0.05] py-8">
+        <div className="container-custom flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs text-white/30">
+            Dev Ganugapenta · senior product engineer at{' '}
+            <Link href="/" className="text-white/50 hover:text-white transition-colors">
+              initdev
+            </Link>
+          </p>
+          <p className="text-xs text-white/25 font-mono">
+            west palm beach, fl · remote (us) · {person.email}
+          </p>
+        </div>
+      </footer>
     </main>
   );
 }

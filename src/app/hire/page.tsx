@@ -10,6 +10,21 @@ export const metadata: Metadata = {
     description:
       'initdev\u2019s top engineer, available for the right senior w2 role. 8 products built end to end. next.js / supabase / openai / anthropic / stripe.',
     url: 'https://initdev.co/hire',
+    images: [
+      {
+        url: 'https://initdev.co/images/dev/og-hire.png',
+        width: 1200,
+        height: 630,
+        alt: 'Dev Ganugapenta, senior product engineer at InitDev, open to senior W2 roles',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dev Ganugapenta — Senior Product Engineer at InitDev',
+    description:
+      'initdev\u2019s top engineer, available for the right senior w2 role. 8 products built end to end.',
+    images: ['https://initdev.co/images/dev/og-hire.png'],
   },
 };
 

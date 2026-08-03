@@ -18,8 +18,9 @@ function getCurrentQuarterKey(): string {
 
 const ANNOUNCEMENT_STORAGE_KEY = getCurrentQuarterKey();
 
-// Standalone printable documents rendered without the site chrome.
-const BARE_ROUTES = ['/hire/resume'];
+// Routes rendered without the site chrome: printable documents and the
+// hiring landing page, which has its own slim header and a single goal.
+const BARE_ROUTES = ['/hire', '/hire/resume'];
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
