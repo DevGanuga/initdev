@@ -18,9 +18,9 @@ function getCurrentQuarterKey(): string {
 
 const ANNOUNCEMENT_STORAGE_KEY = getCurrentQuarterKey();
 
-// Routes rendered without the site chrome: printable documents and the
-// hiring landing page, which has its own slim header and a single goal.
-const BARE_ROUTES = ['/hire', '/hire/resume'];
+// Route prefixes rendered without the site chrome: printable documents and
+// talent landing pages, which have their own slim header and a single goal.
+const BARE_PREFIXES = ['/talent/available/dev-ganuga'];
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -39,7 +39,7 @@ export function LayoutClient({ children }: { children: React.ReactNode }) {
     localStorage.setItem(ANNOUNCEMENT_STORAGE_KEY, 'true');
   };
 
-  if (pathname && BARE_ROUTES.includes(pathname)) {
+  if (pathname && BARE_PREFIXES.some((p) => pathname.startsWith(p))) {
     return <main id="main-content">{children}</main>;
   }
 

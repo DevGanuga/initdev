@@ -117,6 +117,18 @@ const nextConfig: NextConfig = {
         destination: '/services',
         permanent: true,
       },
+      // The talent page originally lived at /hire; the old links are baked
+      // into shared résumé PDFs and OG cards, so keep them working forever.
+      {
+        source: '/hire',
+        destination: '/talent/available/dev-ganuga',
+        permanent: true,
+      },
+      {
+        source: '/hire/resume',
+        destination: '/talent/available/dev-ganuga/resume',
+        permanent: true,
+      },
     ];
   },
 };

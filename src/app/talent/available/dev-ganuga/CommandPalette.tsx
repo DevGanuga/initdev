@@ -69,10 +69,18 @@ export function CommandPalette() {
     const quick: Action[] = [
       {
         id: 'resume',
-        label: 'download resume (pdf)',
+        label: 'download resume (2 pages, pdf)',
         group: 'actions',
         icon: <Download className="w-3.5 h-3.5" />,
         run: () => window.open(person.resume, '_blank'),
+      },
+      {
+        id: 'resume-detailed',
+        label: 'download detailed resume (3 pages, pdf)',
+        group: 'actions',
+        keywords: 'engineering detail architecture',
+        icon: <Download className="w-3.5 h-3.5" />,
+        run: () => window.open(person.resumeDetailed, '_blank'),
       },
       {
         id: 'copy-email',

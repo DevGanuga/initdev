@@ -1,22 +1,22 @@
 /**
- * Single source of truth for the hire page.
+ * Single source of truth for the talent page.
  *
- * Timeline months are indexed from TIMELINE_START (Oct 2025 = 0) so the
- * delivery chart, the command palette and the case studies can never drift
- * apart. `end` is exclusive: an engagement running Oct–Dec is [0, 3).
+ * Timeline months are indexed from Jun 2025 = 0 so the delivery chart, the
+ * command palette and the case studies can never drift apart. `end` is
+ * exclusive: an engagement running Jun–Aug is [0, 3).
  */
 
 export const TIMELINE_MONTHS = [
-  'oct 25', 'nov', 'dec', 'jan 26', 'feb', 'mar',
-  'apr', 'may', 'jun', 'jul', 'aug',
+  'jun 25', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec',
+  'jan 26', 'feb', 'mar', 'apr', 'may', 'jun',
 ];
 
-export const TIMELINE_SPAN = TIMELINE_MONTHS.length; // 11 months to "now"
+export const TIMELINE_SPAN = TIMELINE_MONTHS.length; // jun 2025 through jun 2026
 
 export const person = {
   name: 'Dev Ganugapenta',
-  title: 'senior product engineer at initdev',
-  focus: 'ai products / saas platforms / systems architecture',
+  title: 'senior software engineer at initdev',
+  focus: 'full-stack & ai applications / saas / payments infrastructure',
   location: 'west palm beach, fl',
   email: 'dganuga@gmail.com',
   github: 'DevGanuga',
@@ -24,22 +24,23 @@ export const person = {
   linkedin: 'https://www.linkedin.com/in/dev-ganuga-4b3b6431a',
   upwork: 'https://www.upwork.com/freelancers/~01f0e7e8b52c4ea315',
   resume: '/resume/Dev-Ganugapenta-Resume.pdf',
+  resumeDetailed: '/resume/Dev-Ganugapenta-Resume-Detailed.pdf',
   status: 'open to senior w2 roles',
   summary:
-    'i take a domain and ship it. hand me an ambiguous business problem and you get back a live platform: privacy-first ai memory, real-money credit economies, clinical triage pipelines. billing, reliability and failure handling are thought through before the first commit.',
+    'i build production ai systems end to end. llm integrations that assume the model will fail, stripe billing that stays correct through webhook replay, multi-tenant postgres that keeps every tenant\u2019s data its own. hand me an ambiguous business problem and you get back a live platform.',
 };
 
 export const roleTypes = [
-  'senior product engineer',
-  'product architect',
-  'staff product engineer',
+  'senior software engineer',
+  'senior full-stack engineer',
+  'ai application engineer',
+  'product engineer',
   'founding engineer',
-  'ai product engineer',
 ];
 
 export const stats = [
-  { value: '7', label: 'products shipped in 30–90 day cycles', sub: 'oct 2025 to now' },
-  { value: '2', label: 'parallel builds at peak', sub: 'without slipping a cycle' },
+  { value: '9', label: 'production platforms shipped', sub: 'jun 2025 to jun 2026' },
+  { value: '528', label: 'solo commits on one product', sub: 'drip: 98 api routes, 38 migrations' },
   { value: '1,197', label: 'github contributions this year', sub: '96% shipped commits' },
   { value: '100%', label: 'job success, every review 5.0', sub: 'upwork top rated plus' },
 ];
@@ -54,13 +55,15 @@ export type Engagement = {
   start: number;
   /** exclusive month index */
   end: number;
-  ongoing?: boolean;
   period: string;
   duration: string;
   statusLabel: string;
   url: string | null;
   github: string | null;
+  /** full technical deep dive */
   pdf: string | null;
+  /** condensed one-page summary */
+  onePager: string | null;
   problem: string;
   approach: string[];
   outcome: string;
@@ -75,27 +78,27 @@ export const engagements: Engagement[] = [
   {
     id: 'ai-navigator',
     name: 'AI Navigator',
-    tagline: 'enterprise ai readiness platform',
+    tagline: 'enterprise ai readiness platform · leading with ai, a limpid&co division',
     role: 'lead engineer',
     kind: 'client',
-    start: 7,
-    end: 11,
-    ongoing: true,
-    period: 'may 2026 – present',
-    duration: 'phase 2 under contract',
-    statusLabel: 'live',
+    start: 4,
+    end: 13,
+    period: 'oct 2025 – jun 2026',
+    duration: 'oct 25 – jun 26',
+    statusLabel: 'delivered, live in production',
     url: 'https://navigator.leadingwith.ai',
     github: null,
     pdf: '/portfolio/ai-navigator-showcase.pdf',
+    onePager: null,
     problem:
-      'enterprises roll out ai and adoption quietly stalls. leadership cannot see which teams are resisting, or why, so every intervention is a guess.',
+      'enterprises roll out ai and adoption quietly stalls. leadership cannot see which teams are resisting, or why, so every intervention is a guess. built for a client presenting at web summit 2025.',
     approach: [
       'gpt-4o assistant that executes real navigation and analysis actions in-app, not just answers questions',
       '25-zone sentiment engine scoring 5 resistance reasons against 5 discomfort levels across 1,000 responses',
       '8-dimension capability maturity model scored against industry benchmark with automated gap detection',
     ],
     outcome:
-      'phase 1 delivered and invoiced. i wrote the phase 2 production proposal, team structure and financials included, and it is now in development under contract.',
+      'phase 1 delivered and invoiced. i wrote the phase 2 production proposal, team structure and financials included, and it won. engagement completed jun 2026, platform live in production.',
     tech: ['next.js', 'openai gpt-4o', 'postgres', 'data viz', 'enterprise auth'],
     barFrom: '#6366f1',
     barTo: '#3b82f6',
@@ -107,23 +110,24 @@ export const engagements: Engagement[] = [
     tagline: 'field-service saas',
     role: 'lead engineer',
     kind: 'studio',
-    start: 7,
-    end: 10,
-    period: 'may 2026 – jul 2026',
-    duration: '90 day cycle',
+    start: 11,
+    end: 13,
+    period: 'may 2026 – jun 2026',
+    duration: 'may – jun 26',
     statusLabel: 'live, paying subscribers',
     url: 'https://dyia.io',
     github: 'https://github.com/DevGanuga/dyiabase-master',
     pdf: '/portfolio/dyia-technical-showcase.pdf',
+    onePager: '/portfolio/dyia-one-pager.pdf',
     problem:
       'service businesses run dispatch in one tool, invoicing in another and have no idea which jobs are actually profitable.',
     approach: [
-      'tiered stripe subscriptions with signed webhook verification and idempotent plan grants',
+      'tiered stripe subscriptions across 70 api routes, with signed webhook verification and idempotent plan grants',
       'anthropic-powered business intelligence reading live job and profit data',
       'google maps dispatch for crews, sentry across edge and server runtimes',
     ],
     outcome:
-      'shipped to live revenue with paying subscribers. the documented release qa process built here now gates every studio build.',
+      'shipped to live revenue with paying subscribers, and owned a live billing incident end to end when one hit. the documented release qa process built here now gates every studio build.',
     tech: ['next.js 15', 'supabase', 'anthropic', 'stripe', 'google maps', 'sentry'],
     barFrom: '#10b981',
     barTo: '#14b8a6',
@@ -135,14 +139,15 @@ export const engagements: Engagement[] = [
     tagline: 'headless shopify storefront',
     role: 'sole engineer',
     kind: 'studio',
-    start: 6,
-    end: 9,
+    start: 10,
+    end: 13,
     period: 'apr 2026 – jun 2026',
-    duration: '90 day cycle',
+    duration: 'apr – jun 26',
     statusLabel: 'storefront live, pre-launch',
     url: 'https://www.animalia.market',
     github: 'https://github.com/DevGanuga/animaliamarket',
     pdf: '/portfolio/animalia-technical-showcase.pdf',
+    onePager: '/portfolio/animalia-one-pager.pdf',
     problem:
       'raw supplier catalog text needs to become a storefront that converts, and an llm sitting in the page render path is both slow and untestable.',
     approach: [
@@ -160,17 +165,18 @@ export const engagements: Engagement[] = [
   {
     id: 'company-challenges',
     name: 'Company Challenges',
-    tagline: 'enterprise learning platform',
+    tagline: 'enterprise learning platform · limpid&co',
     role: 'sole engineer',
     kind: 'client',
-    start: 6,
-    end: 9,
+    start: 10,
+    end: 13,
     period: 'apr 2026 – jun 2026',
-    duration: '90 day cycle',
+    duration: 'apr – jun 26',
     statusLabel: 'delivered, invoiced',
     url: 'https://companychallenges.com',
     github: null,
     pdf: '/portfolio/company-challenges-technical-showcase.pdf',
+    onePager: '/portfolio/company-challenges-one-pager.pdf',
     problem:
       'the client needed to author a challenge once and run it across unlimited cohorts, without duplicating content per cohort.',
     approach: [
@@ -186,19 +192,50 @@ export const engagements: Engagement[] = [
     dot: '#fb923c',
   },
   {
+    id: 'sts',
+    name: 'Strengthening the Saints',
+    tagline: 'church discipleship platform',
+    role: 'platform contributor, team build',
+    kind: 'studio',
+    start: 8,
+    end: 13,
+    period: 'feb 2026 – jun 2026',
+    duration: 'feb – jun 26',
+    statusLabel: 'shipped, team build',
+    url: null,
+    github: null,
+    pdf: '/portfolio/sts-technical-showcase.pdf',
+    onePager: '/portfolio/sts-one-pager.pdf',
+    problem:
+      'churches adopting digital tools risk centralizing what belongs to the local congregation. the platform had to strengthen the local church, not replace it, which makes data ownership an architectural requirement rather than a setting.',
+    approach: [
+      'multi-tenant postgres with row-level security so each church owns its own data and shepherding workflows',
+      'tiptap authoring for sermons and studies, with scripture verse insertion and text normalization',
+      'hq dashboard, structured discipleship plans, google oauth via supabase auth',
+      'ci pipeline running lint, typecheck, build and playwright smoke tests on every push',
+    ],
+    outcome:
+      'a team build at real platform scale: 84 routes, 161 server actions and 204 rls policies across 82 migrations. type-checks and builds clean, with ci and documented security remediation.',
+    tech: ['next.js 16', 'supabase + rls', 'tiptap', 'tailwind 4', 'zustand', 'playwright'],
+    barFrom: '#84cc16',
+    barTo: '#eab308',
+    dot: '#a3e635',
+  },
+  {
     id: 'ai-blueprint',
     name: 'AI Blueprint',
     tagline: 'multi-studio ai creative platform',
     role: 'primary engineer',
     kind: 'studio',
-    start: 3,
-    end: 6,
+    start: 7,
+    end: 10,
     period: 'jan 2026 – mar 2026',
-    duration: '90 day cycle',
+    duration: 'jan – mar 26',
     statusLabel: 'shipped, revenue',
     url: null,
     github: null,
     pdf: '/portfolio/ai-blueprint-technical-showcase.pdf',
+    onePager: '/portfolio/ai-blueprint-one-pager.pdf',
     problem:
       'customers spend real money on ai generations that fail unpredictably. naive billing either double-charges on webhook replay or silently eats the credit.',
     approach: [
@@ -219,14 +256,15 @@ export const engagements: Engagement[] = [
     tagline: 'real-time ai video platform',
     role: 'primary engineer',
     kind: 'studio',
-    start: 1,
-    end: 4,
+    start: 5,
+    end: 8,
     period: 'nov 2025 – jan 2026',
-    duration: '90 day cycle',
+    duration: 'nov 25 – jan 26',
     statusLabel: 'shipped',
     url: null,
     github: 'https://github.com/DevGanuga/narratorapp',
     pdf: '/portfolio/convoai-studio-technical-showcase.pdf',
+    onePager: '/portfolio/convoai-studio-one-pager.pdf',
     problem:
       'a clinical triage flow driven by live video, where a dropped third-party webhook means a patient report never gets delivered.',
     approach: [
@@ -247,14 +285,15 @@ export const engagements: Engagement[] = [
     tagline: 'privacy-first ai companion',
     role: 'sole engineer',
     kind: 'studio',
-    start: 0,
-    end: 3,
+    start: 4,
+    end: 7,
     period: 'oct 2025 – dec 2025',
-    duration: '90 day cycle',
+    duration: 'oct – dec 25',
     statusLabel: 'investor-demo ready',
     url: null,
     github: null,
     pdf: '/portfolio/drip-technical-showcase.pdf',
+    onePager: '/portfolio/drip-one-pager.pdf',
     problem:
       'two partners share one ai companion and neither may ever access the other\u2019s memories. a single leaked retrieval breaks the product and the trust behind it.',
     approach: [
@@ -268,6 +307,35 @@ export const engagements: Engagement[] = [
     barFrom: '#3b82f6',
     barTo: '#6366f1',
     dot: '#60a5fa',
+  },
+  {
+    id: 'inflio',
+    name: 'Inflio',
+    tagline: 'ai video platform, wound down',
+    role: 'sole engineer',
+    kind: 'studio',
+    start: 0,
+    end: 8,
+    period: 'jun 2025 – feb 2026',
+    duration: 'jun 25 – feb 26',
+    statusLabel: 'closed after validation',
+    url: null,
+    github: 'https://github.com/DevGanuga/inflio',
+    pdf: null,
+    onePager: null,
+    problem:
+      'creators lose hours turning long footage into clips, subtitles and scheduled posts. i wanted to know whether one platform could own that entire pipeline, so i built the whole thing to find out.',
+    approach: [
+      '399 typescript files and 119k lines authored solo: clip generation, transcription, subtitle editing',
+      'multi-platform scheduling and publishing across the major social destinations',
+      '260 commits over eight months as the single engineer on the codebase',
+    ],
+    outcome:
+      'the build validated, the market did not. i made the call to shut it down and did it properly: 14,600 lines of dead code removed and a clean 27 second build left behind. knowing when to stop is part of the job.',
+    tech: ['next.js', 'typescript', 'ai transcription', 'scheduling', 'multi-platform publishing'],
+    barFrom: '#64748b',
+    barTo: '#475569',
+    dot: '#94a3b8',
   },
 ];
 

@@ -72,10 +72,10 @@ export function HirePageClient() {
       <Hero />
       <StatsBar />
 
-      <Section id="record" index="01" title="delivery record" kicker="every cycle, on a real time axis">
+      <Section id="record" index="01" title="delivery record" kicker="a year of shipped work, on a real time axis">
         <p className="text-white/45 max-w-2xl mb-8 leading-relaxed">
-          seven products in eleven months, each a 30 to 90 day cycle from domain model to
-          production. click any bar to read how it was built.
+          nine production platforms between jun 2025 and jun 2026, all delivered. click any bar
+          to read how it was built.
         </p>
         <DeliveryRecord />
       </Section>
@@ -154,7 +154,7 @@ function SiteFooter() {
     <footer className="border-t border-white/[0.05] py-8">
       <div className="container-custom flex flex-wrap items-center justify-between gap-3">
         <p className="text-xs text-white/30">
-          Dev Ganugapenta · senior product engineer at{' '}
+          Dev Ganugapenta · senior software engineer at{' '}
           <Link href="/" className="text-white/50 hover:text-white transition-colors">
             initdev
           </Link>
@@ -583,7 +583,7 @@ const fitItems = [
   {
     icon: <Briefcase className="w-4 h-4" />,
     label: 'role level',
-    value: 'senior / staff product engineer or architect, ic track',
+    value: 'senior software / full-stack engineer, ic track',
   },
   {
     icon: <Code2 className="w-4 h-4" />,
@@ -674,7 +674,7 @@ function Contact() {
           <div>
             <p className="text-sm text-white/80 font-medium">Dev Ganugapenta, resume</p>
             <p className="text-xs text-white/35 mt-0.5">
-              two pages, ats-friendly, every product dated
+              two pages ats-friendly, or three pages with the engineering detail
             </p>
           </div>
         </div>
@@ -685,10 +685,18 @@ function Contact() {
             className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-[#0084ff] text-white hover:bg-[#0074e0] transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
-            download pdf
+            resume (2p)
+          </a>
+          <a
+            href={person.resumeDetailed}
+            download
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-white/[0.05] text-white/70 border border-white/[0.08] hover:bg-white/[0.08] hover:text-white transition-colors"
+          >
+            <Download className="w-3.5 h-3.5" />
+            detailed (3p)
           </a>
           <Link
-            href="/hire/resume"
+            href="/talent/available/dev-ganuga/resume"
             className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-white/[0.05] text-white/70 border border-white/[0.08] hover:bg-white/[0.08] hover:text-white transition-colors"
           >
             <ExternalLink className="w-3.5 h-3.5" />

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Download, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, Download, ArrowUpRight, FileText } from 'lucide-react';
 import {
   engagements,
   TIMELINE_MONTHS,
@@ -22,13 +22,13 @@ export function DeliveryRecord() {
     <div>
       {/* ── Gantt ── */}
       <div className="glass-card p-5 sm:p-7 mb-5 overflow-x-auto">
-        <div className="min-w-[680px]">
+        <div className="min-w-[900px]">
           {/* Month axis */}
-          <div className="relative h-5 mb-3 ml-[152px]">
+          <div className="relative h-5 mb-3 ml-[172px]">
             {TIMELINE_MONTHS.map((m, i) => (
               <span
-                key={m}
-                className="absolute text-[10px] text-white/25 font-mono -translate-x-1/2"
+                key={`${m}-${i}`}
+                className="absolute text-[9px] text-white/25 font-mono -translate-x-1/2 whitespace-nowrap"
                 style={{ left: pct(i + 0.5) }}
               >
                 {m}
@@ -39,17 +39,14 @@ export function DeliveryRecord() {
           {/* Rows */}
           <div className="relative">
             {/* Grid lines */}
-            <div className="absolute inset-0 ml-[152px] pointer-events-none">
+            <div className="absolute inset-0 ml-[172px] pointer-events-none">
               {TIMELINE_MONTHS.map((m, i) => (
                 <div
-                  key={m}
+                  key={`${m}-${i}`}
                   className="absolute top-0 bottom-0 w-px bg-white/[0.04]"
                   style={{ left: pct(i) }}
                 />
               ))}
-              {/* "now" marker */}
-              <div className="absolute top-0 bottom-0 right-0 w-px bg-[#0084ff]/40" />
-              <span className="absolute -top-0.5 right-0 translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#0084ff]" />
             </div>
 
             <div className="relative space-y-1.5">
@@ -72,7 +69,7 @@ export function DeliveryRecord() {
                       onClick={() => setSelectedId(e.id)}
                       onMouseEnter={() => setHoveredId(e.id)}
                       onMouseLeave={() => setHoveredId(null)}
-                      className={`w-[152px] pr-4 text-left text-xs truncate transition-colors ${
+                      className={`w-[172px] pr-4 text-left text-xs truncate transition-colors ${
                         isSelected ? 'text-white' : 'text-white/40 hover:text-white/70'
                       }`}
                     >
@@ -94,9 +91,7 @@ export function DeliveryRecord() {
                           left: pct(e.start),
                           width: pct(e.end - e.start),
                           opacity: dim ? 0.3 : isSelected ? 1 : 0.62,
-                          backgroundImage: e.ongoing
-                            ? `linear-gradient(90deg, ${e.barFrom}, ${e.barTo} 72%, ${e.barTo}00)`
-                            : `linear-gradient(90deg, ${e.barFrom}, ${e.barTo})`,
+                          backgroundImage: `linear-gradient(90deg, ${e.barFrom}, ${e.barTo})`,
                         }}
                       >
                         <span className="absolute inset-0 flex items-center px-2.5">
@@ -113,13 +108,9 @@ export function DeliveryRecord() {
           </div>
 
           {/* Legend */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 ml-[152px] pt-4 border-t border-white/[0.05]">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-5 ml-[172px] pt-4 border-t border-white/[0.05]">
             <span className="text-[10px] text-white/30">
-              each bar is one delivery cycle, start to ship
-            </span>
-            <span className="flex items-center gap-1.5 text-[10px] text-white/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0084ff]" />
-              today
+              each bar is one build, start to ship. all delivered.
             </span>
             <span className="text-[10px] text-white/30">
               overlapping bars ran in parallel
@@ -212,7 +203,7 @@ function CaseStudy({ e }: { e: Engagement }) {
         </div>
 
         {/* Links */}
-        {(e.url || e.github || e.pdf) && (
+        {(e.url || e.github || e.pdf || e.onePager) && (
           <div className="flex flex-wrap items-center gap-3 mt-7 pt-5 border-t border-white/[0.05]">
             {e.url && (
               <a
@@ -237,17 +228,30 @@ function CaseStudy({ e }: { e: Engagement }) {
                 source
               </a>
             )}
-            {e.pdf && (
-              <a
-                href={e.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-blue-400/60 hover:text-blue-400 transition-colors sm:ml-auto"
-              >
-                <Download className="w-3.5 h-3.5" />
-                technical deep dive (pdf)
-              </a>
-            )}
+            <span className="flex flex-wrap items-center gap-3 sm:ml-auto">
+              {e.onePager && (
+                <a
+                  href={e.onePager}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-white/40 hover:text-white/75 transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  one-pager
+                </a>
+              )}
+              {e.pdf && (
+                <a
+                  href={e.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400/60 hover:text-blue-400 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  technical deep dive (pdf)
+                </a>
+              )}
+            </span>
           </div>
         )}
       </div>
