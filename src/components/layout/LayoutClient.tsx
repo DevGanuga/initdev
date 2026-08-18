@@ -19,8 +19,8 @@ function getCurrentQuarterKey(): string {
 const ANNOUNCEMENT_STORAGE_KEY = getCurrentQuarterKey();
 
 // Route prefixes rendered without the site chrome: printable documents and
-// talent landing pages, which have their own slim header and a single goal.
-const BARE_PREFIXES = ['/talent/available/dev-ganuga'];
+// the talent section, whose pages carry their own slim header and a single goal.
+const BARE_PREFIXES = ['/talent'];
 
 export function LayoutClient({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

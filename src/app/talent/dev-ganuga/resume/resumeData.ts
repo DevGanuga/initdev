@@ -1,7 +1,8 @@
 /**
- * Résumé content, shared by the 2-page ATS variant and the 3-page detailed
- * variant. Entries are ordered by end date, newest first; every engagement
- * is closed out and dated with its real month range.
+ * Résumé content, shared by the 2-page ATS variant and the detailed variant.
+ * Entries are ordered newest first. Client engagements from 2025 onward were
+ * delivered through the independent consulting practice listed first and are
+ * marked (contract).
  */
 
 export const contact = {
@@ -11,31 +12,43 @@ export const contact = {
   email: 'dganuga@gmail.com',
   linkedin: 'linkedin.com/in/dev-ganuga-4b3b6431a',
   github: 'github.com/DevGanuga',
-  site: 'initdev.co/talent/available/dev-ganuga',
+  site: 'initdev.co/talent/dev-ganuga',
 };
 
 export const summary =
-  'Senior software engineer specializing in full-stack and AI applications. Shipped nine production platforms in a year at InitDev for startup and enterprise clients: LLM systems architected for model failure, Stripe billing that stays correct through webhook replay, and multi-tenant Postgres with row-level security. Owns products end to end, from domain model to production.';
+  'Senior full-stack engineer who takes products from zero to market. Built four startup products end to end in the past year as founding engineer, two of them now generating revenue, and delivered enterprise AI platforms for corporate clients, including one presented at Web Summit 2025. Works in TypeScript, Next.js, and PostgreSQL with strong production LLM experience, owning everything from data model to deployment and incident response.';
 
 export const skillGroups = [
   { label: 'Languages', items: 'TypeScript, JavaScript, SQL, Python' },
   {
     label: 'AI / LLM',
     items:
-      'OpenAI GPT-4o, Anthropic Claude, Pinecone embeddings, fal.ai, Tavus, agent workflows (LangGraph, n8n)',
+      'OpenAI and Anthropic APIs (GPT-4o, Claude), structured output and tool calling, streaming, RAG with Pinecone embeddings, agent workflows (LangGraph, n8n), generative image and video (fal.ai, Tavus), transcription and media pipelines, human-in-the-loop review systems',
   },
-  { label: 'Frontend', items: 'React, Next.js (App Router), Tailwind CSS, Framer Motion' },
+  {
+    label: 'Frontend',
+    items:
+      'React 19, Next.js App Router (server components and server actions), Tailwind CSS, Framer Motion, TipTap rich-text editing, React Hook Form, Zod validation, Zustand, data visualization',
+  },
   {
     label: 'Backend & Data',
-    items: 'Node.js, PostgreSQL, Supabase (row-level security), REST, GraphQL (Shopify)',
+    items:
+      'Node.js, PostgreSQL (schema design, migrations, row-level security), Supabase, REST and GraphQL API design, Shopify headless commerce, Clerk and Supabase Auth (OAuth), signed webhooks, cron jobs, transactional email (Resend), Google Maps Platform',
   },
   {
     label: 'Payments',
-    items: 'Stripe subscriptions, idempotent webhook processing, atomic credit ledgers',
+    items:
+      'Stripe subscriptions and customer portal, tiered and usage-based pricing, atomic credit ledgers with escrowed spend and automatic refunds, idempotent webhook processing',
   },
   {
     label: 'DevOps & Observability',
-    items: 'Vercel, CI/CD, Sentry, Playwright, Google Maps API',
+    items:
+      'Vercel (edge, serverless, cron), CI/CD pipelines, Sentry across edge and server runtimes, Playwright end-to-end testing',
+  },
+  {
+    label: 'Architecture & Practices',
+    items:
+      'Multi-tenant SaaS design, event-driven and idempotent systems, production incident response, release QA processes, technical proposals and scoping',
   },
 ];
 
@@ -52,164 +65,135 @@ export type ResumeEntry = {
 
 export const entries: ResumeEntry[] = [
   {
+    title: 'Independent Product Engineer',
+    company: 'Self-employed · Upwork Top Rated Plus',
+    period: '2025 – Present',
+    oneLiner:
+      'Full-stack and AI product development for startups and enterprise clients. The ventures and platforms below were built through this practice.',
+    bullets: [
+      'Built four startup products from zero to market as founding engineer, two now generating revenue, alongside enterprise platform delivery for corporate clients.',
+      'Top Rated Plus on Upwork with 100% Job Success; every completed engagement rated 5.0.',
+    ],
+    detailedBullets: [
+      'Built four startup products from zero to market as founding engineer, two now generating revenue, alongside enterprise platform delivery for corporate clients.',
+      'Top Rated Plus on Upwork with 100% Job Success; every completed engagement rated 5.0.',
+      'Typical scope runs from data modeling and API design through deployment, monitoring, and production incident response.',
+    ],
+  },
+  {
     title: 'Lead Engineer',
-    company: 'AI Navigator — Leading with AI, a Limpid&Co division (client via InitDev)',
+    company: 'Leading with AI, a Limpid&Co division (contract)',
     period: 'Oct 2025 – Jun 2026',
     oneLiner:
-      'Enterprise AI readiness platform, delivered and live in production. navigator.leadingwith.ai',
+      'AI Navigator, an enterprise AI readiness platform. Live at navigator.leadingwith.ai.',
     bullets: [
-      'Built a GPT-4o assistant that executes in-app navigation and analysis actions, plus a 25-zone sentiment engine scoring resistance reasons against discomfort levels across 1,000 employee responses.',
-      'Delivered Phase 1 for a client presenting at Web Summit 2025; authored the Phase 2 production proposal, team structure and financials included, and won it.',
+      'Owned the platform end to end: built the GPT-4o assistant that navigates the app and runs analyses for the user, and a sentiment engine scoring 1,000+ employee survey responses on where and why AI adoption stalls.',
+      'Delivered Phase 1 ahead of the client\u2019s Web Summit 2025 presentation, then wrote the Phase 2 proposal (scope, team, budget) and won the follow-on contract.',
     ],
     detailedBullets: [
-      'Built a GPT-4o assistant with in-app action execution: the model navigates the platform and runs analyses on the user\u2019s behalf rather than only answering questions.',
-      'Designed a 25-zone sentiment engine scoring 5 resistance reasons against 5 discomfort levels across 1,000 employee survey responses, surfacing where AI adoption stalls and why.',
-      'Implemented an 8-dimension capability maturity model scored against industry benchmarks with automated gap detection.',
-      'Delivered Phase 1 on contract for a client presenting at Web Summit 2025; platform is live in production.',
-      'Authored the winning Phase 2 production proposal, including team structure and financials.',
+      'Built the in-app GPT-4o assistant. Beyond answering questions, it can open the relevant screens and run analyses on the user\u2019s behalf.',
+      'Wrote a sentiment engine that maps survey responses across 25 zones (five resistance reasons against five discomfort levels), applied to 1,000+ employee responses.',
+      'Added an eight-dimension capability maturity model scored against industry benchmarks, with automated gap detection.',
+      'Delivered Phase 1 ahead of the client\u2019s Web Summit 2025 presentation; the platform is live in production.',
+      'Wrote the Phase 2 proposal, including team structure and budget, and won the follow-on contract.',
     ],
   },
   {
-    title: 'Lead Engineer',
-    company: 'Dyia (InitDev)',
+    title: 'Founding Engineer',
+    company: 'Dyia (contract)',
     period: 'May 2026 – Jun 2026',
-    oneLiner: 'Field-service SaaS, live with paying subscribers. dyia.io',
+    oneLiner: 'Field-service SaaS for service businesses. Live at dyia.io with paying subscribers.',
     bullets: [
-      'Owned end-to-end delivery across 70 API routes: tiered Stripe subscriptions with signed webhook verification and idempotent plan grants, Anthropic-powered business intelligence, and Google Maps crew dispatch.',
-      'Resolved a live billing incident end to end in production and wrote the release QA process that now gates every InitDev studio build.',
+      'Built the company\u2019s product from zero to launch in two months: crew dispatch on Google Maps, invoicing, job profitability reporting, an Anthropic-powered reporting assistant, and tiered Stripe subscriptions.',
+      'Took it to market and first paying subscribers, diagnosed and fixed the first live billing incident, and wrote the release QA checklist that has gated every release since.',
     ],
     detailedBullets: [
-      'Shipped a field-service SaaS to live revenue across 70 API routes: dispatch, invoicing, and job profitability in one system.',
-      'Built tiered Stripe subscriptions with signed webhook verification and idempotent plan grants.',
-      'Integrated Anthropic-powered business intelligence reading live job and profit data.',
-      'Instrumented Sentry across edge and server runtimes; diagnosed and resolved a live billing incident end to end.',
-      'Documented the release QA process that now gates every InitDev studio build.',
+      'Built the entire product from zero in two months, roughly 70 API routes covering dispatch, invoicing, and job profitability, and took it live to paying subscribers.',
+      'Set up tiered Stripe subscriptions with signed webhook verification and idempotent plan grants.',
+      'Added an Anthropic-powered reporting assistant that works from live job and profit data.',
+      'Instrumented Sentry across edge and server runtimes and used it to trace and fix a live billing incident.',
+      'Wrote the release QA checklist that has gated every release since.',
     ],
   },
   {
-    title: 'Sole Engineer',
-    company: 'Animalia (InitDev)',
+    title: 'Founding Engineer',
+    company: 'Animalia (contract)',
     period: 'Apr 2026 – Jun 2026',
-    oneLiner: 'Headless Shopify storefront for pet wellness. animalia.market',
+    oneLiner: 'Pet wellness e-commerce startup on headless Shopify. Live at animalia.market, pre-launch.',
     bullets: [
-      'Built a typed domain layer unifying Shopify Storefront, Cart, and Admin APIs across 33 GraphQL operations.',
-      'Designed a deterministic merchandising engine, no LLM in the page render path, plus an AI product photography pipeline that writes back through the Admin API.',
+      'Built the storefront from zero as the only engineer, turning a raw supplier catalog into a working store: typed domain layer over the Shopify Storefront, Cart, and Admin APIs (33 GraphQL operations).',
+      'Wrote a revenue-weighted merchandising engine (deterministic, no LLM at render time) and an AI product photography pipeline that generates brand-constrained images and writes them back to the catalog.',
     ],
     detailedBullets: [
-      'Built a typed domain layer unifying Shopify Storefront, Cart, and Admin APIs across 33 GraphQL operations.',
-      'Designed a deterministic merchandising engine ranking catalog copy by revenue weight; keeping the LLM out of the render path made ranking fully unit-testable and fast.',
-      'Built an AI product photography pipeline that reads the Admin API, generates brand-constrained imagery with fal.ai, and writes results back to the catalog.',
-      'Storefront live and pre-launch on Next.js 16, Tailwind 4, and TypeScript.',
+      'Only engineer on the build; took the storefront from zero to live on Next.js 16, Tailwind 4, and TypeScript.',
+      'Built a typed domain layer over the Shopify Storefront, Cart, and Admin APIs, 33 GraphQL operations in total.',
+      'Wrote the merchandising engine as plain, unit-testable ranking code weighted by revenue, keeping LLM calls out of page rendering.',
+      'Built a product photography pipeline that reads the catalog from the Admin API, generates brand-constrained images with fal.ai, and writes them back.',
     ],
   },
   {
     title: 'Sole Engineer',
-    company: 'Company Challenges — Limpid&Co (client via InitDev)',
+    company: 'Company Challenges, for Limpid&Co (contract)',
     period: 'Apr 2026 – Jun 2026',
     oneLiner: 'Enterprise learning platform, delivered and invoiced. companychallenges.com',
     bullets: [
-      'Built a reusable content architecture: author a challenge once, run it across unlimited cohorts without duplicating content.',
-      'Traced a production aggregate-query failure to a PostgREST regression after a Supabase upgrade and shipped the fix within hours.',
+      'Built and delivered the entire platform solo, designing the content model so a challenge is authored once and runs across any number of cohorts without duplicating content.',
+      'Traced a production query failure to a PostgREST regression from a Supabase upgrade and shipped the fix within hours.',
     ],
     detailedBullets: [
-      'Built a reusable content architecture separating authored material from cohort instances: author once, run across unlimited cohorts.',
-      'Implemented TipTap rich content editing across 73 source files and lifecycle email automation on Vercel cron.',
-      'Owned production incident response: traced an aggregate-query failure to a PostgREST regression after a Supabase upgrade and shipped the fix within hours of it surfacing.',
-      'Delivered and invoiced with Stripe billing and Resend transactional email.',
+      'Built the platform solo from kickoff to invoiced delivery.',
+      'Designed the content architecture separating authored material from cohort instances, so material is written once and reused across cohorts.',
+      'Built rich-text authoring on TipTap and lifecycle email automation on Vercel cron jobs.',
+      'Handled production support directly, including tracing an aggregate-query failure to a PostgREST regression after a Supabase upgrade and fixing it within hours.',
+      'Delivered and invoiced, with Stripe billing and Resend for transactional email.',
     ],
   },
   {
     title: 'Platform Engineer',
-    company: 'Strengthening the Saints (InitDev, team build)',
+    company: 'Strengthening the Saints (contract, team build)',
     period: 'Feb 2026 – Jun 2026',
-    oneLiner:
-      'Church discipleship platform: 84 routes, 161 server actions, 204 RLS policies, 82 migrations.',
+    oneLiner: 'Church discipleship platform on multi-tenant Postgres.',
     bullets: [
-      'Contributed across a multi-tenant Postgres platform with row-level security (204 policies) so each congregation owns its own data and shepherding workflows.',
-      'Built TipTap authoring with scripture insertion; CI runs lint, typecheck, build, and Playwright smoke tests on every push.',
+      'Worked across a multi-tenant Postgres platform where each congregation\u2019s data is isolated through row-level security (200+ policies).',
+      'Built sermon and study authoring on TipTap with scripture insertion, shipping through CI that runs lint, typecheck, build, and Playwright smoke tests on every push.',
     ],
     detailedBullets: [
-      'Contributed across a team-built platform at real scale: 84 routes, 161 server actions, and 204 row-level security policies across 82 migrations.',
-      'Multi-tenant Postgres architecture where data ownership is an architectural requirement: each congregation owns its own data and shepherding workflows.',
-      'Built TipTap authoring for sermons and studies with scripture verse insertion and text normalization.',
-      'Shipped through a CI pipeline running lint, typecheck, build, and Playwright smoke tests on every push, with documented security remediation.',
+      'Part of a small team on a large multi-tenant platform (84 routes, 82 database migrations), with row-level security isolating each congregation\u2019s data.',
+      'Built the TipTap authoring experience for sermons and studies, including scripture verse insertion and text normalization.',
+      'All work shipped through a CI pipeline running lint, typecheck, build, and Playwright smoke tests on every push.',
     ],
   },
   {
-    title: 'Primary Engineer',
-    company: 'AI Blueprint (InitDev)',
+    title: 'Founding Engineer',
+    company: 'AI Blueprint (contract)',
     period: 'Jan 2026 – Mar 2026',
-    oneLiner: 'Multi-studio AI creative platform with a real-money credit economy. Shipped, revenue.',
+    oneLiner: 'AI creative platform with a paid credit system. In market and generating revenue.',
     bullets: [
-      'Designed an atomic SQL credit ledger under a non-negative constraint, with credits escrowed during generation and automatically refunded when a model fails.',
-      'Implemented idempotent Stripe webhooks and duplicate-subscription guards: replayed events cannot double-charge or double-grant.',
+      'Built the platform to launch and first revenue: multi-studio AI generation on fal.ai with Stripe subscriptions and a paid credit system, on Next.js 15 and Supabase.',
+      'Designed the billing core: an atomic SQL credit ledger that cannot go negative under concurrent spend, escrowed credits refunded automatically when a model fails, and idempotent webhooks that survive replay.',
     ],
     detailedBullets: [
-      'Designed an atomic SQL credit ledger under a non-negative constraint, so the ledger cannot go negative under concurrent spend.',
-      'Built escrowed credit spend: credits are held during AI generation and automatically refunded when a model fails, so customers never pay for failed output.',
-      'Implemented idempotent Stripe webhook processing with duplicate-subscription guards: replayed events cannot double-charge or double-grant.',
-      'Shipped to revenue on Next.js 15, Supabase, fal.ai, and Clerk. Billing stays correct even when the AI does not.',
+      'Primary engineer from first commit through launch; the platform is in market and generating revenue.',
+      'Designed an atomic SQL credit ledger with a non-negative balance constraint that holds up under concurrent spending.',
+      'Built escrowed spending, where credits are reserved when a generation starts and refunded if the model fails.',
+      'Made Stripe webhook processing idempotent and guarded against duplicate subscriptions from replayed events.',
+      'Stack: Next.js 15, Supabase, fal.ai, Clerk.',
     ],
   },
   {
-    title: 'Sole Engineer',
-    company: 'Inflio (InitDev)',
-    period: 'Jun 2025 – Feb 2026',
-    oneLiner: 'AI video repurposing platform. 119k lines authored solo, wound down after validation.',
-    bullets: [
-      'Sole engineer across 399 TypeScript files and 260 commits: clip generation, transcription, subtitle editing, and multi-platform publishing.',
-      'Wound the product down after market validation with a documented close-out: removed 14,600 lines of dead code and left a clean 27-second build.',
-    ],
-    detailedBullets: [
-      'Sole engineer for eight months across 399 TypeScript files and 119k lines: clip generation, transcription, subtitle editing, and scheduling.',
-      'Built multi-platform publishing across the major social destinations from a single pipeline.',
-      'Validated the build, not the market; made the shutdown call and executed it properly: 14,600 lines of dead code removed, a clean 27-second build left behind.',
-    ],
-  },
-  {
-    title: 'Primary Engineer',
-    company: 'ConvoAI Studio (InitDev)',
-    period: 'Nov 2025 – Jan 2026',
-    oneLiner: 'Real-time AI video platform with a clinical triage pipeline.',
-    bullets: [
-      'Built a typed Tavus API v2 integration layer (personas, replicas, conversations, live webhook routing) and Claude structured symptom extraction into generated PDF reports.',
-      'Designed dual-path completion with deduplication: a missed third-party callback degrades to polling instead of losing a patient report, and dedup guarantees it is never delivered twice.',
-    ],
-    detailedBullets: [
-      'Built a full Tavus API v2 integration layer: personas, replicas, conversations, and live webhook event routing.',
-      'Implemented Claude structured symptom extraction feeding generated PDF reports and automated delivery.',
-      'Designed dual-path completion with deduplication because third-party delivery cannot be trusted clinically: a missed callback degrades to polling instead of losing the report.',
-      'Delivery guarantees hold in both directions: the patient never misses a report and never receives it twice.',
-    ],
-  },
-  {
-    title: 'Sole Engineer',
-    company: 'Drip (InitDev)',
+    title: 'Founding Engineer',
+    company: 'Drip (contract)',
     period: 'Oct 2025 – Dec 2025',
-    oneLiner: 'Privacy-first AI relationship companion. Investor-demo ready.',
+    oneLiner: 'Privacy-focused AI relationship companion startup, built solo to investor-demo stage.',
     bullets: [
-      'Sole author of 528 commits across 98 API routes and 38 migrations: dual-store memory (Postgres + Pinecone) with ownership-scoped retrieval so partners can never read each other\u2019s memories.',
-      'Built a human-in-the-loop operator console: every AI-drafted message passes draft, approve, send before reaching a user.',
+      'Built the entire product alone in three months (98 API routes, 38 migrations) and carried it to investor-demo stage.',
+      'Designed the privacy architecture the product depends on: dual-store memory across Postgres and Pinecone with ownership-scoped retrieval, so two partners sharing one companion can never read each other\u2019s entries, plus an operator console where a human approves every AI-drafted message.',
     ],
     detailedBullets: [
-      'Sole author of 528 commits across 98 API routes and 38 migrations in a three-month build.',
-      'Designed dual-store memory: Postgres for structured data and Pinecone for semantic recall, with cross-store rollback on partial failure.',
-      'Enforced privacy with ownership-scoped embedding filters at the query layer, not just the prompt: two partners share one AI companion and can never read each other\u2019s memories.',
-      'Built a human-in-the-loop operator console: every AI-drafted message passes draft, approve, send before reaching a user.',
-    ],
-  },
-  {
-    title: 'Consulting Engineer',
-    company: 'Upwork — Top Rated Plus',
-    period: '2025 – Present',
-    oneLiner: '100% Job Success. AI SaaS, full-stack, and automation engagements.',
-    bullets: [
-      'Delivered enterprise SaaS hardening, DTC full-stack builds, and AI automation engagements.',
-      'Every completed engagement rated 5.0.',
-    ],
-    detailedBullets: [
-      'Delivered enterprise SaaS hardening, DTC full-stack builds, and AI automation engagements for US clients.',
-      'Top Rated Plus standing with 100% Job Success; every completed engagement rated 5.0.',
+      'Sole builder of the full product in three months: 98 API routes and 38 database migrations, taken to investor-demo stage.',
+      'Designed dual-store memory, Postgres for structured data and Pinecone for semantic recall, with rollback across both stores when one write fails.',
+      'Scoped memory retrieval by owner in the embedding queries themselves, so privacy between partners does not depend on prompt instructions.',
+      'Built an operator console where a human reviews and approves every AI-drafted message before it is sent.',
     ],
   },
   {

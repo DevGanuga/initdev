@@ -50,13 +50,13 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
         </a>
         <PrintButton />
         <Link
-          href={detailed ? '/talent/available/dev-ganuga/resume' : '/talent/available/dev-ganuga/resume/detailed'}
+          href={detailed ? '/talent/dev-ganuga/resume' : '/talent/dev-ganuga/resume/detailed'}
           className="px-4 py-2 bg-white text-black text-sm rounded-lg hover:bg-gray-100 transition-colors font-medium shadow-lg border border-gray-200"
         >
           {detailed ? '2-page version' : 'Detailed version'}
         </Link>
         <Link
-          href="/talent/available/dev-ganuga"
+          href="/talent/dev-ganuga"
           className="px-4 py-2 bg-white text-black text-sm rounded-lg hover:bg-gray-100 transition-colors font-medium shadow-lg border border-gray-200"
         >
           ← Portfolio

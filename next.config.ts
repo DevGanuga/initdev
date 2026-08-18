@@ -121,12 +121,19 @@ const nextConfig: NextConfig = {
       // into shared résumé PDFs and OG cards, so keep them working forever.
       {
         source: '/hire',
-        destination: '/talent/available/dev-ganuga',
+        destination: '/talent/dev-ganuga',
         permanent: true,
       },
       {
         source: '/hire/resume',
-        destination: '/talent/available/dev-ganuga/resume',
+        destination: '/talent/dev-ganuga/resume',
+        permanent: true,
+      },
+      // The profile briefly lived under /talent/available/ before the
+      // directory flattened; keep any shared links working.
+      {
+        source: '/talent/available/dev-ganuga/:path*',
+        destination: '/talent/dev-ganuga/:path*',
         permanent: true,
       },
     ];

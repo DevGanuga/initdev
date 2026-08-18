@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/process', priority: 0.8 },
     { path: '/about', priority: 0.7 },
     { path: '/contact', priority: 0.8 },
+    { path: '/talent', priority: 0.6 },
+    { path: '/talent/dev-ganuga', priority: 0.7 },
   ];
 
   return routes.map(({ path, priority }) => ({

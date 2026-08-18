@@ -696,7 +696,7 @@ function Contact() {
             detailed (3p)
           </a>
           <Link
-            href="/talent/available/dev-ganuga/resume"
+            href="/talent/dev-ganuga/resume"
             className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-white/[0.05] text-white/70 border border-white/[0.08] hover:bg-white/[0.08] hover:text-white transition-colors"
           >
             <ExternalLink className="w-3.5 h-3.5" />

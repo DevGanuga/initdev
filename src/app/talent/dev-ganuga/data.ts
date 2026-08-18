@@ -15,7 +15,7 @@ export const TIMELINE_SPAN = TIMELINE_MONTHS.length; // jun 2025 through jun 202
 
 export const person = {
   name: 'Dev Ganugapenta',
-  title: 'senior software engineer at initdev',
+  title: 'senior software engineer',
   focus: 'full-stack & ai applications / saas / payments infrastructure',
   location: 'west palm beach, fl',
   email: 'dganuga@gmail.com',
