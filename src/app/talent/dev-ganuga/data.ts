@@ -27,7 +27,7 @@ export const person = {
   resumeDetailed: '/resume/Dev-Ganugapenta-Resume-Detailed.pdf',
   status: 'open to senior w2 roles',
   summary:
-    'i build production ai systems end to end. llm integrations that assume the model will fail, stripe billing that stays correct through webhook replay, multi-tenant postgres that keeps every tenant\u2019s data its own. hand me an ambiguous business problem and you get back a live platform.',
+    'i build production platforms from a blank repo and take them to market. four startups in the last year as founding engineer — two generating revenue — and limpid&co\u2019s production software in amsterdam, including a platform presented at web summit 2025.',
 };
 
 export const roleTypes = [
@@ -39,9 +39,9 @@ export const roleTypes = [
 ];
 
 export const stats = [
-  { value: '9', label: 'production platforms shipped', sub: 'jun 2025 to jun 2026' },
-  { value: '528', label: 'solo commits on one product', sub: 'drip: 98 api routes, 38 migrations' },
-  { value: '1,197', label: 'github contributions this year', sub: '96% shipped commits' },
+  { value: '7', label: 'production platforms shipped', sub: 'jun 2025 to jun 2026' },
+  { value: '4', label: 'startups built from zero', sub: 'two generating revenue' },
+  { value: '3', label: 'platforms for one enterprise client', sub: 'limpid&co, amsterdam' },
   { value: '100%', label: 'job success, every review 5.0', sub: 'upwork top rated plus' },
 ];
 
@@ -78,7 +78,7 @@ export const engagements: Engagement[] = [
   {
     id: 'ai-navigator',
     name: 'AI Navigator',
-    tagline: 'enterprise ai readiness platform · leading with ai, a limpid&co division',
+    tagline: 'enterprise ai readiness platform · limpid&co, amsterdam',
     role: 'lead engineer',
     kind: 'client',
     start: 4,
@@ -91,14 +91,14 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/ai-navigator-showcase.pdf',
     onePager: null,
     problem:
-      'enterprises roll out ai and adoption quietly stalls. leadership cannot see which teams are resisting, or why, so every intervention is a guess. built for a client presenting at web summit 2025.',
+      'enterprises roll out ai and adoption stalls. leadership cannot see which teams are resisting, or why. limpid&co needed a live platform in time for web summit 2025.',
     approach: [
-      'gpt-4o assistant that executes real navigation and analysis actions in-app, not just answers questions',
-      '25-zone sentiment engine scoring 5 resistance reasons against 5 discomfort levels across 1,000 responses',
-      '8-dimension capability maturity model scored against industry benchmark with automated gap detection',
+      'built the production platform: gpt-4o assistant that navigates the product and runs analyses',
+      '25-zone sentiment engine on 1,000+ employee responses — five resistance reasons against five discomfort levels',
+      '8-dimension capability maturity model with automated gap detection',
     ],
     outcome:
-      'phase 1 delivered and invoiced. i wrote the phase 2 production proposal, team structure and financials included, and it won. engagement completed jun 2026, platform live in production.',
+      'live in production at navigator.leadingwith.ai. presented at web summit 2025. i wrote the phase 2 production proposal (scope, team, budget) and won the follow-on contract.',
     tech: ['next.js', 'openai gpt-4o', 'postgres', 'data viz', 'enterprise auth'],
     barFrom: '#6366f1',
     barTo: '#3b82f6',
@@ -107,8 +107,8 @@ export const engagements: Engagement[] = [
   {
     id: 'dyia',
     name: 'Dyia',
-    tagline: 'field-service saas',
-    role: 'lead engineer',
+    tagline: 'field-service saas · built from zero',
+    role: 'founding engineer',
     kind: 'studio',
     start: 11,
     end: 13,
@@ -120,14 +120,14 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/dyia-technical-showcase.pdf',
     onePager: '/portfolio/dyia-one-pager.pdf',
     problem:
-      'service businesses run dispatch in one tool, invoicing in another and have no idea which jobs are actually profitable.',
+      'service businesses run dispatch in one tool, invoicing in another, and cannot see which jobs are profitable.',
     approach: [
-      'tiered stripe subscriptions across 70 api routes, with signed webhook verification and idempotent plan grants',
-      'anthropic-powered business intelligence reading live job and profit data',
-      'google maps dispatch for crews, sentry across edge and server runtimes',
+      'built the full production product in two months: dispatch, invoicing, job profitability, ~70 api routes',
+      'tiered stripe subscriptions with signed webhook verification and idempotent plan grants',
+      'anthropic reporting on live job data, google maps crew dispatch, sentry in production',
     ],
     outcome:
-      'shipped to live revenue with paying subscribers, and owned a live billing incident end to end when one hit. the documented release qa process built here now gates every studio build.',
+      'live at dyia.io with paying subscribers. i diagnosed and fixed the first live billing incident, then wrote the release qa checklist that has gated every release since.',
     tech: ['next.js 15', 'supabase', 'anthropic', 'stripe', 'google maps', 'sentry'],
     barFrom: '#10b981',
     barTo: '#14b8a6',
@@ -136,8 +136,8 @@ export const engagements: Engagement[] = [
   {
     id: 'animalia',
     name: 'Animalia',
-    tagline: 'headless shopify storefront',
-    role: 'sole engineer',
+    tagline: 'pet wellness e-commerce · built from zero',
+    role: 'founding engineer',
     kind: 'studio',
     start: 10,
     end: 13,
@@ -149,14 +149,14 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/animalia-technical-showcase.pdf',
     onePager: '/portfolio/animalia-one-pager.pdf',
     problem:
-      'raw supplier catalog text needs to become a storefront that converts, and an llm sitting in the page render path is both slow and untestable.',
+      'a raw supplier catalog had to become a store that could launch. putting an llm in the page render path would have made it slow and untestable.',
     approach: [
-      'typed domain layer unifying shopify storefront, cart and admin apis across 33 graphql operations',
-      'deterministic merchandising engine ranking catalog copy by revenue weight, no llm in the hot path',
-      'ai product photography pipeline that reads the admin api, generates brand-constrained imagery and writes back',
+      'only engineer. built the production storefront: typed layer over shopify storefront, cart, and admin apis (33 graphql operations)',
+      'merchandising is deterministic ranking weighted by revenue — no llm at render time',
+      'ai photography pipeline generates brand-constrained images with fal.ai and writes them back to the catalog',
     ],
     outcome:
-      'storefront live and pre-launch. merchandising logic is fully unit-testable because the ranking never calls a model at request time.',
+      'storefront is live at animalia.market, pre-launch. ranking is unit-testable because it never calls a model at request time.',
     tech: ['next.js 16', 'shopify graphql', 'fal.ai', 'typescript', 'tailwind 4'],
     barFrom: '#14b8a6',
     barTo: '#06b6d4',
@@ -165,8 +165,8 @@ export const engagements: Engagement[] = [
   {
     id: 'company-challenges',
     name: 'Company Challenges',
-    tagline: 'enterprise learning platform · limpid&co',
-    role: 'sole engineer',
+    tagline: 'enterprise learning platform · limpid&co, amsterdam',
+    role: 'lead engineer',
     kind: 'client',
     start: 10,
     end: 13,
@@ -178,14 +178,14 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/company-challenges-technical-showcase.pdf',
     onePager: '/portfolio/company-challenges-one-pager.pdf',
     problem:
-      'the client needed to author a challenge once and run it across unlimited cohorts, without duplicating content per cohort.',
+      'limpid&co needed to author a challenge once and run it across any number of cohorts, without copying content each time.',
     approach: [
-      'reusable content architecture separating authored material from cohort instances',
-      'tiptap rich content editing across 73 source files, vercel cron lifecycle emails',
-      'production incident response when a supabase upgrade silently broke aggregate queries',
+      'built the production platform: authored material is separate from cohort instances',
+      'tiptap authoring, stripe billing, resend email, vercel cron lifecycle emails',
+      'owned production support when a supabase upgrade broke aggregate queries',
     ],
     outcome:
-      'live, invoiced and delivered. i traced the aggregate failure to a postgrest regression and shipped the fix within hours of it surfacing.',
+      'live at companychallenges.com, delivered and invoiced. i traced the outage to a postgrest regression and shipped the fix the same day.',
     tech: ['next.js 15', 'supabase', 'tiptap', 'stripe', 'resend'],
     barFrom: '#f97316',
     barTo: '#f59e0b',
@@ -207,15 +207,14 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/sts-technical-showcase.pdf',
     onePager: '/portfolio/sts-one-pager.pdf',
     problem:
-      'churches adopting digital tools risk centralizing what belongs to the local congregation. the platform had to strengthen the local church, not replace it, which makes data ownership an architectural requirement rather than a setting.',
+      'each congregation had to own its own data. that is an architecture problem, not a settings toggle.',
     approach: [
-      'multi-tenant postgres with row-level security so each church owns its own data and shepherding workflows',
-      'tiptap authoring for sermons and studies, with scripture verse insertion and text normalization',
-      'hq dashboard, structured discipleship plans, google oauth via supabase auth',
-      'ci pipeline running lint, typecheck, build and playwright smoke tests on every push',
+      'production features on a live multi-tenant postgres platform with row-level security',
+      'tiptap authoring for sermons and studies, with scripture verse insertion',
+      'ci on every push: lint, typecheck, build, playwright smoke tests',
     ],
     outcome:
-      'a team build at real platform scale: 84 routes, 161 server actions and 204 rls policies across 82 migrations. type-checks and builds clean, with ci and documented security remediation.',
+      'shipped on a team-built production platform: 84 routes, 82 migrations, 200+ rls policies.',
     tech: ['next.js 16', 'supabase + rls', 'tiptap', 'tailwind 4', 'zustand', 'playwright'],
     barFrom: '#84cc16',
     barTo: '#eab308',
@@ -224,8 +223,8 @@ export const engagements: Engagement[] = [
   {
     id: 'ai-blueprint',
     name: 'AI Blueprint',
-    tagline: 'multi-studio ai creative platform',
-    role: 'primary engineer',
+    tagline: 'ai creative platform · built from zero',
+    role: 'founding engineer',
     kind: 'studio',
     start: 7,
     end: 10,
@@ -237,53 +236,24 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/ai-blueprint-technical-showcase.pdf',
     onePager: '/portfolio/ai-blueprint-one-pager.pdf',
     problem:
-      'customers spend real money on ai generations that fail unpredictably. naive billing either double-charges on webhook replay or silently eats the credit.',
+      'customers pay real money for generations that fail. a naive ledger either double-charges on webhook replay or eats the credit.',
     approach: [
-      'atomic sql credit spend under a non-negative constraint, so the ledger cannot go negative under concurrency',
-      'credits escrowed during generation and automatically refunded when a model fails',
-      'idempotent stripe webhooks: replayed events cannot double-charge or double-grant',
+      'built the full production platform: multi-studio generation, clerk auth, stripe, paid credits',
+      'atomic sql credit ledger that cannot go negative under concurrent spend',
+      'credits reserved during generation and refunded if the model fails; stripe webhooks are idempotent',
     ],
     outcome:
-      'shipped and generating revenue. billing stays correct even when the ai does not, which is the whole point.',
+      'in production and generating revenue.',
     tech: ['next.js 15', 'supabase', 'fal.ai', 'stripe', 'clerk'],
     barFrom: '#a855f7',
     barTo: '#d946ef',
     dot: '#c084fc',
   },
   {
-    id: 'convoai',
-    name: 'ConvoAI Studio',
-    tagline: 'real-time ai video platform',
-    role: 'primary engineer',
-    kind: 'studio',
-    start: 5,
-    end: 8,
-    period: 'nov 2025 – jan 2026',
-    duration: 'nov 25 – jan 26',
-    statusLabel: 'shipped',
-    url: null,
-    github: 'https://github.com/DevGanuga/narratorapp',
-    pdf: '/portfolio/convoai-studio-technical-showcase.pdf',
-    onePager: '/portfolio/convoai-studio-one-pager.pdf',
-    problem:
-      'a clinical triage flow driven by live video, where a dropped third-party webhook means a patient report never gets delivered.',
-    approach: [
-      'full tavus api v2 integration layer: personas, replicas, conversations, live webhook event routing',
-      'claude structured symptom extraction feeding generated pdf reports and automated delivery',
-      'dual-path completion with deduplication, because third-party delivery cannot be trusted clinically',
-    ],
-    outcome:
-      'shipped. a missed callback degrades to polling instead of losing the report, and dedup guarantees the patient never gets it twice.',
-    tech: ['next.js 15', 'tavus api v2', 'anthropic', 'supabase', 'react-pdf'],
-    barFrom: '#f43f5e',
-    barTo: '#ef4444',
-    dot: '#fb7185',
-  },
-  {
     id: 'drip',
     name: 'Drip',
-    tagline: 'privacy-first ai companion',
-    role: 'sole engineer',
+    tagline: 'ai relationship companion · san diego, ca · built from zero',
+    role: 'founding engineer',
     kind: 'studio',
     start: 4,
     end: 7,
@@ -295,47 +265,18 @@ export const engagements: Engagement[] = [
     pdf: '/portfolio/drip-technical-showcase.pdf',
     onePager: '/portfolio/drip-one-pager.pdf',
     problem:
-      'two partners share one ai companion and neither may ever access the other\u2019s memories. a single leaked retrieval breaks the product and the trust behind it.',
+      'two partners share one companion. neither can ever read the other\u2019s memories. a leaked retrieval breaks the product.',
     approach: [
-      'dual-store memory, postgres for structured data and pinecone for semantic recall, with cross-store rollback',
-      'ownership-scoped embedding filters enforcing privacy at the query layer, not just the prompt',
-      'human-in-the-loop console: every ai-drafted message passes draft, approve, send before reaching a user',
+      'only engineer. built the full product in three months: 98 api routes, 38 migrations',
+      'dual-store memory: postgres + pinecone, ownership-scoped retrieval at the query layer',
+      'operator console: a human approves every ai-drafted message before it sends',
     ],
     outcome:
-      'investor-demo ready across 98 api routes and 38 migrations, authored solo. privacy holds at the data model, the retrieval layer and the prompt.',
+      'taken to investor-demo stage. privacy is in the retrieval queries, not the prompt.',
     tech: ['next.js 15', 'supabase', 'pinecone', 'openai', 'stripe', 'clerk'],
     barFrom: '#3b82f6',
     barTo: '#6366f1',
     dot: '#60a5fa',
-  },
-  {
-    id: 'inflio',
-    name: 'Inflio',
-    tagline: 'ai video platform, wound down',
-    role: 'sole engineer',
-    kind: 'studio',
-    start: 0,
-    end: 8,
-    period: 'jun 2025 – feb 2026',
-    duration: 'jun 25 – feb 26',
-    statusLabel: 'closed after validation',
-    url: null,
-    github: 'https://github.com/DevGanuga/inflio',
-    pdf: null,
-    onePager: null,
-    problem:
-      'creators lose hours turning long footage into clips, subtitles and scheduled posts. i wanted to know whether one platform could own that entire pipeline, so i built the whole thing to find out.',
-    approach: [
-      '399 typescript files and 119k lines authored solo: clip generation, transcription, subtitle editing',
-      'multi-platform scheduling and publishing across the major social destinations',
-      '260 commits over eight months as the single engineer on the codebase',
-    ],
-    outcome:
-      'the build validated, the market did not. i made the call to shut it down and did it properly: 14,600 lines of dead code removed and a clean 27 second build left behind. knowing when to stop is part of the job.',
-    tech: ['next.js', 'typescript', 'ai transcription', 'scheduling', 'multi-platform publishing'],
-    barFrom: '#64748b',
-    barTo: '#475569',
-    dot: '#94a3b8',
   },
 ];
 
@@ -343,7 +284,7 @@ export const capabilities = [
   {
     key: 'ai',
     label: 'ai engineering',
-    line: 'llm systems that assume the model will fail',
+    line: 'production llm systems, from retrieval to review',
     items: [
       'openai structured output + streaming',
       'anthropic claude extraction',
@@ -356,7 +297,7 @@ export const capabilities = [
   {
     key: 'billing',
     label: 'payments and billing',
-    line: 'money that stays correct through failure',
+    line: 'stripe, credits, and webhooks in production',
     items: [
       'stripe subscriptions + customer portal',
       'idempotent webhook processing',
@@ -368,7 +309,7 @@ export const capabilities = [
   {
     key: 'platform',
     label: 'platform and data',
-    line: 'the boring parts, done properly',
+    line: 'multi-tenant postgres and full-stack delivery',
     items: [
       'typescript, next.js app router, react',
       'postgres + supabase row-level security',
@@ -382,9 +323,15 @@ export const capabilities = [
 
 export const credentials = [
   {
+    institution: 'McFatter Technical College',
+    credential: 'technical degree: computer science & network support',
+    detail: 'davie, fl · education',
+    year: '2024',
+  },
+  {
     institution: 'Harvard Business School',
-    credential: 'credential of readiness: analytics, strategy & management',
-    detail: 'boston, ma',
+    credential: 'core (credential of readiness): analytics, strategy & management',
+    detail: 'certification',
     year: '2025',
   },
   {
@@ -397,12 +344,6 @@ export const credentials = [
     institution: 'IBM',
     credential: 'python for data science, ai & development specialist',
     detail: 'certification',
-    year: '2024',
-  },
-  {
-    institution: 'McFatter Technical College',
-    credential: 'technical degree: computer science & network support',
-    detail: 'davie, fl',
     year: '2024',
   },
 ];

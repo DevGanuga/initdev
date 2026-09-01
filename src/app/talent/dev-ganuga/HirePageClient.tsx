@@ -74,8 +74,8 @@ export function HirePageClient() {
 
       <Section id="record" index="01" title="delivery record" kicker="a year of shipped work, on a real time axis">
         <p className="text-white/45 max-w-2xl mb-8 leading-relaxed">
-          nine production platforms between jun 2025 and jun 2026, all delivered. click any bar
-          to read how it was built.
+          seven production platforms between jun 2025 and jun 2026. four startups built from
+          zero, plus limpid&amp;co in amsterdam. click any bar to read how it was built.
         </p>
         <DeliveryRecord />
       </Section>
@@ -88,7 +88,7 @@ export function HirePageClient() {
         <Capabilities />
       </Section>
 
-      <Section id="credentials" index="04" title="Harvard. Stanford. IBM." kicker="formal backing">
+      <Section id="credentials" index="04" title="education and certifications" kicker="formal backing">
         <Credentials />
       </Section>
 
@@ -154,10 +154,7 @@ function SiteFooter() {
     <footer className="border-t border-white/[0.05] py-8">
       <div className="container-custom flex flex-wrap items-center justify-between gap-3">
         <p className="text-xs text-white/30">
-          Dev Ganugapenta · senior software engineer at{' '}
-          <Link href="/" className="text-white/50 hover:text-white transition-colors">
-            initdev
-          </Link>
+          Dev Ganugapenta · senior software engineer · west palm beach, fl
         </p>
         <p className="text-xs text-white/25 font-mono">
           press <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">⌘K</kbd> anywhere
@@ -520,7 +517,9 @@ function Capabilities() {
 function Credentials() {
   return (
     <>
-      <p className="text-white/45 max-w-xl mb-8 -mt-4">the formal backing behind the shipped work.</p>
+      <p className="text-white/45 max-w-xl mb-8 -mt-4">
+        one technical degree, plus certifications from harvard business school, stanford, and ibm.
+      </p>
 
       <div className="grid md:grid-cols-2 gap-4 max-w-4xl mb-10">
         {credentials.map((c, i) => (
@@ -613,15 +612,14 @@ function RoleFit() {
         className="space-y-4 text-white/55 text-sm leading-relaxed"
       >
         <p>
-          i want to own a product surface, not a backlog column. my value is the full arc:
-          understand the domain, model it into architecture, ship it. i want a role where that
-          arc stays intact.
+          i want to own the product, not a ticket queue. last year i was the founding engineer
+          on four startups and the lead engineer on limpid&amp;co&apos;s production software in
+          amsterdam. that is the job i want again: blank problem, live platform.
         </p>
         <p>
-          i&apos;m best where ai is core to the product rather than bolted on. i&apos;ve shipped
-          five distinct ai integrations to production and i architect from the assumption that
-          models fail: retries, fallbacks, deduplication, and billing that stays correct through
-          all of it.
+          i am strongest where ai is in the product, not glued on later. the systems i ship
+          already assume the model will fail — retries, fallbacks, and billing that does not
+          double-charge when a generation dies.
         </p>
         <p>
           small to mid product team where engineers sit in product decisions. not a team of 200

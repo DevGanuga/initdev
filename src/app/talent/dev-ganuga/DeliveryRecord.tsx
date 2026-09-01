@@ -152,7 +152,11 @@ function CaseStudy({ e }: { e: Engagement }) {
               <span className="w-2 h-2 rounded-full" style={{ background: e.dot }} />
               <h3 className="text-2xl font-light text-white">{e.name}</h3>
               <span className="px-2 py-0.5 text-[10px] rounded-full bg-white/[0.05] border border-white/[0.08] text-white/45">
-                {e.kind === 'client' ? 'client contract' : 'initdev studio'}
+                {e.kind === 'client'
+                  ? 'client · amsterdam'
+                  : e.role.includes('team')
+                    ? 'team build'
+                    : 'startup'}
               </span>
             </div>
             <p className="text-sm text-white/45">

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PrintButton } from './PrintButton';
-import { contact, summary, skillGroups, entries, education } from './resumeData';
+import { contact, summary, skillGroups, entries, education, certifications } from './resumeData';
 
 export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }) {
   const detailed = variant === 'detailed';
@@ -118,7 +118,9 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
                   </h3>
                   <span className="text-[11px] text-gray-500 flex-shrink-0 whitespace-nowrap">{e.period}</span>
                 </div>
-                <p className="text-[11.5px] text-gray-500 mb-1">{e.oneLiner}</p>
+                <p className="text-[11.5px] text-gray-500 mb-1">
+                  {e.location ? `${e.location} · ${e.oneLiner}` : e.oneLiner}
+                </p>
                 <ul className="space-y-0.5 text-[12px] text-gray-800 leading-[1.45]">
                   {(detailed ? e.detailedBullets : e.bullets).map((b) => (
                     <li key={b} className="flex gap-2">
@@ -131,13 +133,28 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
             ))}
           </section>
 
-          {/* Education */}
-          <section>
+          <section className="mb-3.5">
             <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
-              Education & Certifications
+              Education
             </h2>
             <div className="space-y-1 text-[12px] text-gray-800">
               {education.map((ed) => (
+                <div key={ed.institution} className="flex justify-between gap-4">
+                  <span>
+                    <strong>{ed.institution}</strong> — {ed.detail}
+                  </span>
+                  <span className="text-gray-500 flex-shrink-0">{ed.year}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
+              Certifications
+            </h2>
+            <div className="space-y-1 text-[12px] text-gray-800">
+              {certifications.map((ed) => (
                 <div key={ed.institution} className="flex justify-between gap-4">
                   <span>
                     <strong>{ed.institution}</strong> — {ed.detail}
