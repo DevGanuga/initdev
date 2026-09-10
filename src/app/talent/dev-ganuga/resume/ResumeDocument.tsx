@@ -31,7 +31,8 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
           }
           a { color: inherit !important; text-decoration: none !important; }
           .keep-link { color: #1d4ed8 !important; }
-          .entry { break-inside: avoid; }
+          .entry-head { break-inside: avoid; break-after: avoid; page-break-after: avoid; }
+          .entry li { break-inside: avoid; }
         }
         body { background: #f4f4f4; }
       `}</style>
@@ -111,17 +112,19 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
             </h2>
 
             {entries.map((e) => (
-              <div key={`${e.company}-${e.period}`} className="entry mb-3">
-                <div className="flex justify-between items-baseline gap-3">
-                  <h3 className="text-[13px] font-bold text-black leading-tight">
-                    {e.title} · {e.company}
-                  </h3>
-                  <span className="text-[11px] text-gray-500 flex-shrink-0 whitespace-nowrap">{e.period}</span>
+              <div key={`${e.company}-${e.period}`} className="entry mb-2.5">
+                <div className="entry-head">
+                  <div className="flex justify-between items-baseline gap-3">
+                    <h3 className="text-[13px] font-bold text-black leading-tight">
+                      {e.title} · {e.company}
+                    </h3>
+                    <span className="text-[11px] text-gray-500 flex-shrink-0 whitespace-nowrap">{e.period}</span>
+                  </div>
+                  <p className="text-[11.5px] text-gray-500 mb-1">
+                    {e.location ? `${e.location} · ${e.oneLiner}` : e.oneLiner}
+                  </p>
                 </div>
-                <p className="text-[11.5px] text-gray-500 mb-1">
-                  {e.location ? `${e.location} · ${e.oneLiner}` : e.oneLiner}
-                </p>
-                <ul className="space-y-0.5 text-[12px] text-gray-800 leading-[1.45]">
+                <ul className="space-y-0.5 text-[12px] text-gray-800 leading-[1.4]">
                   {(detailed ? e.detailedBullets : e.bullets).map((b) => (
                     <li key={b} className="flex gap-2">
                       <span className="text-gray-400 flex-shrink-0">•</span>

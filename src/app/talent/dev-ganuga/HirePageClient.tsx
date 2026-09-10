@@ -612,9 +612,10 @@ function RoleFit() {
         className="space-y-4 text-white/55 text-sm leading-relaxed"
       >
         <p>
-          i want to own the product, not a ticket queue. last year i was the founding engineer
-          on four startups and the lead engineer on limpid&amp;co&apos;s production software in
-          amsterdam. that is the job i want again: blank problem, live platform.
+          i want to own the product, not a ticket queue. last year i built four startups from
+          zero as lead or sole engineer and led full-stack delivery for limpid&amp;co&apos;s
+          production software in amsterdam. that is the job i want again: blank problem, live
+          platform.
         </p>
         <p>
           i am strongest where ai is in the product, not glued on later. the systems i ship
