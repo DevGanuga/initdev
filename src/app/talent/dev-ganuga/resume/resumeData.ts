@@ -39,7 +39,7 @@ export const skillGroups = [
   {
     label: 'AI / LLM',
     items:
-      'OpenAI and Anthropic APIs (GPT-4o, Claude), Gemini, RAG and embeddings, structured output and tool calling, streaming, retry/backoff and fallback design, generative image and video (fal.ai, Tavus), human-in-the-loop review systems',
+      'OpenAI and Anthropic APIs, Gemini, RAG and embeddings, structured output and tool calling, streaming, retry/backoff and fallback design, generative image and video (fal.ai, Tavus), human-in-the-loop review systems',
   },
   {
     label: 'Identity & Security',
