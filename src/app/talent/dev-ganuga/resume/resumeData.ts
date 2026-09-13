@@ -6,8 +6,10 @@
 
 export const contact = {
   name: 'Dev Ganugapenta',
-  headline: 'Senior Full Stack Engineer · AI & LLM Applications',
+  headline: 'Full Stack Engineer · AI & LLM Applications',
   location: 'West Palm Beach, FL · Remote (US)',
+  phone: '(954) 305-4540',
+  phoneHref: 'tel:+19543054540',
   email: 'dganuga@gmail.com',
   linkedin: 'linkedin.com/in/dev-ganuga-4b3b6431a',
   github: 'github.com/DevGanuga',
@@ -15,44 +17,37 @@ export const contact = {
 };
 
 export const summary =
-  'Senior Full Stack Engineer who owns production systems end to end: React and Next.js frontends, Node.js and Python backends, PostgreSQL, and LLM applications on OpenAI and Anthropic. Over the last year, built four startup products from zero to production as lead or sole engineer \u2014 two generating revenue, one live pre-launch, one at investor demo \u2014 and led full-stack delivery for Limpid&Co (Amsterdam), including a platform presented at Web Summit 2025.';
+  'Full Stack Engineer who owns production systems end to end: React and Next.js frontends, Node.js and Python backends, PostgreSQL, and LLM applications on OpenAI and Anthropic. Last year: three startup products from zero to production as lead or sole engineer \u2014 two generating revenue, one at investor demo \u2014 full-stack lead for Limpid&Co (Amsterdam), including a platform presented at Web Summit 2025, and Animalia, a personal marketplace live at animalia.market.';
 
 export const skillGroups = [
   { label: 'Languages', items: 'TypeScript, JavaScript, Python, SQL' },
   {
     label: 'Frontend',
     items:
-      'React 19, Next.js (App Router, Server Components, Server Actions), TanStack Router, TanStack Query, TanStack Form, TanStack Table, Tailwind CSS, Framer Motion, TipTap, React Hook Form, Zod, Zustand',
+      'React 19, Next.js (App Router, Server Components, Server Actions), TanStack Query, TanStack Form, TanStack Table, Tailwind CSS, Framer Motion, TipTap, React Hook Form, Zod, Zustand',
   },
   {
     label: 'Backend & APIs',
     items:
-      'Node.js, Fastify, Next.js route handlers, Python, REST, GraphQL, OpenAPI specifications, contract-first API development, API code generation, signed and idempotent webhooks, background jobs and cron',
+      'Node.js, Next.js route handlers, Python, REST, GraphQL, signed and idempotent webhooks, background jobs and cron',
   },
   {
     label: 'Data',
     items:
-      'PostgreSQL (schema design, migrations, row-level security, performance tuning), Prisma, Drizzle ORM, Redis, NoSQL, Supabase, Pinecone vector search',
+      'PostgreSQL (schema design, migrations, row-level security), Supabase, Pinecone vector search',
   },
   {
-    label: 'AI / LLM (Artificial Intelligence)',
+    label: 'AI / LLM',
     items:
-      'OpenAI and Anthropic APIs (GPT-4o, Claude), Gemini, LLM application architecture, RAG systems and embeddings, structured output and tool calling, streaming, retry/backoff and fallback design, agent workflows (LangGraph, n8n), PyTorch, generative image and video (fal.ai, Tavus), human-in-the-loop review systems',
-  },
-  {
-    label: 'Event-Driven & Workflow Systems',
-    items:
-      'Kafka, event-driven architecture, idempotent event processing, workflow-driven applications, operational consoles, enterprise business tooling',
+      'OpenAI and Anthropic APIs (GPT-4o, Claude), Gemini, RAG and embeddings, structured output and tool calling, streaming, retry/backoff and fallback design, generative image and video (fal.ai, Tavus), human-in-the-loop review systems',
   },
   {
     label: 'Identity & Security',
-    items:
-      'OAuth 2.0, Azure AD, SSO, RBAC, Clerk, Supabase Auth, multi-tenant data isolation, PHI-aware data handling',
+    items: 'OAuth 2.0, Clerk, Supabase Auth, RBAC, multi-tenant data isolation',
   },
   {
     label: 'DevOps & Observability',
-    items:
-      'Docker, Kubernetes, Azure DevOps, ArgoCD, CI/CD pipelines, Vercel, OpenTelemetry, distributed tracing, Sentry, Playwright',
+    items: 'Docker, CI/CD pipelines, Vercel, Sentry, Playwright',
   },
   {
     label: 'Payments',
@@ -61,8 +56,7 @@ export const skillGroups = [
   },
   {
     label: 'Domain',
-    items:
-      'Healthcare and regulated industries (clinical triage pipeline with PHI handling, healthcare revenue operations), compliance-aware system design, open-source ecosystems',
+    items: 'Healthcare revenue operations, multi-tenant SaaS, e-commerce and marketplace',
   },
 ];
 
@@ -78,18 +72,18 @@ export type ResumeEntry = {
 
 export const entries: ResumeEntry[] = [
   {
-    title: 'Senior Full Stack Engineer',
+    title: 'Full Stack Engineer',
     company: 'Independent Contractor',
     location: 'Remote',
     period: '2025 – Present',
     oneLiner:
-      'Contract full-stack and AI engineering; the engagements below were delivered through this practice.',
+      'Contract full-stack and AI engineering; the client engagements below were delivered through this practice.',
     bullets: [
-      'Built four startup products from zero to production as lead or sole engineer: two generating revenue, one live pre-launch, one at investor-demo stage.',
+      'Built three startup products from zero to production as lead or sole engineer: two generating revenue, one at investor-demo stage.',
       'Led full-stack delivery for Limpid&Co (Amsterdam): AI Navigator, Company Challenges, and the Phase 2 production program that followed Web Summit 2025.',
     ],
     detailedBullets: [
-      'Built four startup products from zero to production as lead or sole engineer: two generating revenue, one live pre-launch, one at investor-demo stage.',
+      'Built three startup products from zero to production as lead or sole engineer: two generating revenue, one at investor-demo stage.',
       'Led full-stack delivery for Limpid&Co (Amsterdam): AI Navigator, Company Challenges, and the Phase 2 production program that followed Web Summit 2025.',
       'Scope on every engagement: architecture, data model, API design, frontend, deployment, observability, and production support.',
     ],
@@ -130,24 +124,6 @@ export const entries: ResumeEntry[] = [
       'Stripe Basic/Pro subscriptions end to end: checkout, customer portal, signed webhook verification, idempotent grant processing.',
       'Anthropic-powered assistant for natural-language job logging, pricing, and forecasting over live job and profit data.',
       'Google Maps routing in crew scheduling; Sentry edge and server monitoring wired before launch; resolved the first production billing incident; authored the release QA process (5+ documented rounds per release).',
-    ],
-  },
-  {
-    title: 'Lead Full Stack Engineer (Contract)',
-    company: 'Animalia',
-    location: 'Remote',
-    period: 'Apr 2026 – Jun 2026',
-    oneLiner:
-      'Pet-wellness marketplace on headless Shopify. Built from zero; live storefront, pre-launch. animalia.market',
-    bullets: [
-      'Sole engineer. Built the production storefront on Next.js 16, TypeScript, and Tailwind 4 with a typed facade over the Shopify Storefront, Cart, and Admin APIs: one contract, three upstream systems, 33 GraphQL operations.',
-      'Built a deterministic merchandising engine (safety-filtered ingredient extraction, need-based copy, revenue-weighted ranking; no LLM at request time) and a fal.ai product-photography pipeline that writes assets back via the Admin API.',
-    ],
-    detailedBullets: [
-      'Sole engineer. Took the storefront from zero to live on Next.js 16, Tailwind 4, and TypeScript; 50+ brands merchandised.',
-      'Typed facade over Shopify Storefront, Cart, and Admin APIs: one contract, three upstream systems, 33 GraphQL operations.',
-      'Deterministic merchandising engine (~410 LOC): safety-filtered ingredient extraction, need-based copy transformation, revenue-weighted ranking. No model call at request time, so ranking is unit-testable and fast.',
-      'AI product-photography pipeline: reads the catalog from the Admin API, generates brand-constrained images with fal.ai, writes them back.',
     ],
   },
   {
@@ -193,7 +169,7 @@ export const entries: ResumeEntry[] = [
     oneLiner:
       'Privacy-first relationship-wellness companion. Built from zero, solo, to investor-demo stage. drip.love',
     bullets: [
-      'Sole engineer, every commit (98 API routes, 38 migrations), and owner of go-to-market engineering through the investor demo. Built the full product on Next.js, TypeScript, Supabase, Pinecone, OpenAI, and Stripe: paired-partner companion experiences, invitation flow, check-in and nudge engine, human-in-the-loop operator console with a draft \u2192 approve \u2192 send state machine.',
+      'Sole engineer (98 API routes, 38 migrations) and GTM owner through the investor demo. Built the product on Next.js, TypeScript, Supabase, Pinecone, OpenAI, and Stripe: paired companion experiences, invitation flow, check-in/nudge engine, human-in-the-loop operator console (draft \u2192 approve \u2192 send).',
       'Enforced privacy at three layers (data model, vector retrieval, prompt) so neither partner can read the other\u2019s memories; dual-store memory with cross-store rollback; OpenAI structured-output engine with strict schema and retry/backoff.',
     ],
     detailedBullets: [
@@ -230,6 +206,37 @@ export const entries: ResumeEntry[] = [
     ],
     detailedBullets: [
       'Improved appointment conversion 35% and qualified leads 25% through outbound automation.',
+    ],
+  },
+];
+
+export type ResumeProject = {
+  name: string;
+  url: string;
+  location?: string;
+  period: string;
+  oneLiner: string;
+  bullets: string[];
+  detailedBullets: string[];
+};
+
+export const projects: ResumeProject[] = [
+  {
+    name: 'Animalia',
+    url: 'animalia.market',
+    location: 'Remote · Personal project',
+    period: 'Apr 2026 – Jun 2026',
+    oneLiner:
+      'Pet-wellness marketplace on headless Shopify. Built from zero; live storefront, pre-launch.',
+    bullets: [
+      'Sole engineer. Production storefront on Next.js 16, TypeScript, and Tailwind 4; typed facade over Shopify Storefront, Cart, and Admin APIs (one contract, 33 GraphQL operations).',
+      'Deterministic merchandising engine (ingredient extraction, need-based copy, revenue-weighted ranking; no LLM at request time) and a fal.ai photography pipeline that writes assets back via the Admin API.',
+    ],
+    detailedBullets: [
+      'Sole engineer. Took the storefront from zero to live on Next.js 16, Tailwind 4, and TypeScript; 50+ brands merchandised.',
+      'Typed facade over Shopify Storefront, Cart, and Admin APIs: one contract, three upstream systems, 33 GraphQL operations.',
+      'Deterministic merchandising engine (~410 LOC): safety-filtered ingredient extraction, need-based copy transformation, revenue-weighted ranking. No model call at request time, so ranking is unit-testable and fast.',
+      'AI product-photography pipeline: reads the catalog from the Admin API, generates brand-constrained images with fal.ai, writes them back.',
     ],
   },
 ];

@@ -6,6 +6,7 @@ import {
   ArrowRight,
   Github,
   Mail,
+  Phone,
   Download,
   Star,
   Linkedin,
@@ -74,8 +75,9 @@ export function HirePageClient() {
 
       <Section id="record" index="01" title="delivery record" kicker="a year of shipped work, on a real time axis">
         <p className="text-white/45 max-w-2xl mb-8 leading-relaxed">
-          seven production platforms between jun 2025 and jun 2026. four startups built from
-          zero, plus limpid&amp;co in amsterdam. click any bar to read how it was built.
+          seven production platforms between jun 2025 and jun 2026. three startups built from
+          zero, animalia as a personal project, plus limpid&amp;co in amsterdam. click any bar
+          to read how it was built.
         </p>
         <DeliveryRecord />
       </Section>
@@ -154,7 +156,7 @@ function SiteFooter() {
     <footer className="border-t border-white/[0.05] py-8">
       <div className="container-custom flex flex-wrap items-center justify-between gap-3">
         <p className="text-xs text-white/30">
-          Dev Ganugapenta · senior software engineer · west palm beach, fl
+          Dev Ganugapenta · full stack engineer · west palm beach, fl
         </p>
         <p className="text-xs text-white/25 font-mono">
           press <kbd className="px-1 py-0.5 rounded bg-white/[0.06] border border-white/[0.08]">⌘K</kbd> anywhere
@@ -316,6 +318,13 @@ function Hero() {
               <a href={`mailto:${person.email}`} className="btn-premium inline-flex items-center gap-2">
                 <Mail className="w-4 h-4" />
                 get in touch
+              </a>
+              <a
+                href={person.phoneHref}
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-white/[0.08] text-sm text-white/55 hover:text-white hover:border-white/20 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                {person.phone}
               </a>
               <a
                 href={person.upwork}
@@ -582,7 +591,7 @@ const fitItems = [
   {
     icon: <Briefcase className="w-4 h-4" />,
     label: 'role level',
-    value: 'senior software / full-stack engineer, ic track',
+    value: 'full stack / ai engineer, ic track',
   },
   {
     icon: <Code2 className="w-4 h-4" />,
@@ -612,10 +621,10 @@ function RoleFit() {
         className="space-y-4 text-white/55 text-sm leading-relaxed"
       >
         <p>
-          i want to own the product, not a ticket queue. last year i built four startups from
-          zero as lead or sole engineer and led full-stack delivery for limpid&amp;co&apos;s
-          production software in amsterdam. that is the job i want again: blank problem, live
-          platform.
+          i want to own the product, not a ticket queue. last year i built three startups from
+          zero as lead or sole engineer, shipped animalia as a personal project, and led
+          full-stack delivery for limpid&amp;co&apos;s production software in amsterdam. that
+          is the job i want again: blank problem, live platform.
         </p>
         <p>
           i am strongest where ai is in the product, not glued on later. the systems i ship
@@ -709,6 +718,13 @@ function Contact() {
           <Mail className="w-4 h-4" />
           {person.email}
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a
+          href={person.phoneHref}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/[0.08] text-sm text-white/70 hover:text-white hover:border-white/20 transition-colors"
+        >
+          <Phone className="w-4 h-4" />
+          {person.phone}
         </a>
         <button
           onClick={copy}

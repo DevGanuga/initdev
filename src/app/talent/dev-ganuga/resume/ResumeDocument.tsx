@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PrintButton } from './PrintButton';
-import { contact, summary, skillGroups, entries, education, certifications } from './resumeData';
+import { contact, summary, skillGroups, entries, projects, education, certifications } from './resumeData';
 
 export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }) {
   const detailed = variant === 'detailed';
@@ -68,7 +68,7 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
         <div className="px-12 py-10 print:px-0 print:py-0">
 
           {/* Header */}
-          <header className="mb-3.5 pb-2.5 border-b border-black">
+          <header className="mb-3 pb-2 border-b border-black">
             <div className="flex items-baseline justify-between flex-wrap gap-2">
               <h1 className="text-[26px] font-bold tracking-tight text-black leading-none">
                 {contact.name}
@@ -79,6 +79,7 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
               {contact.headline}
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11.5px] text-gray-600">
+              <a href={contact.phoneHref} className="keep-link text-blue-700 hover:underline">{contact.phone}</a>
               <a href={`mailto:${contact.email}`} className="keep-link text-blue-700 hover:underline">{contact.email}</a>
               <a href={`https://${contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="keep-link text-blue-700 hover:underline">{contact.linkedin}</a>
               <a href={`https://${contact.github}`} target="_blank" rel="noopener noreferrer" className="keep-link text-blue-700 hover:underline">{contact.github}</a>
@@ -87,12 +88,12 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
           </header>
 
           {/* Summary */}
-          <section className="mb-3.5">
-            <p className="text-[12.5px] text-gray-800 leading-[1.55]">{summary}</p>
+          <section className="mb-3">
+            <p className="text-[12.5px] text-gray-800 leading-[1.5]">{summary}</p>
           </section>
 
           {/* Skills */}
-          <section className="mb-3.5">
+          <section className="mb-3">
             <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
               Skills
             </h2>
@@ -106,13 +107,13 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
           </section>
 
           {/* Experience */}
-          <section className="mb-3.5">
+          <section className="mb-3">
             <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-2 border-b border-gray-300 pb-1">
               Experience
             </h2>
 
             {entries.map((e) => (
-              <div key={`${e.company}-${e.period}`} className="entry mb-2.5">
+              <div key={`${e.company}-${e.period}`} className="entry mb-2">
                 <div className="entry-head">
                   <div className="flex justify-between items-baseline gap-3">
                     <h3 className="text-[13px] font-bold text-black leading-tight">
@@ -136,7 +137,36 @@ export function ResumeDocument({ variant }: { variant: 'standard' | 'detailed' }
             ))}
           </section>
 
-          <section className="mb-3.5">
+          <section className="mb-3">
+            <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-2 border-b border-gray-300 pb-1">
+              Projects
+            </h2>
+            {projects.map((p) => (
+              <div key={`${p.name}-${p.period}`} className="entry mb-2">
+                <div className="entry-head">
+                  <div className="flex justify-between items-baseline gap-3">
+                    <h3 className="text-[13px] font-bold text-black leading-tight">
+                      {p.name} · {p.url}
+                    </h3>
+                    <span className="text-[11px] text-gray-500 flex-shrink-0 whitespace-nowrap">{p.period}</span>
+                  </div>
+                  <p className="text-[11.5px] text-gray-500 mb-1">
+                    {p.location ? `${p.location} · ${p.oneLiner}` : p.oneLiner}
+                  </p>
+                </div>
+                <ul className="space-y-0.5 text-[12px] text-gray-800 leading-[1.4]">
+                  {(detailed ? p.detailedBullets : p.bullets).map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span className="text-gray-400 flex-shrink-0">•</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </section>
+
+          <section className="mb-3">
             <h2 className="text-[10.5px] font-bold tracking-[0.12em] uppercase text-gray-500 mb-1.5 border-b border-gray-300 pb-1">
               Education
             </h2>

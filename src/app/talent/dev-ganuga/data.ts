@@ -15,9 +15,11 @@ export const TIMELINE_SPAN = TIMELINE_MONTHS.length; // jun 2025 through jun 202
 
 export const person = {
   name: 'Dev Ganugapenta',
-  title: 'senior software engineer',
+  title: 'full stack engineer',
   focus: 'full-stack & ai applications / saas / payments infrastructure',
   location: 'west palm beach, fl',
+  phone: '(954) 305-4540',
+  phoneHref: 'tel:+19543054540',
   email: 'dganuga@gmail.com',
   github: 'DevGanuga',
   githubUrl: 'https://github.com/DevGanuga',
@@ -25,14 +27,13 @@ export const person = {
   upwork: 'https://www.upwork.com/freelancers/~01f0e7e8b52c4ea315',
   resume: '/resume/Dev-Ganugapenta-Resume.pdf',
   resumeDetailed: '/resume/Dev-Ganugapenta-Resume-Detailed.pdf',
-  status: 'open to senior w2 roles',
+  status: 'open to w2 roles',
   summary:
-    'i build production platforms from a blank repo and take them to market. four startups in the last year as lead or sole engineer — two generating revenue — and limpid&co\u2019s production software in amsterdam, including a platform presented at web summit 2025.',
+    'i build production platforms from a blank repo and take them to market. three startups in the last year as lead or sole engineer — two generating revenue — limpid&co\u2019s production software in amsterdam, including a platform presented at web summit 2025, and animalia, a personal marketplace.',
 };
 
 export const roleTypes = [
-  'senior software engineer',
-  'senior full-stack engineer',
+  'full stack engineer',
   'ai application engineer',
   'product engineer',
   'founding engineer',
@@ -40,7 +41,7 @@ export const roleTypes = [
 
 export const stats = [
   { value: '7', label: 'production platforms shipped', sub: 'jun 2025 to jun 2026' },
-  { value: '4', label: 'startups built from zero', sub: 'two generating revenue' },
+  { value: '4', label: 'products built from zero', sub: '3 startups + animalia, personal' },
   { value: '3', label: 'platforms for one enterprise client', sub: 'limpid&co, amsterdam' },
   { value: '100%', label: 'job success, every review 5.0', sub: 'upwork top rated plus' },
 ];
@@ -136,8 +137,8 @@ export const engagements: Engagement[] = [
   {
     id: 'animalia',
     name: 'Animalia',
-    tagline: 'pet wellness e-commerce · built from zero',
-    role: 'lead full stack engineer',
+    tagline: 'personal project · pet wellness marketplace',
+    role: 'sole engineer',
     kind: 'studio',
     start: 10,
     end: 13,
@@ -291,7 +292,7 @@ export const capabilities = [
       'pinecone retrieval + embeddings',
       'human-in-the-loop review flows',
       'tavus video, fal.ai generation',
-      'langgraph + n8n agent workflows',
+      'n8n agent workflows',
     ],
   },
   {

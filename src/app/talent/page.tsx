@@ -30,10 +30,10 @@ const profiles = [
   {
     slug: 'dev-ganuga',
     name: 'Dev Ganugapenta',
-    title: 'senior software engineer',
+    title: 'full stack engineer',
     focus: 'full-stack & ai applications / saas / payments infrastructure',
     location: 'west palm beach, fl',
-    status: 'open to senior w2 roles',
+    status: 'open to w2 roles',
   },
 ];
 
