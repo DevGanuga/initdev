@@ -89,7 +89,7 @@ export const entries: ResumeEntry[] = [
     ],
   },
   {
-    title: 'Lead Full Stack Engineer (Contract)',
+    title: 'Product Architect & Lead Developer (Contract)',
     company: 'Limpid&Co',
     location: 'Remote · Amsterdam, NL',
     period: 'Oct 2025 – Jun 2026',
@@ -100,7 +100,7 @@ export const entries: ResumeEntry[] = [
       'Shipped Company Challenges (companychallenges.com), an enterprise behavior-change platform: author-once, run-many cohort model, TipTap authoring, Stripe billing, Resend lifecycle email on Vercel cron. Wrote and won the Phase 2 production contract (scope, team, budget); fixed a PostgREST-regression outage the same day.',
     ],
     detailedBullets: [
-      'Lead full-stack engineer across all Limpid&Co production software, Oct 2025 \u2013 Jun 2026.',
+      'Product architect and lead developer across all Limpid&Co production software, Oct 2025 \u2013 Jun 2026.',
       'AI Navigator (navigator.leadingwith.ai): built the full platform on Next.js, TypeScript, and PostgreSQL. GPT-4o assistant with in-app tool calling, 25-zone sentiment engine over 1,000+ employee survey responses, 8-dimension capability maturity model with benchmark scoring and automated gap detection, enterprise auth. Live in production; presented at Web Summit 2025.',
       'Wrote the Phase 2 production proposal \u2014 scope, team structure, budget \u2014 and won the follow-on contract.',
       'Company Challenges (companychallenges.com): built the full platform. Authored content is separated from cohort instances so a challenge is written once and run across any number of cohorts. TipTap rich-text authoring, Stripe billing, Resend transactional email, Vercel cron lifecycle automation.',
@@ -108,7 +108,7 @@ export const entries: ResumeEntry[] = [
     ],
   },
   {
-    title: 'Full Stack Developer (Contract)',
+    title: 'Lead Product Engineer & Technical Director (Contract)',
     company: 'Dyia',
     location: 'Remote',
     period: 'May 2026 – Jun 2026',
@@ -162,7 +162,7 @@ export const entries: ResumeEntry[] = [
     ],
   },
   {
-    title: 'Lead Full Stack Developer & GTM Engineer (Contract)',
+    title: 'Lead Full-Stack Engineer & Technical Lead (Contract)',
     company: 'Drip',
     location: 'Remote · San Diego, CA',
     period: 'Oct 2025 – Dec 2025',
